@@ -1,0 +1,82 @@
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\graphicspath{{images/}{./images/}}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[acronym,toc,nonumberlist]{glossaries}
+\usepackage{color}
+\usepackage{ifthen}
+\usepackage[titletoc]{appendix}
+\usepackage{eurosym}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{hypcap}
+\usepackage{multirow}
+\usepackage{breakurl}
+\usepackage{hhline}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{hyphenat}
+\usepackage{xspace}
+
+\pagestyle{fancy}
+
+\definecolor{tableHeader}{RGB}{211, 47, 47}
+\definecolor{tableLineOne}{RGB}{245, 245, 245}
+\definecolor{tableLineTwo}{RGB}{224, 224, 224}
+
+% Stile per intestazione tabella
+\newcommand{\tableHeaderStyle}{
+    \rowfont{\leavevmode\color{white}\bfseries}
+    \rowcolor{tableHeader}
+}
+
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1} }
+
+\fancyhf{}
+%\fancyhead[L]{\includegraphics[width=1cm]{./images/LogoPadova.png}}
+\fancyhead[R]{\leftmark}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{\makeatletter \@one \space \@two \makeatother}
+
+\newcommand{\setfoot}[2]{\newcommand{\@one}{#1}\newcommand{\@two}{#2}}
+
+\fancypagestyle{plain}{
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+}
+%\titleformat{\chapter}{\bfseries\huge}{\thechapter.}{20pt}{\huge}
+
+\pagestyle{plain}
+\setlength{\headheight}{50pt}
+
+\newcommand{\gloss}[1]{\gls{#1}\ped{G}}
+\newcommand{\Gloss}[1]{\Gls{#1}\ped{G}}
+
+% Ridefinizione colore dei link (del menù ed esterni)
+\hypersetup {
+	linkcolor = {black},
+	urlcolor = {blue},
+	menucolor = {black},
+	colorlinks = true,
+}
+
+% commands for group name or email to
+\newcommand{\mail}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+\newcommand{\nData}[3]{#1-#2-#3} % GG MM AAAA
+\newcommand{\nURI}[1]{{\color{blue}\url{#1}}}
+\newcommand{\nPath}[1]{\texttt{#1}}
+\newcommand{\nDoc}[1]{\textit{“#1”}}
+\newcommand{\nFile}[1]{\texttt{“#1”}}
+

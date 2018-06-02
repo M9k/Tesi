@@ -1,0 +1,85 @@
+\documentclass[openany, a4paper, 12pt]{report}
+\usepackage{subfiles}
+\usepackage{style}
+\loadglsentries{Glossario}
+\title{NOME PROGETTO}
+\setfoot{NOME PROGETTO}
+
+\makeglossaries
+\renewcommand{\glstextformat}[1]{\textit{#1}}
+
+% Per lo span delle colonne
+\usepackage{makecell}
+% Per i blocchi di commenti
+\usepackage{verbatim}
+% Per le tabelle
+\usepackage[table,xcdraw]{xcolor}
+% Per la posizione float
+\usepackage{float}
+% Per avere colonne multipagina
+\usepackage{longtable}
+ 
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vfill
+	{
+		\bfseries
+		\Large{UNIVERSITÀ DEGLI STUDI DI PADOVA}\\
+		\large DIPARTIMENTO DI MATEMATICA\\
+		\noindent\makebox[\linewidth]{\rule{16cm}{0.4pt}}
+		Corso di Laurea in INFORMATICA
+		\vskip1cm
+		\includegraphics[width=9cm]{images/LogoPadova} \\
+		\vfill
+		\LARGE Monitoraggio e sicurezza fisica di reti LAN Campus
+		\vfill
+
+		\begin{table}[htbp]
+			\centering
+			\renewcommand\arraystretch{1.2}
+			\begin{tabular}{r|l}
+				%\hline
+				\textbf{Tirocinante:} & Mirco Cailotto, mat. 1123521 \\
+				\textbf{Relatore:} & Dott. Paolo Baldan \\
+				\textbf{Azienda Ospitante:}	& Wintech Spa \\
+				\textbf{Tutor aziendale:} & Roberto Pezzile \\
+			\end{tabular}
+		\end{table}
+		
+		\vfill
+		\noindent\makebox[\linewidth]{\rule{16cm}{0.4pt}}
+		\large Anno Accademico 2017/2018
+		\vfill
+	}    
+\end{titlepage}
+% pagina vuota
+\clearpage\thispagestyle{empty}\mbox{}\clearpage
+\subfile{Dedica}
+% pagina vuota
+\clearpage\thispagestyle{empty}\mbox{}\clearpage
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+% TODO: considero se mettere le tabelle
+%\listoftables
+
+
+\newpage
+\pagenumbering{arabic}
+\subfile{Abstract}
+\subfile{Introduzione}
+% Progetto di stage
+% Overview delle tecnologie trattate
+% Realizzazione
+% Valutazione retrospettiva
+% Glossario
+% Appendice con file vari usati/script/etc
+% Bibliografia
+\Gloss{prova} e \gloss{prova2} oppure \gloss{prova3}.
+
+\glossarystyle{altlist}
+\printglossaries
+
+\end{document}
