@@ -2,8 +2,8 @@
 \usepackage{subfiles}
 \usepackage{style}
 \loadglsentries{Glossario}
-\title{NOME PROGETTO}
-\setfoot{NOME PROGETTO}
+\title{Monitoraggio e sicurezza fisica di reti LAN Campus}
+\setfoot{Monitoraggio e sicurezza fisica di reti LAN Campus}
 
 \makeglossaries
 \renewcommand{\glstextformat}[1]{\textit{#1}}
@@ -72,13 +72,20 @@
 \subfile{Introduzione}
 \subfile{ProgettoStage}
 % Overview delle tecnologie trattate
+%TODO sposto da introduzione?
+\subfile{Tecnologie}
 % Realizzazione
+\subfile{Realizzazione}
 % Valutazione retrospettiva
+\subfile{Valutazione}
 % Glossario
-% Appendice con file vari usati/script/etc
-% Bibliografia
-
 \glossarystyle{altlist}
 \printglossaries
+
+%TODO qui o sopra/sotto?
+%TODO numerate le pagine oppure no?
+\subfile{Appendice}
+
+\subfile{Bibliografia}
 
 \end{document}
