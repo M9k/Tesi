@@ -1,9 +1,131 @@
 \documentclass[Tesi.tex]{subfiles}
 
 \begin{document}
-\chapter{Appendice}
+\chapter*{Appendici}
+\addcontentsline{toc}{chapter}{Appendici}
+\label{sec:Appendice A}
+\section*{Appendice A: Schemi di rete}
+\addcontentsline{toc}{section}{Appendice A: Schemi di rete}
 
 
+\label{sec:Appendice B}
+\section*{Appendice B: Script di popolamento rConfig}
+\addcontentsline{toc}{section}{Appendice B: Script di popolamento rConfig}
+Il codice sotto riportato è uno script in linguaggio JavaScript per il popolamento automatico, una volta inseriti i dati, di rConfig. \\
+Lo script può essere utilizzato mediante il plug-in GreaseMonkey versione 4.0 o successive, in quanto richiede l'archiviazione di un valore nella memoria dell'estensione per funzionare. \\
 
+
+\begin{lstlisting}[caption=My Javascript Example]
+// ==UserScript==
+// @name        auto-insert-devices-rConfig
+// @namespace   MircoCailottoWintech
+// @include     https://INDIRIZZO_RCONFIG/devices.php
+// @version     1
+// @grant       GM.setValue
+// @grant       GM.getValue
+// ==/UserScript==
+
+// DATA
+
+const data = [
+["INDIRIZZO-DISPOSITIVO-IN-DNS", "", "ENABLE-PROMPT#", "MARCA", "MODELLO", "GRUPPO", "LOCAZIONE", "TEMPLATE_DI_RECUPERO_DATI"],
+["HP3850-24G-POE-C-ARMADIO-S123", "", "ARMADIO-S123#", "HP", "HP3850-24G-POE", "SwitchesHP", "ClienteA", "HP Procurve SSH no enable - HP-Procurve-SSH-no-enable.yml"],
+["HP3850-24G-POE-C-ARMADIO-C23", "", "C-ARMADIO-C23#", "HP", "HP3850-24G-POE", "SwitchesHP", "ClienteA", "HP Procurve SSH no enable - HP-Procurve-SSH-no-enable.yml"],
+
+];
+
+function insertData(index) {
+	document.getElementById('deviceName').value = data[index][0];
+	document.getElementById('deviceEnablePrompt').value = data[index][1];
+	document.getElementById('devicePrompt').value = data[index][2];
+	
+	var select = document.getElementById('vendorId');
+		for (var i = 0; i < select.options.length; i++) {
+		if (select.options[i].text === data[index][3]) {
+			select.selectedIndex = i;
+			break;
+		}
+	}
+	
+	document.getElementById('deviceModel').value = data[index][4];
+	
+	select = document.getElementById('catId');
+	for (var i = 0; i < select.options.length; i++) {
+		if (select.options[i].text === data[index][5]) {
+			select.selectedIndex = i;
+			break;
+		}
+	}
+
+	document.getElementById('custom_Location').value = data[index][6];
+
+	select = document.getElementById('templateId');
+	for (var i = 0; i < select.options.length; i++) {
+		if (select.options[i].text === data[index][7]) {
+			select.selectedIndex = i;
+			break;
+		}
+	}
+	
+	//LOGIN
+	document.getElementById('defaultCreds').checked = true;
+	// document.getElementById('deviceUsername').value = "username";
+	// document.getElementById('devicePassword').value = "password";
+	// document.getElementById('deviceEnablePassword').value = "passwordroot";
+};
+
+function clickOkButton() {
+	setTimeout(function(){
+		unsafeWindow.resolveDevice(document.getElementById('deviceName').value);
+		setTimeout(function(){
+			document.getElementById("submit").click();
+		}, 500);
+	}, 500);
+};
+
+window.addEventListener('load', function() {
+	// once loaded
+	(async () => {
+		console.log("Async call");
+		
+		// -----   RESET THE SCRIPT   -----
+		var reset = false;
+		
+		if(reset) {
+			GM.setValue('count', 0);
+		} else {
+			var index = await GM.getValue('count', 0);
+			
+			if(index < data.length) {
+				//insert
+				console.log("Adding item number:");
+				console.log(index);
+				insertData(index);
+				GM.setValue('count', index + 1);
+				clickOkButton();
+			} else {
+			//done, do nothing
+				console.log("Already done");
+			}   
+		}
+		})();
+}, false);
+
+\end{lstlisting}
+
+Le linee 13, 14 e 15 sono 3 apparati che saranno inseriti alla esecuzione dello script, i campi sono:
+\begin{enumerate}
+	\item Indirizzo DNS del dispositivo
+	\item Prompt del dispositivo in modalità non privilegiata, opzionale
+	\item Prompt del dispositivo in modalità privilegiata
+	\item Marca del dispositivo
+	\item Modello del dispositivo
+	\item Gruppo rConfig di appartenenza del dispositivo, utilizzabile per il filtraggio
+	\item Locazione del dispozitivo, utilizzabile per il filtraggio
+	\item Template rConfig relativo alla configurazione da utilizzare per il recupero dei dati
+\end{enumerate}
+
+Le linee 54, 55 e 56 presentano la possibilità di specificare i parametri per effettuare il login ai dispositivi, attualmente non utilizzati in quanto si utilizza le credenziali impostate come di default. \\
+La linea 74 presenta un variabile "reset" che se impostata a true, invece che eseguire lo script, va ad azzerare i valori utilizzati dal plugin, permettendone una seconda esecuzione.
 
 \end{document}
