@@ -1,6 +1,7 @@
 \documentclass[openany, a4paper, 12pt]{report}
 \usepackage{subfiles}
 \usepackage{style}
+\newcommand{\sni}[1]{\begin{ttfamily}#1\end{ttfamily}}
 \loadglsentries{Glossario}
 \title{Monitoraggio e sicurezza fisica di reti LAN Campus}
 \setfoot{Monitoraggio e sicurezza fisica di reti LAN Campus}
@@ -79,13 +80,21 @@
 % Valutazione retrospettiva
 \subfile{Valutazione}
 % Glossario
-\glossarystyle{altlist}
-\printglossaries
 
 %TODO qui o sopra/sotto?
 %TODO numerate le pagine oppure no?
-\subfile{Appendice}
 
+\renewcommand{\leftmark}{Appendici}
+\subfile{Appendice}
+\newpage
+
+\renewcommand{\leftmark}{Glossario}
+\glossarystyle{altlist}
+\printglossaries{}
+
+\newpage
 \subfile{Bibliografia}
 
+% NON TOCCARE O SI CHIUDE IL DOCUMENTO E TORNA GLOSSARIO NELL'HEADER!
+\renewcommand{\leftmark}{Bibliografia}
 \end{document}

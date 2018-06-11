@@ -13,25 +13,90 @@ Come base di questa attività si sono utilizzati alcuni documenti Excel con ripo
 Successivamente si è andato ad aggiungere la posizione GPS di ogni dispositivo, utilizzando i dati presenti nel software di monitoraggio presente. \\
 I dispositivi sono stati nominati secondo la loro locazione in data precedente rispetto l'inizio dello stage. \\
 
+\subsection{Analisi sistemi di sicurezza fisica}
+La sicurezza fisica era perseguita prevalentemente controllando l'accesso fisico ai dispositivi di rete. Gli switch sono chiusi a chiave negli appositi armadietti e, ove possibile, mantenuti all'interno delle strutture dove l'accesso è consentito solo al personale. \\
+Esiste una struttura di VLAN attua a impedire l'accesso alle risorse a coloro che non ne possiedono i permessi, ma da sola non era sufficiente a garantire la sicurezza. \\
+Un possibile attacco che si poteva praticare era forzare un armadietto di rete, costruiti in plastica, ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. \\
+In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una porta corretta, ma richiedendogli informazioni aggiuntive mediante lo standard 802.1X.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"images/Outdoor rack"}
+	\caption{Armadietto di rete da esterni}
+	\label{fig:Armadietto di rete da esterni}
+\end{figure}
+
+\subsection{Analisi sistemi di monitoraggio}
+La rete analizzata presentava già un software per il monitoraggio, denominato PRTG Network Monitor. \\
+Il suo compito era quello di controllare che tutti i sensori in esso inserito appartenenti ai devices funzionassero correttamente, avvisando qualora ci fossero dei problemi. \\
+Una delle problematiche fondamentali di questo software era la difficoltà nel tracciare grafici relativi alla connessione, impedendo di identificare eventuali colli di bottiglia, pacchetti persi o errori di trasmissione. \\
+Questo software veniva utilizzato in versione gratuita e quindi presentava alcune limitazioni, la più critica era la quantità di sensori che può monitorare, limitata a 1000, che non consentiva di controllare in modo soddisfacente tutti gli apparati di rete presenti. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/PRTGStatistics"}
+	\caption{Schermata di PRTG Network Monitor}
+	\label{fig:Schermata di PRTG Network Monitor}
+\end{figure}
+
 \subsection{Schema di rete}
 Per facilitare tutte le attività successive di configurazione e monitoraggio si è proceduto alla redazione di uno schema di rete. \\
 Essendo già disponibile uno schema datato 2015 della rete realizzato dal cliente in Microsoft Visio si è scelto di procedere con lo stesso software. \\
 A supporto di questo lavoro si sono utilizzate svariate mappe prodotte in tempi e per fini diversi tra di loro, la cui integrazione ha evidenziato degli errori che sono stati segnalati. \\
 Lo schema di rete di partenza e quello realizzato, presentanti il nome, il modello di dispositivo e l'indirizzo ip, sono presenti in \hyperref[sec:Appendice A]{Appendice A}.\\
+Si può notare come nella prima versione c'erano molte incongruenze nella forma nella quale sono stati riportati i dati, in quanto è stata prevalentemente scritta ed utilizzata da una singola persona e quindi non c'è stata attenzione verso alla chiarezza espositiva. \\
+La posizione degli apparati è stata modificata in modo da seguire più fedelmente la loro collocazione reale, favorendone una identificazione più veloce. \\
 Alcune informazioni riportate sugli schemi sono state redatte o omesse per motivi di sicurezza e di privacy. \\
 
-\subsection{Analisi sistemi di sicurezza fisica}
-
-\subsection{Analisi sistemi di monitoraggio}
-
-
-
+\newpage
 \section{Progettazione}
 
+Schema di rete? 
+Aggiornamenti configurazioni di rete;
+Nuove politiche di sicurezza fisica
+Nuove politiche di sicurezza logica basata su 802.1X
+\subsection{Progettazione Observium}
+
+\subsection{Progettazione RConfig}
+
+\subsection{Definizione name-convention}
+La name-convention scelta per la denominazione degli apparati è la seguente:\\
+{ \centering
+\begin{ttfamily}
+	\large DEVICE-ZONA[-LOCAZIONE][-NUMERO\_INC]\\
+\end{ttfamily}
+}
+\medskip
+Nella quale i campi presenti indicano: 
+\begin{itemize}
+	\item  \begin{ttfamily}\textbf{DEVICE}\end{ttfamily}: Il modello del dispositivo installato, ad esempio "HP-2520-8-PoE";
+	\item  \begin{ttfamily}\textbf{ZONA}\end{ttfamily}: La zona di appartenenza del dispositivo, ad esempio "ZONA-A", "EDIFICI" o "AMMINISTRAZIONE";
+	\item  \begin{ttfamily}\textbf{LOCAZIONE}\end{ttfamily}: La locazione geografica utilizzata per identificare il dispositivo, opzionale nel caso basti la zona per l'identificazione univoca dell'armadio;
+	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale per indicare più apparati presenti nello stesso armadio di rete, da omettere nel caso ne sia presente solamente uno.
+\end{itemize}
+
+Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
+La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
+Un'altra sottigliezza che aumenta il lavoro da fare in caso di aggiunta di apparati è l'omissione del numero incrementale nel caso sia presente solo un dispositivo, quindi in caso di aggiunta di un secondo swtich il primo dovrà essere rinominato appendendo alla sua entry "\begin{ttfamily}-1\end{ttfamily}". Anche questo dettaglio è a favore della identificazione rapida del dispositivo, in quanto leggendone il nome si può già determinare se è l'unico nell'armadio o se è necessario individuarlo in un gruppo.\\
+
+\subsection{Inserimento nomi DNS sulla lista apparati}
+
+
+TODO:\\
+Nuovo sistema di monitoraggio di rete complementare basato su software Observius;\\
+Nuovo sistema di backup configurazioni apparati di rete basato su software RConfig;\\
+Definizione name-convention per gli apparati;\\
+Lista dei test e risultati previsti;\\
+Produzione della prima bozza della documentazione progettuale.\\
+
+
+\newpage
 \section{Implementazione}
 
+\newpage
 \section{Test in produzione}
 
+\newpage
 \section{Tuning}
 
 \end{document}

@@ -1,12 +1,38 @@
 \documentclass[Tesi.tex]{subfiles}
 
 \begin{document}
-\chapter*{Appendici}
+	
 \addcontentsline{toc}{chapter}{Appendici}
+\renewcommand{\leftmark}{Appendici}
+\chapter*{Appendici}
+	
 \label{sec:Appendice A}
-\section*{Appendice A: Schemi di rete}
 \addcontentsline{toc}{section}{Appendice A: Schemi di rete}
+\section*{Appendice A: Schemi di rete}
 
+\begin{landscape}
+\begin{figure}[H]
+	\centering
+	% NON DI PIù O SALTA ALLA PAGINA SUCCESSIVA!
+	\includegraphics[width=0.885\linewidth]{"images/schema_WAN_anonimo_prima"}
+	\caption{Schema Visio della rete datato 2015}
+	\label{fig:Schema Visio della rete datato 2015}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/schema_WAN_anonimo_dopo_A"}
+	\caption{Schema Visio della rete a fine stage, prima parte}
+	\label{fig:Schema Visio della rete a fine stage, prima parte}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/schema_WAN_anonimo_dopo_B"}
+	\caption{Schema Visio della rete a fine stage, seconda parte}
+	\label{fig:Schema Visio della rete a fine stage, seconda parte}
+\end{figure}
+\end{landscape}
 
 \label{sec:Appendice B}
 \section*{Appendice B: Script di popolamento rConfig}
