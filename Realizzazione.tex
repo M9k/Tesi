@@ -72,12 +72,11 @@ Nella quale i campi presenti indicano:
 	\item  \begin{ttfamily}\textbf{DEVICE}\end{ttfamily}: Il modello del dispositivo installato, ad esempio "HP-2520-8-PoE";
 	\item  \begin{ttfamily}\textbf{ZONA}\end{ttfamily}: La zona di appartenenza del dispositivo, ad esempio "ZONA-A", "EDIFICI" o "AMMINISTRAZIONE";
 	\item  \begin{ttfamily}\textbf{LOCAZIONE}\end{ttfamily}: La locazione geografica utilizzata per identificare il dispositivo, opzionale nel caso basti la zona per l'identificazione univoca dell'armadio;
-	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale per indicare più apparati presenti nello stesso armadio di rete, da omettere nel caso ne sia presente solamente uno.
+	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale, da incrementare nel caso di più apparati nello stesso armadio di rete.
 \end{itemize}
 
 Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
 La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
-Un'altra sottigliezza che aumenta il lavoro da fare in caso di aggiunta di apparati è l'omissione del numero incrementale nel caso sia presente solo un dispositivo, quindi in caso di aggiunta di un secondo swtich il primo dovrà essere rinominato appendendo alla sua entry "\begin{ttfamily}-1\end{ttfamily}". Anche questo dettaglio è a favore della identificazione rapida del dispositivo, in quanto leggendone il nome si può già determinare se è l'unico nell'armadio o se è necessario individuarlo in un gruppo.\\
 
 \subsection{Inserimento nomi DNS sulla lista apparati}
 
