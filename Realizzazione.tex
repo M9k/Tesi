@@ -52,13 +52,31 @@ Alcune informazioni riportate sugli schemi sono state redatte o omesse per motiv
 \newpage
 \section{Progettazione}
 
-Schema di rete? 
-Aggiornamenti configurazioni di rete;
-Nuove politiche di sicurezza fisica
-Nuove politiche di sicurezza logica basata su 802.1X
-\subsection{Progettazione Observium}
+Una volta terminata la fase di analisi della rete si è proceduto a progettare le modifiche che saranno implementate. \\
 
-\subsection{Progettazione RConfig}
+%TODO
+Schema di rete?  \\
+%TODO
+Aggiornamenti configurazioni di rete; \\
+%TODO
+Nuove politiche di sicurezza fisica \\
+%TODO
+Nuove politiche di sicurezza logica basata su 802.1X \\
+
+\subsection{Progettazione Observium}
+Prima di installare e mettere in funzione Observium lo si è provato localmente, andando ad individuare pregi e difetti del programma.\\
+Inizialmente è stato configurato inserendo al suo interno 5 apparati di rete, sui quali si sono testate svariate impostazioni per comprendere quali potessero ritornare utili al monitoraggio della rete attuale.\\\\
+Si è notato che la posizione GPS rilevata automaticamente del software era troppo imprecisa, ma la funzionalità era di elevata importanza visto l'estensione della rete. Si è dunque deciso di inserirle prelevandole dal software PRTG Network Monitor, nel quale erano state precedentemente inserite. \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/Observium_porte"}
+	\caption{Interfacce visualizzate all'interno di Observium}
+	\label{fig:Interfacce visualizzate all'interno di Observium}
+\end{figure}
+Un'altra opzione che si è rilevata fondamentale era la disabilitazione delle interfacce non in uso, che altrimenti avrebbero generato degli warning. \\
+Ulteriormente il software visualizzava anche la locazione come configurata all'interno dei devices alla loro installazione, ma risultava poco indicativa, quindi si è scelto di sovrascriverla, indicando la zona di appartenenza.
+
+\subsection{Progettazione rConfig}
 
 \subsection{Definizione name-convention}
 La name-convention scelta per la denominazione degli apparati è la seguente:\\
@@ -83,10 +101,9 @@ La presenza del modello di dispositivo è contrario alla best-practice da seguir
 
 
 TODO:\\
-Nuovo sistema di monitoraggio di rete complementare basato su software Observius;\\
-Nuovo sistema di backup configurazioni apparati di rete basato su software RConfig;\\
-Definizione name-convention per gli apparati;\\
+%TODO
 Lista dei test e risultati previsti;\\
+%TODO
 Produzione della prima bozza della documentazione progettuale.\\
 
 
