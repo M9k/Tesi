@@ -45,8 +45,8 @@ Per facilitare tutte le attività successive di configurazione e monitoraggio si
 Essendo già disponibile uno schema datato 2015 della rete realizzato dal cliente in Microsoft Visio si è scelto di procedere con lo stesso software. \\
 A supporto di questo lavoro si sono utilizzate svariate mappe prodotte in tempi e per fini diversi tra di loro, la cui integrazione ha evidenziato degli errori che sono stati segnalati. \\
 Lo schema di rete di partenza e quello realizzato, presentanti il nome, il modello di dispositivo e l'indirizzo ip, sono presenti in \hyperref[sec:Appendice A]{Appendice A}.\\
-Si può notare come nella prima versione c'erano molte incongruenze nella forma nella quale sono stati riportati i dati, in quanto è stata prevalentemente scritta ed utilizzata da una singola persona e quindi non c'è stata attenzione rivolta alla chiarezza espositiva. \\
 La posizione degli apparati è stata modificata in modo da seguire più fedelmente la loro collocazione reale, favorendone una identificazione più veloce. \\
+Si può notare come nella prima versione c'erano molte incongruenze nella forma nella quale sono stati riportati i dati, in quanto è stata prevalentemente scritta ed utilizzata da una singola persona e quindi non c'è stata attenzione rivolta alla chiarezza espositiva. \\
 Alcune informazioni riportate sugli schemi sono state redatte o omesse per motivi di sicurezza e di privacy. \\
 
 \newpage
@@ -55,13 +55,13 @@ Alcune informazioni riportate sugli schemi sono state redatte o omesse per motiv
 Una volta terminata la fase di analisi della rete si è proceduto a progettare le modifiche che saranno implementate. \\
 
 %TODO
-Schema di rete?  \\
+\subsection{Schema di rete}
 %TODO
-Aggiornamenti configurazioni di rete; \\
+\subsection{Aggiornamenti configurazioni di rete}
 %TODO
-Nuove politiche di sicurezza fisica \\
+\subsection{Nuove politiche di sicurezza fisica}
 %TODO
-Nuove politiche di sicurezza logica basata su 802.1X \\
+\subsection{Nuove politiche di sicurezza logica basata su 802.1X}
 
 \subsection{Progettazione Observium}
 Prima di installare e mettere in funzione Observium lo si è provato localmente, andando ad individuare pregi e difetti del programma e comprendendo quindi quale fosse il miglior modo di utilizzarlo.\\
@@ -112,22 +112,63 @@ La presenza del modello di dispositivo è contrario alla best-practice da seguir
 \subsection{Inserimento nomi DNS sulla lista apparati}
 
 
-TODO:\\
 %TODO
-Lista dei test e risultati previsti;\\
+\subsection{Lista dei test e risultati previsti}
 %TODO
-Produzione della prima bozza della documentazione progettuale.\\
+\subsection{Produzione della prima bozza della documentazione progettuale}
+%TODO
 
 
 \newpage
 \section{Implementazione}
 
+%TODO
+\subsection{Creazione di un laboratorio con un nuovo switch dove verranno testate le configurazioni prima di andare in produzione}
+%TODO
+\subsection{Implementazione delle due nuove VM con il software precaricato Observium e RConfig}
+%TODO
+\subsection{Inserimento su DNS interno tutti nomi hosts degli apparati di network ( switch, router, ecc )} 
+%TODO
+\subsection{Configurazione di base software RConfig} 
+%TODO
+\subsection{Backup delle configurazioni di tutti gli apparati switch della Lan Campus con RConfig} 
+%TODO
+\subsection{Predisporre servizio NPS ( Radius ) sui due Active Directory servers} 
+%TODO
+\subsection{Creazione della configurazione di test per laboratorio con nuove funzionalità di sicurezza} 
+%TODO
+\subsection{Test nuove funzionalità con switch laboratorio} 
+%TODO
+\subsection{Creazione nuove configurazioni per tutti gli switch del Campus} 
+%TODO
+\subsection{Caricamento configurazioni negli switch del Campus} 
+%TODO
+\subsection{Backup delle nuove configurazioni di tutti gli apparati switch della Lan Campus con RConfig} 
+%TODO
+\subsection{Test di base nuove funzionalità di sicurezza implementate} 
+%TODO
+\subsection{Configurazione di base software monitoraggio Observium}
+%TODO
+\subsection{Schedulazione periodica backup configurazioni di tutti gli apparati switch della Lan Campus con RConfig}
+%TODO
+\subsection{Aggiornamento della documentazione progettuale}
+
+
 % TODO Observium - METTERE TOTALE DISPOSITIVI E PORTE
 
 \newpage
 \section{Test in produzione}
+%TODO
+\subsection{Monitoraggio eventuali anomalie, censirle, trubleshooting, idenfiticare la soluzione, trovare un workaround, implementare e testare la soluzione}
+%TODO
+\subsection{Aggiornare la documentazione}
+%TODO
 
 \newpage
 \section{Tuning}
+%TODO
+\subsection{In sistema Observium avrà già acquisito dati da oltre un settimana, verranno quindi configurate tutte le soglie di allarmi con notifica via email e instant message Telegram}
+%TODO
+\subsection{Completamento della documentazione}
 
 \end{document}
