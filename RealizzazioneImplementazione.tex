@@ -23,8 +23,11 @@ precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
 Si è poi andato a sviluppare uno script, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il GreaseMonkey consentiva il caricamento automatico dei dati una volta posti in forma corretta. \\
 Successivamente si è proceduto a modificare il file CSV operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo nello script. \\
 Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degli apparati. \\
-%TODO impostazione backup automatici
-TODO impostazione backup automatici
+
+\subsection{Configurazione di base software monitoraggio Observium}
+Analogamente con quanto effettuato con RConfig si è proceduto all'inserimento di tutti i dispositivi e alla loro configurazione in Observium. \\
+Questa operazione è stata più complessa rispetto all'altro software, in quanto richiedeva una aggiunta iniziale di ogni dispositivo, seguito dall'attesa della sua identificazioni per poi terminare con l'aggiunta delle impostazioni. \\
+Per ogni dispositivo si è dovuto inserire, sempre mediante l'aiuto di GreaseMonkey, la sua locazione e le sue coordinate GPS. Successivamente si è anche dovuto segnalare al software tutte le interfacce non utilizzate, in modo tale che non venisse generato un warning a causa della loro inoperatività.
 
 \subsection{Backup delle configurazioni di tutti gli apparati switch della Lan Campus con RConfig} 
 %TODO
@@ -50,9 +53,7 @@ asd
 \subsection{Test di base nuove funzionalità di sicurezza implementate} 
 %TODO
 asd
-\subsection{Configurazione di base software monitoraggio Observium}
-%TODO
-asd
+
 \subsection{Schedulazione periodica backup configurazioni di tutti gli apparati switch della Lan Campus con RConfig}
 %TODO
 asd
