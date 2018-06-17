@@ -6,16 +6,26 @@
 %TODO
 \subsection{Creazione di un laboratorio con un nuovo switch dove verranno testate le configurazioni prima di andare in produzione}
 %TODO
-asd
-\subsection{Implementazione delle due nuove VM con il software precaricato Observium e RConfig}
-%TODO
-asd
-\subsection{Inserimento su DNS interno tutti nomi hosts degli apparati di network ( switch, router, ecc )} 
-%TODO
-asd
-\subsection{Configurazione di base software RConfig} 
-%TODO
-asd
+
+\subsection{Inserimento su DNS interno degli hosts} 
+Per permettere la implementazione di Observium e rConfig era richiesto l'inserimento degli apparati nel DNS. \\
+Quindi si è proceduto a comunicare la lista degli ip dei dispositivi ed i relativi nomi al responsabile, in quanto l'accesso diretto al DNS interno del cliente non era consentito a Wintech.
+
+\subsection{Implementazione Virtual Machine}
+Per consentire l'esecuzione continua dei software sono state create due Virtual Machine, o macchine virtuali.\\
+Il server utilizzato per tale fine è quello del cliente, utilizzante le tecnologie prodotte da VMware per la virtualizzazione. \\
+Le due macchine virtuali sono state entrambe create con Linux, in quanto gratuito e già conosciuto nel contesto aziendale.
+
+\subsection{Configurazione di base software RConfig}
+Per la configurazione di rConfig si è proceduto ad automatizzare l'inserimento dei dati, che altrimenti avrebbe consumato una ingente quantità di tempo visto il numero di dispositivi presenti. \\
+Come base di riferimento per l'inserimento dei dati si è attinto dalla tabella dei dispositivi 
+precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
+Si è poi andato a sviluppare uno script, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il plugin \gloss{GreaseMonkey} consentiva il caricamento automatico dei dati una volta posti in forma corretta. \\
+Successivamente si è proceduto a modificare il file CSV operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo nello script. \\
+Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degli apparati. \\
+%TODO impostazione backup automatici
+TODO impostazione backup automatici
+
 \subsection{Backup delle configurazioni di tutti gli apparati switch della Lan Campus con RConfig} 
 %TODO
 asd

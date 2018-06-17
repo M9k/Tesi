@@ -4,10 +4,10 @@
 \section{Analisi}
 
 Una delle prime attività svolte è stata la raccolta della documentazione e la sua analisi. \\
-Sono subito emerse enorme incongruenze tra i vari documenti in quanto alcuni erano datati, quindi si è dovuto aggiornarli. \\
+Sono subito emerse svariate incongruenze tra i vari documenti in quanto alcuni erano datati, per questo motivo si è dovuto confrontarli, individuare quello corretto ed aggiornare gli altri. \\
 
 \subsection{Lista apparati}
-Come base di questa attività si sono utilizzati alcuni documenti Excel con riportate informazioni sparpagliate sui dispositivi, sono stati integrati tra di loro e da questa attività è emerso che c'erano informazioni assenti per alcuni devices, che sono state completate. \\
+Come base di questa attività si sono utilizzati alcuni documenti Excel con riportate informazioni sparpagliate sui dispositivi, le quali sono state integrate tra di loro. Da questa attività è emerso che c'erano informazioni assenti per alcuni devices, che sono state completate. \\
 Successivamente si è andato ad aggiungere la posizione GPS di ogni dispositivo, utilizzando i dati presenti nel software di monitoraggio presente. \\
 I dispositivi possedevano già dei nominativi che ne indicavano la locazione all'interno del contesto, che sono stati mantenuti. \\
 
@@ -16,7 +16,8 @@ La sicurezza fisica era perseguita prevalentemente controllando l'accesso fisico
 Esiste una struttura di VLAN attua a impedire l'accesso alle risorse a coloro che non ne possiedono i permessi, ma da sola non era sufficiente a garantire la sicurezza. \\
 Un possibile attacco che si poteva praticare era forzare un armadietto di rete, costruiti in plastica, ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. \\
 Questo risulta molto pericoloso considerando che la VLAN di manutenzione, presente in quasi tutti gli switch, permette l'accesso a tutti gli altri apparati di rete. \\
-In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una porta corretta, ma richiedendogli informazioni aggiuntive mediante lo standard 802.1X.
+Analogo discorso per le reti wifi dedicate al personale, nelle quali spesso si connettono dispositivi personali o si forniscono le chiavi di autenticazioni ad amici e parenti, mettendo a rischio le risorse raggiungibili. \\
+In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una porta corretta o accedendo a una rete wifi, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X.
 
 \begin{figure}[H]
 	\centering
@@ -29,7 +30,7 @@ In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad
 La rete analizzata presentava già un software per il monitoraggio, denominato PRTG Network Monitor. \\
 Il suo compito era quello di controllare che tutti i sensori in esso inserito appartenenti ai devices funzionassero correttamente, avvisando qualora ci fossero dei problemi. \\
 Una delle problematiche fondamentali di questo software era la difficoltà nel tracciare grafici relativi alla connessione, impedendo di identificare eventuali colli di bottiglia, pacchetti persi o errori di trasmissione. \\
-Questo software veniva utilizzato in versione gratuita e quindi presentava alcune limitazioni, la più critica era la quantità di sensori che può monitorare, limitata a 1000, che non consentiva di controllare in modo soddisfacente tutti gli apparati di rete presenti. \\
+Questo software veniva utilizzato in versione gratuita e quindi presentava alcune limitazioni, la più problematica è la quantità di sensori che può monitorare, limitata a 1000, che non consentiva di controllare in modo soddisfacente tutti gli apparati di rete presenti. \\
 
 \begin{figure}[H]
 	\centering
