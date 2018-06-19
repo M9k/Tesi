@@ -54,11 +54,14 @@ asd
 %TODO
 asd
 
-\subsection{Schedulazione periodica backup configurazioni di tutti gli apparati switch della Lan Campus con RConfig}
-%TODO
-asd
-\subsection{Aggiornamento della documentazione progettuale}
+\subsection{Schedulazione attività di backup delle impostazioni mediante rConfig}
+Una volta verificata che la raccolta della configurazione di ogni singolo dispositivo andasse a buon fine si è proceduto schedulando la sua esecuzione automatica. \\
+Questa attività si è rilevata più ostica del previsto, a causa di molte problematiche di rConfig, che non ha ancora raggiunto una versione stabile. \\
+Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività schedulate e poi rimosse sparivano dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\
+Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro.
 
+\subsection{Aggiornamento della documentazione progettuale}
+asd
 
 % TODO Observium - METTERE TOTALE DISPOSITIVI E PORTE
 	
