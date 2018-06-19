@@ -5,13 +5,6 @@
 
 Questa sezione illustra le principali tecnologie utilizzate da Wintech S.P.A per il controllo ed il monitoraggio delle reti di loro competenza. \\
 Essendo la sicurezza informatica un settore nel quale gli standard, le leggi e le tipologie di attacco evolvono molto in fretta, le tecnologie utilizzate devono adeguarsi di conseguenza. Questo porta i tool ed i programmi utilizzati a diventare obsoleti oppure variare con il passare del tempo.
-%TODO riferimenti?
-%TODO anche QRadar e BigFix?
-\subsection{802.1X}
-Il 802.1X è uno standard IEEE per il controllo di accesso alla rete port-based, parte della famiglia di protocolli IEEE 802.1. Fornisce un meccanismo di autenticazione mediante una combinazione username/password oppure un certificato digitale.
-Questa protezione va ad ampliare la \gloss{sicurezza fisica} delle risorse connesse alla rete, pur essendo di per sè una \gloss{sicurezza logica}, impedendone il raggiungimento ai dispositivi non autorizzati. \\
-Lo standard viene implementato all'interno del firmware o del sistema operativo degli apparati di rete e dei dispositivi degli utenti.\\
-Funziona sia su connessioni wired che wireless, anche se viene raramente utilizzato nelle connessioni cablate in quanto, ove possibile, viene favorita una protezione fisica perimetrale, apparentemente migliore.
 
 \subsection{PRTG Network Monitor}
 PRTG è un sistema di monitoraggio della rete, era utilizzato nella rete analizzata durante lo stage prima di Observium per rilevare eventuali anomalie, ma a causa delle limitazioni della versione gratuita e del suo elevato costo si è scelto di sostituirlo.\\
@@ -56,6 +49,35 @@ Permette anche lo store di variabili, il caricamento di librerie esterne e l'ese
 	\caption{Logo di GreaseMonkey}
 	\label{fig:Logo di GreaseMonkey}
 \end{figure}
+
+
+\subsection{802.1X}
+Il 802.1X è uno standard IEEE per il controllo di accesso alla rete port-based, parte della famiglia di protocolli IEEE 802.1. Fornisce un meccanismo di autenticazione mediante una combinazione username/password oppure un certificato digitale.
+Questa protezione va ad ampliare la \gloss{sicurezza fisica} delle risorse connesse alla rete, pur essendo di per sè una \gloss{sicurezza logica}, impedendone il raggiungimento ai dispositivi non autorizzati. \\
+Lo standard viene implementato all'interno del firmware o del sistema operativo degli apparati di rete e dei dispositivi degli utenti.\\
+Funziona sia su connessioni wired che wireless, anche se viene raramente utilizzato nelle connessioni cablate in quanto, ove possibile, viene favorita una protezione fisica perimetrale, apparentemente migliore. \\
+Il 802.1X determina unicamente la procedura di autenticazione che deve essere svolta, mentre la definizione degli standard dei messaggi e del trasporto viene definita da altri standard.
+
+\subsection{Extensible Authentication Protocol}
+Extensible Authentication Protocol, usualmente chiamato semplicemente EAP, è un framework di autenticazione che definisce la struttura del messaggio utilizzato. \\
+Non essendo un protocollo di rete ha la necessità di essere incapsulato in un messaggio per poter essere inviato, ad esempio all'interno del protocollo \gloss{RADIUS}.
+
+\subsection{Windows Network Policy Server}
+Network Policy Server, spesso abbreviato in NPS, in italiano "Server dei criteri di rete", è una tecnologia per il controllo dell'accesso alla rete. \\
+Decreta chi può accedere alla rete ponendo delle restrizioni ed utilizzare il protocollo \gloss{RADIUS} per comunicare. \\
+Un server che lo implementa può decretare indipendentemente l'accesso o meno dei vari dispositivi, costituendo quindi un RADIUS server, oppure può inoltrare la richiesta ad un altro server NPS, quindi coprendo il ruolo di RADIUS proxy.
+
+\subsection{Active Directory}
+Active Directory è un insieme di servizi di rete adottati dai sistemi operativi Microsoft. \\
+Sono gestiti da un \gloss{Domain Controller} e gestiscono le modalità di accesso alle risorse da parte degli utenti. \\
+Le risorse possono essere account utente, account relativi a un computer, cartelle condivise, stampanti e servizi di varia natura. I privilegi di accesso alle varie risorse sono determinati mediante dei criteri di gruppo, applicati sugli utenti.
+
+\subsection{CAPsMAN}
+CAPsMAN, per esteso Controlled Access Point system Manager, traducibile in "sistema di gestione del controllo degli access point", è una funzionalità per la gestione degli accessi prodotta da MikroTik. \\
+%TODO: estendere
+
+%TODO: immagine come in https://i.stack.imgur.com/A5XXk.png per capire come le tecnologie vanno assieme
+
 
 \begin{comment}
 \subsection{QRadar}
