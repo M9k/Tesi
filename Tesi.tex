@@ -66,23 +66,18 @@
 % TODO: considero se mettere le tabelle
 %\listoftables
 
-
 \newpage
-\pagenumbering{arabic}
+\clearpage\thispagestyle{empty}\mbox{}\clearpage
+\pagenumbering{gobble}
 \subfile{Abstract}
+\clearpage\thispagestyle{empty}\mbox{}\clearpage
+\pagenumbering{arabic}
 \subfile{Introduzione}
 \subfile{ProgettoStage}
-% Overview delle tecnologie trattate
-%TODO sposto da introduzione?
 \subfile{Tecnologie}
-% Realizzazione
 \subfile{Realizzazione}
-% Valutazione retrospettiva
 \subfile{Valutazione}
-% Glossario
-
-%TODO qui o sopra/sotto?
-%TODO numerate le pagine oppure no?
+%TODO numerate le pagine da qui oppure no?
 
 \renewcommand{\leftmark}{Appendici}
 \subfile{Appendice}
