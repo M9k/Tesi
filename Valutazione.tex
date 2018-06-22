@@ -6,11 +6,16 @@
 \section{Risultati ottenuti}
 
 \section{Vincoli del progetto}
-\subsubsection{Vincoli tecnologici}
+\subsection{Vincoli tecnologici}
+\subsubsection{Statistiche VLAN}
+Una limitazione tecnologica attualmente presente in Observium è la sua incapacità di raggruppare le porte secondo la VLAN untagged che possiede. \\
+Questo fatto, in concomitanza agli switch utilizzati che non permettevano la raccolta di statistiche dalle interfacce virtuali, comprendenti le VLAN, ha impedito di ottenere statistiche sull'utilizzo della rete suddivise per rete virtuale. \\
+La limitazione non si sarebbe presentata con l'adozione di switch Cisco, in quanto essi raccolgono informazioni suddividendoli anche per VLAN, che possono poi essere raggruppati con facilità su Observium. \\
+L'informazione che si dovrebbe discriminare è già presente all'interno del database dell'applicazione, ed è già possibile utilizzarla per il filtraggio degli avvisi, ma non è ancora presente il filtro di raggruppamento.
 
-\subsubsection{Vincoli metodologici e di lavoro}
+\subsection{Vincoli metodologici e di lavoro}
 
-\subsubsection{Vincoli temporali}
+\subsection{Vincoli temporali}
 
 
 
