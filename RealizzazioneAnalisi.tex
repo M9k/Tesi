@@ -20,23 +20,23 @@ Successivamente si è andato ad aggiungere la posizione GPS di ogni dispositivo,
 I dispositivi possedevano già dei nominativi che ne indicavano la locazione all'interno del contesto, che sono stati mantenuti. \\
 
 \subsection{Analisi sistemi di sicurezza fisica}
-La sicurezza fisica era perseguita prevalentemente controllando l'accesso fisico ai dispositivi di rete. Gli switch sono chiusi a chiave negli appositi armadietti e, ove possibile, mantenuti all'interno delle strutture dove l'accesso è consentito solo al personale. \\
+La sicurezza fisica era perseguita prevalentemente controllando l'accesso fisico ai dispositivi di rete. Gli switch sono chiusi a chiave negli appositi armadi e, ove possibile, mantenuti all'interno di strutture dove l'accesso è consentito solo al personale. \\
 Esiste una struttura di VLAN attua a impedire l'accesso alle risorse a coloro che non ne possiedono i permessi, ma da sola non era sufficiente a garantire la sicurezza. \\
 Un possibile attacco che si poteva praticare era forzare un armadietto di rete, costruiti in plastica, ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. \\
 Questo risulta molto pericoloso considerando che la VLAN di manutenzione, presente in quasi tutti gli switch, permette l'accesso a tutti gli altri apparati di rete. \\
 Analogo discorso per le reti wifi dedicate al personale, nelle quali spesso si connettono dispositivi personali o si forniscono le chiavi di autenticazioni ad amici e parenti, mettendo a rischio le risorse raggiungibili. \\
-In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una porta corretta o accedendo a una rete wifi, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X.
+In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una porta corretta o conoscendo una password di una rete wifi, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{"images/Outdoor rack"}
-	\caption{Armadietto di rete da esterni}
-	\label{fig:Armadietto di rete da esterni}
+	\caption{Armadio di rete da esterni}
+	\label{fig:Armadio di rete da esterni}
 \end{figure}
 
 \subsection{Analisi sistemi di monitoraggio}
 La rete analizzata presentava già un software per il monitoraggio, denominato PRTG Network Monitor. \\
-Il suo compito era quello di controllare che tutti i sensori in esso inserito appartenenti ai devices funzionassero correttamente, avvisando qualora ci fossero dei problemi. \\
+Il suo compito era quello di controllare che tutti i sensori in esso inseriti appartenenti ai devices funzionassero correttamente, avvisando qualora ci fossero dei problemi. \\
 Una delle problematiche fondamentali di questo software era la difficoltà nel tracciare grafici relativi alla connessione, impedendo di identificare eventuali colli di bottiglia, pacchetti persi o errori di trasmissione. \\
 Questo software veniva utilizzato in versione gratuita e quindi presentava alcune limitazioni, la più problematica è la quantità di sensori che può monitorare, limitata a 1000, che non consentiva di controllare in modo soddisfacente tutti gli apparati di rete presenti. \\
 
