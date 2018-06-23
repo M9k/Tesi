@@ -39,9 +39,6 @@ Al termine dell'operazione gli elementi inseriti all'interno del software erano 
 
 I sensori presenti sono principalmente relativi all'alimentazione ed in alcuni casi alla temperatura del dispositivo, mentre i componenti aggiuntivi sono ventole di raffreddamento ed alimentazione. \\
 
-\subsection{Backup delle configurazioni di tutti gli apparati switch della Lan Campus con RConfig} 
-%TODO
-asd
 \subsection{Predisporre servizio NPS ( Radius ) sui due Active Directory servers} 
 %TODO
 asd
@@ -61,11 +58,15 @@ asd
 %TODO
 asd
 
-\subsection{Schedulazione attività di backup delle impostazioni mediante rConfig}
-Una volta verificata che la raccolta della configurazione di ogni singolo dispositivo andasse a buon fine si è proceduto schedulando la sua esecuzione automatica. \\
-Questa attività si è rilevata più ostica del previsto, a causa di molte problematiche di rConfig, che non ha ancora raggiunto una versione stabile. \\
-Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività schedulate e poi rimosse sparivano dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\
-Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro.
+\subsection{Scheduling backup delle impostazioni con rConfig}
+
+Per completare la messa in funzione di rConfig si è proceduto alla suddivisione dei dispositivi in gruppi secondo la loro locazione ed alla predisposizione di backup periodici. \\
+Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari stati scelti in modo tale che i task non si sovrappongano tra di loro, in modo di evitare eventuali problemi.\\
+
+Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
+Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\
+Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\
+
 
 \subsection{Aggiornamento della documentazione progettuale}
 asd
