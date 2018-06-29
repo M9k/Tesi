@@ -11,21 +11,20 @@
 	\item \textbf{Numero di ore effettive}: .
 \end{itemize}
 
-Una delle prime attività svolte è stata la raccolta della documentazione e la sua analisi. \\
-Sono subito emerse svariate incongruenze tra i vari documenti in quanto alcuni erano datati, per questo motivo si è dovuto confrontarli, individuare quello corretto ed aggiornare gli altri. \\
+Una delle prime attività svolte è stata la raccolta della documentazione preesistente e la sua analisi. \\
+Sono subito emerse svariate incongruenze tra i vari documenti in quanto alcuni erano datati, per questo motivo si è dovuto confrontarli, individuare l'informazione corretta ed aggiornare gli altri. \\
 
 \subsection{Lista apparati}
-Come base di questa attività si sono utilizzati alcuni documenti Excel con riportate informazioni sparpagliate sui dispositivi, le quali sono state integrate tra di loro. Da questa attività è emerso che c'erano informazioni assenti per alcuni devices, che sono state completate. \\
-Successivamente si è andato ad aggiungere la posizione GPS di ogni dispositivo, utilizzando i dati presenti nel software di monitoraggio presente. \\
+Come base di questa attività si sono utilizzati alcuni documenti Excel con riportate informazioni sparpagliate sui dispositivi, le quali sono state integrate tra di loro. Da questa attività è emerso che c'erano informazioni assenti per alcuni devices, che sono state recuperate e documentate. \\
+Successivamente si è andato ad aggiungere la posizione GPS di ogni dispositivo, utilizzando i dati presenti nel software di monitoraggio PRTG e individuando, con l'aiuto di Google Maps, le coordinate mancanti. \\
 I dispositivi possedevano già dei nominativi che ne indicavano la locazione all'interno del contesto, che sono stati mantenuti. \\
 
 \subsection{Analisi sistemi di sicurezza fisica}
 La sicurezza fisica era perseguita prevalentemente controllando l'accesso fisico ai dispositivi di rete. Gli switch sono chiusi a chiave negli appositi armadi e, ove possibile, mantenuti all'interno di strutture dove l'accesso è consentito solo al personale. \\
 Esiste una struttura di VLAN attua a impedire l'accesso alle risorse a coloro che non ne possiedono i permessi, ma da sola non era sufficiente a garantire la sicurezza. \\
-Un possibile attacco che si poteva praticare era forzare un armadietto di rete, costruiti in plastica, ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. \\
-Questo risulta molto pericoloso considerando che la VLAN di manutenzione, presente in quasi tutti gli switch, permette l'accesso a tutti gli altri apparati di rete. \\
+Un possibile attacco che si poteva praticare era forzare un armadietto di rete, costruiti in plastica, ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. Questo risulta molto pericoloso considerando che la VLAN di manutenzione, presente in quasi tutti gli switch, permette l'accesso a tutti gli altri apparati di rete. \\
 Analogo discorso per le reti wifi dedicate al personale, nelle quali spesso si connettono dispositivi personali o si forniscono le chiavi di autenticazioni ad amici e parenti, mettendo a rischio le risorse raggiungibili. \\
-In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una porta corretta o conoscendo una password di una rete wifi, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X.
+In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una rete, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X.
 
 \begin{figure}[H]
 	\centering
@@ -37,7 +36,7 @@ In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad
 \subsection{Analisi sistemi di monitoraggio}
 La rete analizzata presentava già un software per il monitoraggio, denominato PRTG Network Monitor. \\
 Il suo compito era quello di controllare che tutti i sensori in esso inseriti appartenenti ai devices funzionassero correttamente, avvisando qualora ci fossero dei problemi. \\
-Una delle problematiche fondamentali di questo software era la difficoltà nel tracciare grafici relativi alla connessione, impedendo di identificare eventuali colli di bottiglia, pacchetti persi o errori di trasmissione. \\
+Una delle problematiche fondamentali di questo software era la difficoltà nel tracciare grafici relativi alla connessione e alla qualità del servizio, impedendo di identificare eventuali colli di bottiglia, pacchetti persi o errori di trasmissione. \\
 Questo software veniva utilizzato in versione gratuita e quindi presentava alcune limitazioni, la più problematica è la quantità di sensori che può monitorare, limitata a 1000, che non consentiva di controllare in modo soddisfacente tutti gli apparati di rete presenti. \\
 
 \begin{figure}[H]
@@ -51,8 +50,8 @@ Questo software veniva utilizzato in versione gratuita e quindi presentava alcun
 Per facilitare tutte le attività successive di configurazione e monitoraggio si è proceduto alla redazione di uno schema di rete. \\
 Essendo già disponibile uno schema datato 2015 della rete realizzato dal cliente in Microsoft Visio si è scelto di procedere con lo stesso software. \\
 A supporto di questo lavoro si sono utilizzate svariate mappe prodotte in tempi e per fini diversi tra di loro, la cui integrazione ha evidenziato degli errori che sono stati segnalati. \\
-Lo schema di rete di partenza e quello realizzato, presentanti il nome, il modello di dispositivo e l'indirizzo ip, sono presenti in \hyperref[sec:Appendice A]{Appendice A}.\\
 La posizione degli apparati è stata modificata in modo da seguire più fedelmente la loro collocazione reale, favorendone una identificazione più veloce. \\
+Lo schema di rete di partenza e quello realizzato, presentanti il nome, il modello di dispositivo e l'indirizzo ip, sono presenti in \hyperref[sec:Appendice A]{Appendice A}.\\
 Si può notare come nella prima versione c'erano molte incongruenze nella forma nella quale sono stati riportati i dati, in quanto è stata prevalentemente scritta ed utilizzata da una singola persona e quindi non c'è stata attenzione rivolta alla chiarezza espositiva. \\
 Alcune informazioni riportate sugli schemi sono state redatte o omesse per motivi di sicurezza e di privacy. \\
 
