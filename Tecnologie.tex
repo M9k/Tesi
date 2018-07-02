@@ -9,8 +9,7 @@ Essendo la sicurezza informatica un settore nel quale gli standard, le leggi e l
 \section{Tecnologie per il monitoraggio}
 \subsection{PRTG Network Monitor}
 PRTG è un sistema di monitoraggio della rete, era utilizzato nella rete analizzata durante lo stage prima di Observium per rilevare eventuali anomalie, ma a causa delle limitazioni della versione gratuita e del suo elevato costo si è scelto di sostituirlo.\\
-Il software consiste in un servizio al quale ci si collega mediante il client fornito oppure attraverso una interfaccia web e permette di tenere sotto controllo anche siti web e servizi di varia natura. \\
-Alla fine dell'attività di stage il software non è stato disabilitato, ma gran parte dei suoi compiti sono ora assolti da Observium, in quanto possiede alcune funzionalità che il suo concorrente non offre. \\
+Il software consiste in un servizio al quale ci si collega mediante il client fornito oppure attraverso una interfaccia web e permette di tenere sotto controllo anche siti web e servizi di varia natura.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{"images/logo/PRTG_logo"}
@@ -116,10 +115,22 @@ Un altro utilizzo è la configurazione automatica di nuovi dispositivi inseriti 
 \subsection{Microsoft Visio}
 Microsoft Visio è uno strumento dedito alla creazione di grafici ed organigrammi. \\
 Nell'abito dello stage si è rivelato utile per la creazione della mappa della rete, in quanto facilmente utilizzabile e mantenibile anche da persone senza una elevata conoscenza dell'informatica o di linguaggi dediti allo scopo.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/Visio_esempio"}
+	\caption{Interfaccia di Visio}
+	\label{fig:Interfaccia di Visio}
+\end{figure}
 
 \subsection{OpenOffice Calc}
 OpenOffice Calc è un software per la gestione di fogli elettronici, che consente anche di aprire i formati gestiti da LibreOffice Calc e Microsoft Excel. \\
 \'E stato impiegato per la realizzazione della lista dei dispositivi, in quanto consente una consultazione veloce e l'esportazione in svariati formati, adatti alla consultazione o alla esportazione dei dati su altri sistemi.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/screen_calc"}
+	\caption{Interfaccia di Calc}
+	\label{fig:Interfaccia di Calc}
+\end{figure}
 
 \subsection{GreaseMonkey}
 GreaseMonkey è un plugin disponibile per il browser Mozilla Firefox che consente l'esecuzione di script in linguaggio JavaScript. \\
@@ -127,32 +138,51 @@ Permette anche lo store di variabili, il caricamento di librerie esterne e l'ese
 \`{E} stato utilizzato durante le attività di stage per automatizzare operazioni ripetitive, consentendo di impiegarci meno tempo, da dedicare ad altre attività.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.35\linewidth]{"images/logo/GreaseMonkey_logo"}
+	\includegraphics[width=0.18\linewidth]{"images/logo/GreaseMonkey_logo"}
 	\caption{Logo di GreaseMonkey}
 	\label{fig:Logo di GreaseMonkey}
 \end{figure}
 
 \subsection{Putty}
 Putty è un client SSH, Telnet e seriale combinato con un emulatore di terminale per consentire una iterazione con dispositivi remoti. \\
-\E' stato ampliamente utilizzato per le connessioni SSH e seriale per la configurazione e il controllo dei dispositivi di rete.
+\`{E} stato ampliamente utilizzato per le connessioni SSH e seriale per la configurazione e il controllo dei dispositivi di rete.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\linewidth]{"images/putty"}
+	\caption{Schermata iniziale di Putty}
+	\label{fig:Schermata iniziale di Putty}
+\end{figure}
 
 \subsection{Microsoft Telnet}
 Il client Telnet fornito assieme al sistema operativo Microsoft Windows permette di collegarsi a dispositivi remoti tramite protocollo Telnet mediante un qualsiasi terminale. \\
 \'E stato preferito a Putty in quanto più veloce ed immediato da utilizzare, in quanto accessibile direttamente dalla console del sistema senza dover aprire programmi supplementari.
 
-\subsection{Notepad++}
-Notepad++ è un editor di file testuali disponibile per sistemi operativi Microsoft Windows.\\
-La sua utilità nell'ambito del progetto è stata l'esecuzione di espressioni regolari per permettere una rapida conversione del formato dei dati, permettendo di convertire CSV in matrici JavaScript.
-
-\subsection{Vim}
-Vim è un editor di file testuali disponibili su molteplici piattaforme, di storica rilevanza nel mondo Unix. \\
-Essendo ampliamente diffuso, disponibile per un numero elevato di sistemi ed eseguibile da terminale si è rivelato comodo per la modifica dei file di configurazione sulle macchine virtuali, grazie anche alle sue modalità di iterazione con il testo.
-
 \subsection{MySQL Command-Line Tool}
 La shell MySQL è in interfacciamento a linea testuale al database MySQL, che permette una iterazione con la struttura ed i dati in esso contenuto. \\
 Nell'ambito del progetto è stato impiegato principalmente in concomitanza con rConfig, in quanto l'incompletezza del programma ha richiesto svariate volte una modifica manuale alla base di dati dalla quale attingeva le informazioni.
 
-\subsection{FIleZilla}
+\subsection{Notepad++}
+Notepad++ è un editor di file testuali disponibile per sistemi operativi Microsoft Windows.\\
+La sua utilità nell'ambito del progetto è stata l'esecuzione di espressioni regolari per permettere una rapida conversione del formato dei dati, permettendo di convertire CSV in matrici JavaScript.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/notepad++"}
+	\caption{Interfaccia di Notepad++}
+	\label{fig:Interfaccia di Notepad++}
+\end{figure}
+
+\subsection{Vim}
+Vim è un editor di file testuali disponibili su molteplici piattaforme, di storica rilevanza nel mondo Unix. \\
+Essendo ampliamente diffuso, disponibile per un numero elevato di sistemi ed eseguibile da terminale si è rivelato comodo per la modifica dei file di configurazione sulle macchine virtuali, grazie anche alle sue modalità di iterazione con il testo.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/vim"}
+	\caption{Interfaccia di Vim}
+	\label{fig:Interfaccia di Vim}
+\end{figure}
+
+
+\subsection{FileZilla}
 Gestire i file su MikroTik - per il login?
 
 
