@@ -12,25 +12,6 @@
 \end{itemize}
 Una volta terminata la fase di analisi della rete si è proceduto a progettare le modifiche che saranno implementate. \\
 
-\subsection{Definizione name-convention}
-La name-convention scelta per la denominazione degli apparati è la seguente:\\
-{ \centering
-	\begin{ttfamily}
-		\large DEVICE-ZONA[-LOCAZIONE][-NUMERO\_INC]\\
-	\end{ttfamily}
-}
-\medskip
-Nella quale i campi presenti indicano: 
-\begin{itemize}
-	\item  \begin{ttfamily}\textbf{DEVICE}\end{ttfamily}: Il modello del dispositivo installato, ad esempio "HP-2520-8-PoE";
-	\item  \begin{ttfamily}\textbf{ZONA}\end{ttfamily}: La zona di appartenenza del dispositivo, ad esempio "ZONA-A", "EDIFICI" o "AMMINISTRAZIONE";
-	\item  \begin{ttfamily}\textbf{LOCAZIONE}\end{ttfamily}: La locazione geografica utilizzata per identificare il dispositivo, opzionale nel caso basti la zona per l'identificazione univoca dell'armadio;
-	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale, da utilizzare nel caso siano presenti più apparati nello stesso armadio di rete.
-\end{itemize}
-
-Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
-La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
-
 \subsection{Progettazione Observium}
 Prima di installare e mettere in funzione Observium lo si è provato localmente, andando ad individuare pregi e difetti del programma e comprendendo quindi quale fosse il miglior modo di utilizzarlo.\\
 Inizialmente è stato istanziato inserendo al suo interno 5 apparati di rete, sui quali si sono testate svariate configurazioni per comprendere gli aspetti che potessero ritornare utili al monitoraggio della rete e quelli che, invece, non erano efficaci per il contesto.\\\\
@@ -63,6 +44,7 @@ Questo permette, in caso di estensione della rete, di evitare una configurazione
 Un'altra caratteristica di estrema importanza è che le impostazioni, essendo centralizzate, possono essere modificate unicamente nel router e le modifiche verranno trasmesse automaticamente a tutti i dispositivi. \\
 Questa struttura però presenta un difetto, in quanto il router che gestisce CAPsMAN è unico e rappresenta un single point of failure.
 
+\newpage
 \subsection{Politiche di sicurezza}
 Durante la progettazione si è decretato anche il numero di SSID wireless da impiegare e le loro modalità di accesso. \\
 L'attenzione è stata posta sulle reti utilizzate dal personale, in quanto consentono l'accesso a risorse di elevata importanza che deve essere protetto. \\
@@ -79,6 +61,34 @@ Le misure di autenticazioni sono le seguenti:
 	\item \textbf{Mobile}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory, senza la necessità di possedere il certificato digitale;
 	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e la registrazione su un \gloss{captive portal}.
 \end{itemize}
+
+
+\subsection{Captive portal}
+Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech. \\
+La schermata di login si presenta con l'inserimento dell'e-mail e della password per proseguire con l'autenticazione e di un tasto di registrazione. \\
+La registrazione viene effettuata inserendo la propria e-mail ed indicando uno "sponsor" scelto da un elenco di possibili persone, che avrà il compito di confermare o rifiutare la richiesta.
+Una volta effettuata la richiesta di registrazione verrà inviata una e-mail allo sponsor, ed in caso di approvazione verrà comunicata la password di accesso al richiedente. \\
+Gli sponsor sono gestibili in un pannello di configurazione solamente da parte dell'amministratore, che può anche amministrare le richieste. \\
+La password della rete, di bassa complessità, è stata inserita in modo tale da evitare un possibile spam, o flooding, di e-mail verso gli sponsor.
+
+\subsection{Definizione name-convention}
+La name-convention scelta per la denominazione degli apparati è la seguente:\\
+{ \centering
+	\begin{ttfamily}
+		\large DEVICE-ZONA[-LOCAZIONE][-NUMERO\_INC]\\
+	\end{ttfamily}
+}
+\medskip
+Nella quale i campi presenti indicano: 
+\begin{itemize}
+	\item  \begin{ttfamily}\textbf{DEVICE}\end{ttfamily}: Il modello del dispositivo installato, ad esempio "HP-2520-8-PoE";
+	\item  \begin{ttfamily}\textbf{ZONA}\end{ttfamily}: La zona di appartenenza del dispositivo, ad esempio "ZONA-A", "EDIFICI" o "AMMINISTRAZIONE";
+	\item  \begin{ttfamily}\textbf{LOCAZIONE}\end{ttfamily}: La locazione geografica utilizzata per identificare il dispositivo, opzionale nel caso basti la zona per l'identificazione univoca dell'armadio;
+	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale, da utilizzare nel caso siano presenti più apparati nello stesso armadio di rete.
+\end{itemize}
+
+Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
+La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
 
 \subsection{Inserimento nomi DNS nella lista degli apparati}
 Dopo aver definito la name-convention da utilizzare ed avere avuto l'approvazione dal cliente si è proseguito applicandola a tutti gli apparati. \\
