@@ -12,12 +12,24 @@
 \end{itemize}
 Una volta terminata la fase di analisi della rete si è proceduto a progettare le modifiche che saranno implementate. \\
 
-\subsection{Aggiornamenti configurazioni di rete}
-%TODO
-\subsection{Nuove politiche di sicurezza fisica}
-%TODO
-\subsection{Nuove politiche di sicurezza logica basata su 802.1X}
-%TODO
+\subsection{Definizione name-convention}
+La name-convention scelta per la denominazione degli apparati è la seguente:\\
+{ \centering
+	\begin{ttfamily}
+		\large DEVICE-ZONA[-LOCAZIONE][-NUMERO\_INC]\\
+	\end{ttfamily}
+}
+\medskip
+Nella quale i campi presenti indicano: 
+\begin{itemize}
+	\item  \begin{ttfamily}\textbf{DEVICE}\end{ttfamily}: Il modello del dispositivo installato, ad esempio "HP-2520-8-PoE";
+	\item  \begin{ttfamily}\textbf{ZONA}\end{ttfamily}: La zona di appartenenza del dispositivo, ad esempio "ZONA-A", "EDIFICI" o "AMMINISTRAZIONE";
+	\item  \begin{ttfamily}\textbf{LOCAZIONE}\end{ttfamily}: La locazione geografica utilizzata per identificare il dispositivo, opzionale nel caso basti la zona per l'identificazione univoca dell'armadio;
+	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale, da utilizzare nel caso siano presenti più apparati nello stesso armadio di rete.
+\end{itemize}
+
+Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
+La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
 
 \subsection{Progettazione Observium}
 Prima di installare e mettere in funzione Observium lo si è provato localmente, andando ad individuare pregi e difetti del programma e comprendendo quindi quale fosse il miglior modo di utilizzarlo.\\
@@ -44,24 +56,29 @@ Uno dei problemi di sicurezza riscontrati, che si è scoperto essere presente an
 	\label{fig:Attacco SQL injection su rConfig, sulla destra tutte le configurazioni navigabili}
 \end{figure}
 
-\subsection{Definizione name-convention}
-La name-convention scelta per la denominazione degli apparati è la seguente:\\
-{ \centering
-	\begin{ttfamily}
-		\large DEVICE-ZONA[-LOCAZIONE][-NUMERO\_INC]\\
-	\end{ttfamily}
-}
-\medskip
-Nella quale i campi presenti indicano: 
+\subsection{Configurazioni degli apparati Access Point}
+Per permettere una estensibilità della rete senza l'intervento di un tecnico per la sua configurazione si è scelto di utilizzare CAPsMAN. \\
+La struttura della tecnologia CAPsMAN si basa su un router centrale, prodotto da MikroTik, che gestisce e fornisce le configurazioni. Su questo router vengono collegati, mediante la VLAN a lui dedicata, gli Access Point, che provvederanno autonomamente a recuperare ed applicare le impostazioni corrette. \\
+Questo permette, in caso di estensione della rete, di evitare una configurazione manuale dei dispositivi, che potrebbe presentare errori di distrazione e compromettere la sicurezza. \\
+Un'altra caratteristica di estrema importanza è che le impostazioni, essendo centralizzate, possono essere modificate unicamente nel router e le modifiche verranno trasmesse automaticamente a tutti i dispositivi. \\
+Questa struttura però presenta un difetto, in quanto il router che gestisce CAPsMAN è unico e rappresenta un single point of failure.
+
+\subsection{Politiche di sicurezza}
+Durante la progettazione si è decretato anche il numero di SSID wireless da impiegare e le loro modalità di accesso. \\
+L'attenzione è stata posta sulle reti utilizzate dal personale, in quanto consentono l'accesso a risorse di elevata importanza che deve essere protetto. \\
+Per tali motivazioni si è scelto di creare 3 reti wireless, così definite:
 \begin{itemize}
-	\item  \begin{ttfamily}\textbf{DEVICE}\end{ttfamily}: Il modello del dispositivo installato, ad esempio "HP-2520-8-PoE";
-	\item  \begin{ttfamily}\textbf{ZONA}\end{ttfamily}: La zona di appartenenza del dispositivo, ad esempio "ZONA-A", "EDIFICI" o "AMMINISTRAZIONE";
-	\item  \begin{ttfamily}\textbf{LOCAZIONE}\end{ttfamily}: La locazione geografica utilizzata per identificare il dispositivo, opzionale nel caso basti la zona per l'identificazione univoca dell'armadio;
-	\item  \begin{ttfamily}\textbf{NUMERO}\_INC\end{ttfamily}: Numero incrementale, da utilizzare nel caso siano presenti più apparati nello stesso armadio di rete.
+	\item \textbf{Corporate}: rete dedita alla connessione dei computer dediti ad attività lavorative, consente l'accesso alle risorse;
+	\item \textbf{Mobile}: rete dedita alla connessione dei dispositivi personali e/o lavorativi dei dipendenti, come smartphone e tablet, che non richiedono l'accesso a risorse;
+	\item \textbf{Guest}: rete dedita a fornire una connettività internet agli ospiti degli uffici.
 \end{itemize}
 
-Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
-La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
+Le misure di autenticazioni sono le seguenti:
+\begin{itemize}
+	\item \textbf{Corporate}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory e possedendo il relativo certificato digitale;
+	\item \textbf{Mobile}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory, senza la necessità di possedere il certificato digitale;
+	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e la registrazione su un \gloss{captive portal}.
+\end{itemize}
 
 \subsection{Inserimento nomi DNS nella lista degli apparati}
 Dopo aver definito la name-convention da utilizzare ed avere avuto l'approvazione dal cliente si è proseguito applicandola a tutti gli apparati. \\
