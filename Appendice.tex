@@ -204,4 +204,20 @@ Di seguito è riportato lo script eseguito e schedulato sui dispositivi MikroTik
 Alla riga 3, 5 e 7 sono dichiarate le informazioni di accesso FTP al server dedito al mantenimento dei backup, mentre nella riga 9 viene indicata la cartella remota sulla quale inserire il file.\\
 Alla riga 11 viene definito il nome che assumerà il file di backup, con omesse le informazioni sulla data, che saranno aggiunte automaticamente. \\
 
+Lo script, che si suppone sia stato nominato "script\_backup\_ftp", può essere aggiunto alla schedulazione automatica mediante il seguente comando. \\
+
+\begin{lstlisting}[caption=Comando per la schedulazione del backup]
+/system scheduler
+add
+	name=scheduler_backup_ftp \
+	interval=1w \
+	start-date=jan/01/2018 \
+	start-time=03:00:00 \
+	on-event="/system script run script_backup_ftp" \
+	policy=ftp,read,write,policy,password,sensitive
+\end{lstlisting}
+
+In questo modo lo script verrà eseguito ogni lunedì alle 3:00 del mattino, in quanto il 1 gennaio 2018 è un lunedì e la cadenza sarà settimanale.
+
+
 \end{document}
