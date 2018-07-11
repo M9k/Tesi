@@ -163,37 +163,45 @@ Di seguito è riportato lo script eseguito e schedulato sui dispositivi MikroTik
 
 \begin{lstlisting}[caption=Script per il backup dei device MikroTik]
 # -----------  Configuration  ------------
+# FTP server address
 :local ftp_server_address backupmikrotik.ftpserver.local
+# FTP username
 :local ftp_username ftp_username
+# FTP password
 :local ftp_password ftp_password
+# remote directory
+:local remote_directory /backupMikroTik/Router/
+# name of the file, without the date
+:local file_name ExportMikrotikSettingsController
 # ----------------------------------------	
+
 # Get the date
 :local ts [/system clock get time]
 :set ts ([:pick $ts 0 2]."-".[:pick $ts 3 5]."-".[:pick $ts 6 8])
 :local months {"jan"=1;"feb"=2;"mar"=3;"apr"=4;"may"=5;"jun"=6;"jul"=7;"aug"=8;"sep"=9;"oct"=10;"nov"=11;"dec"=12}
 :local ds [/system clock get date]
-:local month [:pick $date 0 3]
-:local mm (:$months->$month)
+:local mm (:$months->[:pick $date 0 3])
 :set ds ([:pick $ds 7 11]."$mm-".[:pick $ds 4 6])
 
 # Compose the filename
-:local backupFileName "ExportMikrotikSettingsController-$ds-$ts"
+:local backupFileName "$file_name-$ds-$ts"
 
 # Export the configuration
 /export file=$backupFileName
 
 # Add the automatic extension to the filename
 :set backupFileName "$backupFileName.rsc"
+# Compose the remote path
+:set remoteBackupFileName "$remote_directory$backupFileName.rsc"
 
 # Upload the file to the ftp server
-/tool fetch mode=ftp address=$ftp_server_address port=21 user=$ftp_username password=$ftp_password src-path=$backupFileName dst-path=$backupFileName upload=yes
+/tool fetch mode=ftp address=$ftp_server_address port=21 user=$ftp_username password=$ftp_password src-path=$backupFileName dst-path=$remoteBackupFileName upload=yes
 
 # Remove the file from the device
 /file remove $backupFileName
 \end{lstlisting}
 
-Le prime 3 dichiarazioni di variabili locali sono le informazioni di accesso FTP al server dedito al mantenimento dei backup. \\
-Se si desidera si può modificare il nome del file agendo sulla linea 17, utile per avere nomi distinti in presenza di più dispositivi. \\
-Agendo invece sulla linea 26 si può appendere un percorso al valore di dst-path, in modo da salvare il file in una subdirectory del server FTP. \\
+Alla riga 3, 5 e 7 sono dichiarate le informazioni di accesso FTP al server dedito al mantenimento dei backup, mentre nella riga 9 viene indicata la cartella remota sulla quale inserire il file.\\
+Alla riga 11 viene definito il nome che assumerà il file di backup, con omesse le informazioni sulla data, che saranno aggiunte automaticamente. \\
 
 \end{document}
