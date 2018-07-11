@@ -3,8 +3,8 @@
 \begin{document}
 \chapter{Tecnologie}
 
-Questa sezione illustra le principali tecnologie utilizzate nel corso dello stage per il controllo, il monitoraggio e la sicurezza delle reti di loro competenza. \\
-Essendo la sicurezza informatica un settore nel quale gli standard, le leggi e le tipologie di attacco evolvono molto in fretta, le tecnologie utilizzate devono adeguarsi di conseguenza. Questo porta i tool ed i programmi utilizzati a diventare obsoleti oppure variare con il passare del tempo.
+Questa sezione illustra le principali tecnologie incontrate ed utilizzate nel corso dello stage per il controllo, il monitoraggio e la sicurezza delle reti di loro competenza. \\
+Essendo la sicurezza informatica un settore nel quale gli standard, le leggi e le tipologie di attacco evolvono molto in fretta, le tecnologie utilizzate devono adeguarsi di conseguenza. Questo porta i tool ed i programmi utilizzati a diventare velocemente obsoleti oppure a variare con il passare del tempo.
 
 \section{Tecnologie per il monitoraggio}
 \subsection{PRTG Network Monitor}
@@ -24,7 +24,7 @@ Il software dispone anche di una ricerca automatica dei dispositivi presente all
 Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppamento dei dispositivi mediante regole definite dall'utente e l'alert automatico nel caso vengano superate determinate soglie.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{"images/logo/Observium_logo"}
+	\includegraphics[width=0.56\linewidth]{"images/logo/Observium_logo"}
 	\caption{Logo di Observium}
 	\label{fig:Logo di Observium}
 \end{figure}
@@ -45,7 +45,7 @@ Il tool RConfig è un configuration management mirato ai dispositivi di rete che
 Il 802.1X è uno standard IEEE per il controllo di accesso alla rete port-based, parte della famiglia di protocolli IEEE 802.1. Fornisce un meccanismo di autenticazione mediante una combinazione username/password oppure un certificato digitale.
 Questa protezione va ad ampliare la \gloss{sicurezza fisica} delle risorse connesse alla rete, pur essendo di per sè una \gloss{sicurezza logica}, impedendone il raggiungimento ai dispositivi non autorizzati. \\
 Lo standard viene implementato all'interno del firmware o del sistema operativo degli apparati di rete e dei dispositivi degli utenti.\\
-Funziona sia su connessioni wired che wireless, anche se viene raramente utilizzato nelle connessioni cablate in quanto, erroneamente, una protezione fisica perimetrale viene considerata sufficiente. \\
+Funziona sia su connessioni wired che wireless, anche se viene raramente supportato ed utilizzato nelle connessioni cablate in quanto, spesso, una protezione fisica perimetrale viene considerata sufficiente. \\
 Il 802.1X determina unicamente la procedura di autenticazione che deve essere svolta, mentre la definizione degli standard dei messaggi e del trasporto viene definita da altri standard.
 
 \begin{figure}[H]
@@ -78,12 +78,11 @@ Sono gestiti da un \gloss{Domain Controller} e gestisce le modalità di accesso 
 Le risorse possono essere account utente, account relativi a un computer, cartelle condivise, stampanti e servizi di varia natura. I privilegi di accesso alle varie risorse sono determinati mediante dei criteri di gruppo.
 
 \subsection{CAPsMAN}
-CAPsMAN, per esteso Controlled Access Point system Manager, traducibile in "sistema di gestione di access point controllati", è una funzionalità per la gestione degli accessi fornita da MikroTik assieme ai suoi access point. \\
-Permette di identificare i client che si connettono comunicando con un server RADIUS, per poi reindirizzarli automaticamente verso una VLAN adeguata al loro ruolo. \\
-Consente anche la configurazione automatica degli SSID e dei canali di comunicazione secondo indicazioni di altri dispositivi CAPsMAN.
+CAPsMAN, per esteso Controlled Access Point system MANager, traducibile in "sistema di gestione di access point controllati", è una funzionalità per la gestione degli accessi fornita da MikroTik assieme ai suoi access point. \\
+La sua funzionalità principale è la propagazione di una configurazione comune per l'accesso Wireless a tutti gli apparati presenti nella rete. \\
+Consente l'identificazione dei client che si connettono mediante un server RADIUS e permette anche di reindirizzare dinamicamente gli utenti su VLAN diverse. \\
+Risulta molto utile in caso di estensione della rete, in quanto riduce notevolmente la configurazione iniziale di ogni access point, riducendo a sua volta il rischio di commettere errori di configurazione.
 
-%TODO FORSE - PHP, MySql e Javascript per pagina di login
-TODO FORSE - PHP, MySql e Javascript per pagina di login 
 
 \begin{comment}
 \subsection{QRadar}
@@ -183,9 +182,14 @@ Essendo spesso preinstallato, disponibile per un numero elevato di sistemi ed es
 
 
 \subsection{FileZilla}
-Gestire i file su MikroTik - per il login?
-
-
+FileZilla Client è un software che permette il trasferimento di file in Rete attraverso il protocollo FTP. \\
+Si è rilevato utile per la gestione dei file sulle macchine virtuali e sui dispositivi MikroTik, permettendo un facile trasferimento delle configurazioni e delle pagine web che si sono utilizzate durante tutto lo stage.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.22\linewidth]{"images/logo/Filezilla_logo"}
+	\caption{Logo di FileZilla}
+	\label{fig:Logo di FileZilla}
+\end{figure}
 
 
 \end{document}
