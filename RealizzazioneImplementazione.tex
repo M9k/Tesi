@@ -110,6 +110,20 @@ Questa attività si è rilevata più ostica del previsto a causa di molte proble
 Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\
 Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\
 
+\subsection{Backup configurazioni MikroTik}
+Una volta avuto a disposizione i device MikroTik è emerso un problema inaspettato con rConfig, che non riusciva a completare il backup delle configurazioni su tali dispositivi. \\
+Il problema era causato da una serie di caratteri non stampati a schermo utilizzati dai dispositivi, che rConfig non sapeva rilevare correttamente, impedendogli di compiere i passaggi di login necessari. \\
+Per risolvere tale problema in modo veloce, efficiente e duraturo nel tempo si è scelto di incaricare il dispositivo stesso dell'effettuazione del backup. Per raggiungere tale scopo è stato creato uno script, visibile in \hyperref[sec:Appendice C]{Appendice C}, che permette il salvataggio automatico delle proprie configurazioni su un server FTP. \\
+Una volta verificato il corretto funzionamento dello script è stato schedulato in modo tale avvenga automaticamente ad intervalli prefissati. \\\\
+Ulteriormente il server FTP è stato dotato di un demone HTTP Apache, in modo da consentire la navigazione dei backup effettuati. Per migliorare la fruizione del sito si è utilizzato Directory Lister, il quale è stato modificato per richiedere l'inserimento di una password. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/DirectoryLister"}
+	\caption{Schermata di esempio di Directory Lister}
+	\label{fig:Schermata di esempio di Directory Lister}
+\end{figure}
+
 
 \subsection{Aggiornamento della documentazione progettuale}
 Durante questa fase si è proceduto all'aggiornamento della documentazione, andando a descrivere le funzionalità dei programmi e delle tecnologie utilizzate, il loro utilizzo e tutti i problemi riscontrati, correlati dalla soluzione applicata per correggerli.
