@@ -88,16 +88,40 @@ asd
 \subsection{Creazione della configurazione di test per laboratorio con nuove funzionalità di sicurezza} 
 %TODO
 asd
-\subsection{Test nuove funzionalità con switch laboratorio} 
-%TODO
-asd
+\subsection{Test delle configurazioni in laboratorio} 
+Prima di inserire il sistema in produzione si è andato a testare il funzionamento e la sua estensibilità. \\
+Innanzitutto si è proceduto ad aumentare il numero di Access Point connessi in contemporanea, passando da 1 a 4, in modo tale da verificare la complessità della configurazione iniziale. \\
+Per ogni nuovo dispositivo è stato sufficiente abilitare CAPsMAN sulle interfacce wireless perché divenga operativo con tutte le misure di sicurezza abilitate. \\
+Si è anche definita una password di accesso alla configurazione, che comunque non sarebbe stata raggiungibile da parte degli utilizzatori della connettività grazie al tunnel EoIP. \\
+L'accesso ad internet si è rivelato funzionante e tutti i dispositivi venivano inseriti all'interno della  VLAN con le corrispettive configurazioni fornite dal DHCP.
+
+\subsection{Test delle funzionalità di sicurezza in laboratorio} 
+Un altro aspetto di elevata importanza è stata la sicurezza fornita dal nuovo sistema. \\
+Innanzitutto si è verificata la stabilità del captive portal, cercando di forzare il login mediante attacchi \gloss{SQL injection} utilizzando SQLmap e VEGA. \\
+I risultati ottenuti sono stati soddisfacenti, in quanto un preciso controllo dei valori inseriti all'interno dei campi di testo impediva di aggirare l'autenticazione.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{"images/vega"}
+	\caption{Risultato ottenuto dalla analisi di VEGA}
+	\label{fig:Risultato ottenuto dalla analisi di VEGA}
+\end{figure}
+
+Successivamente si è andata a verificare la protezione ad eventuali attacchi eseguiti una volta già autenticati, come ad esempio il \gloss{Man In The Middle}. \\
+Non sono state rilevate vulnerabilità, in quanto gli altri dispositivi presenti nella rete risultavano irraggiungibili, e di conseguenza anche software come Wireshark e Arcai's NetCut non riuscivano a rilevare gli altri utenti. \\
+Una vulnerabilità implicita nel protocollo WiFi, impossibile da risolvere per la sua natura, è la cattura in monitor mode dei pacchetti che transitano sulla rete, permettendo quindi di identificare i dispositivi che usufruiscono della rete. Però anche questa vulnerabilità implicita risulta di scarsa utilità per un attaccante, in quanto non ha comunque la possibilità di interagire con i dispositivi e manometterli. \\
+Nella immagine sottostante si può notare a sinistra una analisi in una rete del cliente prima della installazione del nuovo sistema, con rilevati 29 dispositivi connessi, mentre a destra l'analisi effettuata nella nuova configurazione, senza nessun utente connesso visibile.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/netcut"}
+	\caption{Risultati ottenuti con NetCut}
+	\label{fig:Risultati ottenuti con NetCut}
+\end{figure}
+
+
 \subsection{Creazione nuove configurazioni per tutti gli switch del Campus} 
 %TODO
 asd
 \subsection{Caricamento configurazioni negli switch del Campus} 
-%TODO
-asd
-\subsection{Test di base nuove funzionalità di sicurezza implementate} 
 %TODO
 asd
 
