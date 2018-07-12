@@ -3,12 +3,12 @@
 \begin{document}
 \chapter{Tecnologie}
 
-Questa sezione illustra le principali tecnologie incontrate ed utilizzate nel corso dello stage per il controllo, il monitoraggio e la sicurezza delle reti di loro competenza. \\
+Questa sezione illustra le principali tecnologie incontrate ed utilizzate nel corso dello stage per il controllo, il monitoraggio e la sicurezza delle reti di loro competenza. \\\\
 Essendo la sicurezza informatica un settore nel quale gli standard, le leggi e le tipologie di attacco evolvono molto in fretta, le tecnologie utilizzate devono adeguarsi di conseguenza. Questo porta i tool ed i programmi utilizzati a diventare velocemente obsoleti oppure a variare con il passare del tempo.
 
 \section{Tecnologie per il monitoraggio}
 \subsection{PRTG Network Monitor}
-PRTG è un sistema di monitoraggio della rete, era utilizzato nella rete analizzata durante lo stage prima di Observium per rilevare eventuali anomalie, ma a causa delle limitazioni della versione gratuita e del suo elevato costo si è scelto di sostituirlo.\\
+PRTG è un sistema di monitoraggio della rete, era utilizzato nella rete analizzata durante lo stage prima di Observium per rilevare eventuali anomalie, ma a causa delle limitazioni della versione gratuita e del suo elevato costo si è scelto di sostituirlo.\\\\
 Il software consiste in un servizio al quale ci si collega mediante il client fornito oppure attraverso una interfaccia web e permette di tenere sotto controllo anche siti web e servizi di varia natura.
 \begin{figure}[H]
 	\centering
@@ -19,8 +19,8 @@ Il software consiste in un servizio al quale ci si collega mediante il client fo
 
 \subsection{Observium}
 Observium è un sistema di monitoraggio della rete compatibile con i dispositivi delle principali aziende produttrici di apparati di rete. \\
-Tra i dispositivi supportati si possono citare Cisco, Dell, HP, Huawei, Lenovo, MikroTik, Netgear e ZTE. \\
-Il software dispone anche di una ricerca automatica dei dispositivi presente all'interno della rete, utile per reti di piccola-media dimensione. \\
+Tra i dispositivi supportati si possono citare Cisco, Dell, HP, Huawei, Lenovo, MikroTik, Netgear e ZTE. \\\\
+Il software dispone anche di una ricerca automatica dei dispositivi presente all'interno della rete, utile per reti di piccola-media dimensione. \\\\
 Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppamento dei dispositivi mediante regole definite dall'utente e l'alert automatico nel caso vengano superate determinate soglie.
 \begin{figure}[H]
 	\centering
@@ -30,7 +30,7 @@ Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppa
 \end{figure}
 
 \subsection{RConfig}
-Il tool RConfig è un configuration management mirato ai dispositivi di rete che permette in modo veloce ed automatizzato di effettuare una copia delle configurazione degli apparati di rete. \\
+Il tool RConfig è un configuration management mirato ai dispositivi di rete che permette in modo veloce ed automatizzato di effettuare una copia delle configurazione degli apparati di rete. \\\\
 \`{E} completamente open source, protetto da licenza GNU v3.0, ed è scritto in linguaggio PHP, questo gli consente di essere installato facilmente su molti sistemi.
 \begin{figure}[H]
 	\centering
@@ -43,9 +43,9 @@ Il tool RConfig è un configuration management mirato ai dispositivi di rete che
 \section{Tecnologie per la sicurezza}
 \subsection{802.1X}
 Il 802.1X è uno standard IEEE per il controllo di accesso alla rete port-based, parte della famiglia di protocolli IEEE 802.1. Fornisce un meccanismo di autenticazione mediante una combinazione username/password oppure un certificato digitale.
-Questa protezione va ad ampliare la \gloss{sicurezza fisica} delle risorse connesse alla rete, pur essendo di per sè una \gloss{sicurezza logica}, impedendone il raggiungimento ai dispositivi non autorizzati. \\
+Questa protezione va ad ampliare la \gloss{sicurezza fisica} delle risorse connesse alla rete, pur essendo di per sè una \gloss{sicurezza logica}, impedendone il raggiungimento ai dispositivi non autorizzati. \\\\
 Lo standard viene implementato all'interno del firmware o del sistema operativo degli apparati di rete e dei dispositivi degli utenti.\\
-Funziona sia su connessioni wired che wireless, anche se viene raramente supportato ed utilizzato nelle connessioni cablate in quanto, spesso, una protezione fisica perimetrale viene considerata sufficiente. \\
+Funziona sia su connessioni wired che wireless, anche se viene raramente supportato ed utilizzato nelle connessioni cablate in quanto, spesso, una protezione fisica perimetrale viene considerata sufficiente. \\\\
 Il 802.1X determina unicamente la procedura di autenticazione che deve essere svolta, mentre la definizione degli standard dei messaggi e del trasporto viene definita da altri standard.
 
 \begin{figure}[H]
@@ -64,12 +64,12 @@ Il 802.1X determina unicamente la procedura di autenticazione che deve essere sv
 
 \subsection{Extensible Authentication Protocol}
 Extensible Authentication Protocol, usualmente chiamato semplicemente EAP, è un framework di autenticazione che definisce la struttura dei messaggi. \\
-Lo standard include svariate tipologie di messaggio, in modo tale da poter fornire molteplici metodologie di login, come ad esempio combinazioni username e password, utilizzo di certificati o mediante un segreto condiviso. \\
+Lo standard include svariate tipologie di messaggio, in modo tale da poter fornire molteplici metodologie di login, come ad esempio combinazioni username e password, utilizzo di certificati o mediante un segreto condiviso. \\\\
 Non essendo un protocollo di rete ha la necessità di essere incapsulato in un messaggio per poter essere inviato, ad esempio all'interno del protocollo \gloss{RADIUS} oppure nel protocollo di rete dedicato \gloss{EAPoL}.
 
 \subsection{Windows Network Policy Server}
 Network Policy Server, spesso abbreviato in NPS, in italiano "Server dei criteri di rete", è una tecnologia per il controllo dell'accesso alla rete. \\
-Decreta chi può accedere alla rete ponendo delle restrizioni ed utilizzare il protocollo \gloss{RADIUS} per comunicare. \\
+Decreta chi può accedere alla rete ponendo delle restrizioni ed utilizzare il protocollo \gloss{RADIUS} per comunicare. \\\\
 Un server che lo implementa può decretare indipendentemente l'accesso o meno dei vari dispositivi, costituendo quindi un RADIUS server, oppure può inoltrare la richiesta ad un altro server NPS, quindi coprendo il ruolo di RADIUS proxy.
 
 \subsection{Active Directory}
@@ -79,8 +79,8 @@ Le risorse possono essere account utente, account relativi a un computer, cartel
 
 \subsection{CAPsMAN}
 CAPsMAN, per esteso Controlled Access Point system MANager, traducibile in "sistema di gestione di access point controllati", è una funzionalità per la gestione degli accessi fornita da MikroTik assieme ai suoi access point. \\
-La sua funzionalità principale è la propagazione di una configurazione comune per l'accesso Wireless a tutti gli apparati presenti nella rete. \\
-Consente l'identificazione dei client che si connettono mediante un server RADIUS e permette anche di reindirizzare dinamicamente gli utenti su VLAN diverse. \\
+La sua funzionalità principale è la propagazione di una configurazione comune per l'accesso Wireless a tutti gli apparati presenti nella rete. \\\\
+Consente l'identificazione dei client che si connettono mediante un server RADIUS e permette anche di reindirizzare dinamicamente gli utenti su VLAN diverse. \\\\
 Risulta molto utile in caso di estensione della rete, in quanto riduce notevolmente la configurazione iniziale di ogni access point, riducendo a sua volta il rischio di commettere errori di configurazione.
 
 

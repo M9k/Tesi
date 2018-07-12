@@ -21,16 +21,15 @@ Il server utilizzato per tale fine è quello del cliente, utilizzante le tecnolo
 Le due macchine virtuali sono state entrambe create con CentOS Linux, in quanto gratuito e già conosciuto nel contesto aziendale.
 
 \subsection{Configurazione del versioning con RConfig}
-Per la configurazione di rConfig si è proceduto ad automatizzare l'inserimento dei dati, che altrimenti avrebbe consumato una ingente quantità di tempo visto il numero di dispositivi presenti. \\
-Come base di riferimento per l'inserimento dei dati si è attinto dalla tabella dei dispositivi 
-precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
+Per la configurazione di rConfig si è proceduto ad automatizzare l'inserimento dei dati, che altrimenti avrebbe consumato una ingente quantità di tempo visto il numero di dispositivi presenti. \\\\
+Come base di riferimento per l'inserimento dei dati si è attinto dalla tabella dei dispositivi precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
 Successivamente si è proceduto a modificare il formato dei dati esportati, operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo all'interno del browser. \\
 Si è proceduto con lo sviluppo di uno script JavaScript, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il plug-in GreaseMonkey consentiva il caricamento automatico dei dati precedentemente posti in forma corretta. \\
 Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degli apparati. \\
 
 \subsection{Configurazione del monitoraggio con Observium}
 Analogamente con quanto effettuato con RConfig si è proceduto all'inserimento di tutti i dispositivi e alla loro configurazione in Observium. \\
-Questa operazione è stata più complessa rispetto all'altro software, in quanto richiedeva una aggiunta iniziale di ogni dispositivo, seguito dall'attesa della sua identificazioni per poi terminare con l'aggiunta delle informazioni aggiuntive. Seguendo quanto deciso nella fase di progettazione si è andato ad inserire, sempre mediante l'aiuto di GreaseMonkey, la sua locazione e le sue coordinate GPS. \\
+Questa operazione è stata più complessa rispetto all'altro software, in quanto richiedeva una aggiunta iniziale di ogni dispositivo, seguito dall'attesa della sua identificazioni per poi terminare con l'aggiunta delle informazioni aggiuntive. Seguendo quanto deciso nella fase di progettazione si è andato ad inserire, sempre mediante l'aiuto di GreaseMonkey, la sua locazione e le sue coordinate GPS. \\\\
 Per completare l'attività si è anche dovuto segnalare al software tutte le interfacce non utilizzate, in modo tale che non venissero generati avvisi a causa della loro inoperatività.\\
 
 Al termine dell'operazione gli elementi inseriti all'interno del software erano i seguenti:
@@ -72,7 +71,7 @@ Per tale fine sono stati utilizzati uno switch HP 2530-8G PoE+ e svariati access
 Per il collegamento tra gli access point e il router si è andati ad utilizzare una VLAN ad essi dedicati. \\
 Sopra di essa è stato creato un datapath costituito da un bridge che consenta la comunicazione dei dispositivi connessi alle reti wifi. \\
 Per motivi di sicurezza si è scelto di creare tre tunnel Ethernet over IP (EoIP) per incanalare i tre flussi di dati provenienti dai tre SSID wifi. \\
-Così facendo si è ottenuta una elevata sicurezza, unita alla facilità di installazione di un nuovo dispositivo, in quanto è necessario solamente trasportargli la VLAN che utilizza, nell'immagine denominata "VLAN AP", e non quelle presenti nel tunnel, denominato "BRIDGE DATA". \\
+Così facendo si è ottenuta una elevata sicurezza, unita alla facilità di installazione di un nuovo dispositivo, in quanto è necessario solamente trasportargli la VLAN che utilizza, nell'immagine denominata "VLAN AP", e non quelle presenti nel tunnel, denominato "BRIDGE DATA". \\\\
 Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacchetti, che risulta trascurabile a fronte della semplicità di estensione e della elevata sicurezza che offre.
 
 \begin{figure}[H]
@@ -85,9 +84,11 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 \subsection{Predisporre servizio NPS ( Radius ) sui due Active Directory servers} 
 %TODO
 asd
-\subsection{Creazione della configurazione di test per laboratorio con nuove funzionalità di sicurezza} 
+\subsection{Creazione del captive portal} 
 %TODO
 asd
++ Radius!!!
+
 \subsection{Test delle configurazioni in laboratorio} 
 Prima di inserire il sistema in produzione si è andato a testare il funzionamento e la sua estensibilità. \\
 Innanzitutto si è proceduto ad aumentare il numero di Access Point connessi in contemporanea, passando da 1 a 4, in modo tale da verificare la complessità della configurazione iniziale. \\
@@ -108,8 +109,8 @@ I risultati ottenuti sono stati soddisfacenti, in quanto un preciso controllo de
 
 Successivamente si è andata a verificare la protezione ad eventuali attacchi eseguiti una volta già autenticati, come ad esempio il \gloss{Man In The Middle}. \\
 Non sono state rilevate vulnerabilità, in quanto gli altri dispositivi presenti nella rete risultavano irraggiungibili, e di conseguenza anche software come Wireshark e Arcai's NetCut non riuscivano a rilevare gli altri utenti. \\
-Una vulnerabilità implicita nel protocollo WiFi, impossibile da risolvere per la sua natura, è la cattura in monitor mode dei pacchetti che transitano sulla rete, permettendo quindi di identificare i dispositivi che usufruiscono della rete. Però anche questa vulnerabilità implicita risulta di scarsa utilità per un attaccante, in quanto non ha comunque la possibilità di interagire con i dispositivi e manometterli. \\
-Nella immagine sottostante si può notare a sinistra una analisi in una rete del cliente prima della installazione del nuovo sistema, con rilevati 29 dispositivi connessi, mentre a destra l'analisi effettuata nella nuova configurazione, senza nessun utente connesso visibile.
+Una vulnerabilità implicita nel protocollo WiFi, impossibile da risolvere per la sua natura, è la cattura in monitor mode dei pacchetti che transitano sulla rete, permettendo quindi di identificare i dispositivi che usufruiscono della rete. Però anche questa vulnerabilità implicita risulta di scarsa utilità per un attaccante, in quanto non ha comunque la possibilità di interagire con i dispositivi e manometterli. \\\\
+Nella immagine sottostante si può notare a sinistra una analisi effettuata in una rete del cliente prima della installazione del nuovo sistema, con rilevati 29 dispositivi connessi, mentre a destra l'analisi effettuata nella nuova configurazione, senza nessun utente connesso visibile.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"images/netcut"}

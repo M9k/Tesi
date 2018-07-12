@@ -39,10 +39,10 @@ Uno dei problemi di sicurezza riscontrati, che si è scoperto essere presente an
 
 \subsection{Configurazioni degli apparati Access Point}
 Per permettere una estensibilità della rete senza l'intervento di un tecnico per la sua configurazione si è scelto di utilizzare CAPsMAN. \\
-La struttura della tecnologia CAPsMAN si basa su un router centrale, prodotto da MikroTik, che gestisce e fornisce le configurazioni. Su questo router vengono collegati, mediante la VLAN a lui dedicata, gli Access Point, che provvederanno autonomamente a recuperare ed applicare le impostazioni corrette. \\
-Questo permette, in caso di estensione della rete, di evitare una configurazione manuale dei dispositivi, che potrebbe presentare errori di distrazione e compromettere la sicurezza. \\
-Un'altra caratteristica di estrema importanza è che le impostazioni, essendo centralizzate, possono essere modificate unicamente nel router e le modifiche verranno trasmesse automaticamente a tutti i dispositivi. \\
-Questa struttura però presenta un difetto, in quanto il router che gestisce CAPsMAN è unico e rappresenta un single point of failure.
+La struttura della tecnologia CAPsMAN si basa su un router centrale, prodotto da MikroTik, che gestisce e fornisce le configurazioni. Su questo router vengono collegati, mediante la VLAN a lui dedicata, gli Access Point, che provvederanno autonomamente a recuperare ed applicare le impostazioni corrette. \\\\
+Questa metodologia permette, in caso di estensione della rete, di evitare una configurazione manuale dei dispositivi, che potrebbe presentare errori di distrazione e compromettere la sicurezza. \\
+Un'altra caratteristica di estrema importanza è che le impostazioni, essendo centralizzate, possono essere modificate unicamente nel router e le modifiche verranno trasmesse automaticamente a tutti i dispositivi. \\\\
+Il sistema così organizzato però introduce un potenziale pericolo, in quanto il router che gestisce CAPsMAN è unico e rappresenta un single point of failure.
 
 \newpage
 \subsection{Politiche di sicurezza}
@@ -64,11 +64,11 @@ Le misure di autenticazioni sono le seguenti:
 
 
 \subsection{Captive portal}
-Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech. \\
+Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech. \\\\
 La schermata di login si presenta con l'inserimento dell'e-mail e della password per proseguire con l'autenticazione e di un tasto di registrazione. \\
 La registrazione viene effettuata inserendo la propria e-mail ed indicando uno "sponsor" scelto da un elenco di possibili persone, che avrà il compito di confermare o rifiutare la richiesta.
 Una volta effettuata la richiesta di registrazione verrà inviata una e-mail allo sponsor, ed in caso di approvazione verrà comunicata la password di accesso al richiedente. \\
-Gli sponsor sono gestibili in un pannello di configurazione solamente da parte dell'amministratore, che può anche amministrare le richieste. \\
+Gli sponsor sono gestibili in un pannello di configurazione solamente da parte dell'amministratore, che può anche amministrare le richieste. \\\\
 La password della rete, di bassa complessità, è stata inserita in modo tale da evitare un possibile spam, o flooding, di e-mail verso gli sponsor.
 
 \subsection{Definizione name-convention}
