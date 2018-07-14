@@ -132,8 +132,15 @@ Per completare la messa in funzione di rConfig si è proceduto alla suddivisione
 Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari stati scelti in modo tale che i task non si sovrappongano tra di loro, in modo di evitare eventuali problemi.\\
 
 Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
-Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\
+Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
 Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\
+Nell'immagine sottostante si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{"images/rconfig_normalizzazione"}
+	\caption{Esempio della scarsa normalizzazione dei dati in rConfig}
+	\label{fig:Esempio della scarsa normalizzazione dei dati in rConfig}
+\end{figure}
 
 \subsection{Backup configurazioni MikroTik}
 Una volta avuto a disposizione i device MikroTik è emerso un problema inaspettato con rConfig, che non riusciva a completare il backup delle configurazioni su tali dispositivi. \\
