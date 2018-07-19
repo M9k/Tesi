@@ -29,7 +29,12 @@
 Una limitazione tecnologica attualmente presente in Observium è la sua incapacità di raggruppare le porte secondo la VLAN untagged che possiede. \\
 Questo fatto, in concomitanza agli switch utilizzati che non permettevano la raccolta di statistiche dalle interfacce virtuali, comprendenti le VLAN, ha impedito di ottenere statistiche sull'utilizzo della rete suddivise per rete virtuale. \\
 La limitazione non si sarebbe presentata con l'adozione di switch Cisco, in quanto essi raccolgono informazioni suddividendoli anche per VLAN, che possono poi essere raggruppati con facilità su Observium. \\
-L'informazione che si sarebbe dovuta utilizzare per il ragruppamento delle porte fisiche è già presente all'interno del database dell'applicazione, ed è già possibile utilizzarla per il filtraggio degli avvisi, ma non è ancora presente il filtro di raggruppamento.
+L'informazione che si sarebbe dovuta utilizzare per il raggruppamento delle porte fisiche è già presente all'interno del database dell'applicazione, ed è già possibile utilizzarla per creare un filtro sugli avvisi, ma non è ancora presente per il raggruppamento.
+
+\subsubsection{Supporto MikroTik in rConfig}
+Una problematica emersa durante la configurazione dei backup automatici dei dispositivi è stata l'impossibilità di utilizzare rConfig per i dispositivi MikroTik. \\
+Questa problematica deriva probabilmente dal fatto che il sistema di MikroTik, denominato RouteOS, invia sui terminali anche caratteri speciali per il colore del testo, i quali sono male interpretati da rConfig. Questo impedisce al programma di svolgere la sua funzionalità, in quanto non riesce a comprendere le risposte che gli vengono fornite dall'apparato. \\
+Infine il log generato dall'applicazione era poco verboso, che in accoppiata ad una progettazione non di elevato livello andava ad aumentare la difficoltà nella individuazione di una eventuale patch. Per tale motivo si è scelto di proseguire per una via alternativa, delegando i singoli dispositivi ad effettuare autonomamente un backup ed a salvarlo in remoto, piuttosto che mettere mano al codice sorgente del programma.
 
 \subsection{Vincoli metodologici e di lavoro}
 
