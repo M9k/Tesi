@@ -25,17 +25,19 @@ Il software dispone anche di una ricerca automatica dei dispositivi presente all
 Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppamento dei dispositivi mediante regole definite dall'utente e l'alert automatico nel caso vengano superate determinate soglie.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.56\linewidth]{"images/logo/Observium_logo"}
+	\includegraphics[width=0.4\linewidth]{"images/logo/Observium_logo"}
 	\caption{Logo di Observium}
 	\label{fig:Logo di Observium}
 \end{figure}
 
 \subsection{RConfig}
 Il tool RConfig è un configuration management mirato ai dispositivi di rete che permette in modo veloce ed automatizzato di effettuare una copia delle configurazione degli apparati di rete. \\\\
-\`{E} completamente open source, protetto da licenza GNU v3.0, ed è scritto in linguaggio PHP, questo gli consente di essere installato facilmente su molti sistemi.
+\`{E} completamente open source, protetto da licenza GNU v3.0, ed è scritto in linguaggio PHP. Per eseguire automaticamente i task fa uso del demone Unix crontab, quindi non risulta utilizzabile su sistemi Windows, ma unicamente Linux e BSD. \\
+Le connessioni verso i dispositivi non sono effettuate tramite lo standard Simple Network Management Protocol, o SNMP, ma Telnet e SSH. Questo gli permette di supportare, con la giusta configurazione, molti dispositivi, però complica notevolmente la fase di setup e può generare problemi in alcuni brand.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{"images/logo/rConfig_logo"}
+	\includegraphics[width=0.34\linewidth]{"images/logo/rConfig_logo"}
 	\caption{Logo di RConfig}
 	\label{fig:Logo di RConfig}
 \end{figure}
