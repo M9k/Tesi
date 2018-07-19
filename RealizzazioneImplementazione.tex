@@ -89,14 +89,7 @@ La creazione del Captive Portal è stata effettuata su una macchina virtuale nuo
 Innanzitutto si è proceduto con l'installazione del sistema operativo CentOS 7, che è stato scelto perché già conosciuto ed ampliamente utilizzato nell'ambito aziendale.
 Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello slang UNIX, in modo da offrire tutte le funzionalità richieste, brevemente riportati nella tabella sottostante.
 
-
-\definecolor{CHeader}{HTML}{D22E2E}
-\definecolor{CHeaderText}{HTML}{FFFFFF}
-\definecolor{CRighePari}{HTML}{DFDFDF}
-\definecolor{CRigheDispari}{HTML}{F4F4F4}
-\definecolor{CCaption}{HTML}{FFFFFF}
-
-\label{table:Tabella dei servizi per l'implementazione del Captive Portal}
+\label{table:Servizi per l'implementazione del Captive Portal}
 \rowcolors{2}{CRighePari}{CRigheDispari}
 \renewcommand*{\arraystretch}{1.2}
 \begin{longtable}[H]{p{2.6cm}|p{6cm}|p{6cm}}
@@ -122,7 +115,7 @@ Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello s
 			& Server email, dedito al trasferimento di messaggi mediante SMTP.
 			& Consente di inviare l'e-mail con la richiesta di approvazione allo sponsor e, in caso di accettazione, avvisa l'utente comunicandogli le informazioni necessarie all'accesso. \\
 	\hiderowcolors
-	\caption{Tabella dei servizi per l'implementazione del Captive Portal}
+	\caption{Servizi per l'implementazione del Captive Portal}
 \end{longtable}
 
 Il compito del login è stato delegato al router MikroTik per evitare complicazioni inutili, il quale andrà a controllare la validità dell'account comunicando con il servizio Radius, RadD, presente nella macchina virtuale. \\
