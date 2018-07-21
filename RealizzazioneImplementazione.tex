@@ -81,7 +81,7 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 	\label{fig:Configurazione della rete}
 \end{figure}
 
-\subsection{Predisporre servizio NPS ( Radius ) sui due Active Directory servers} 
+\subsection{Predisporre servizio NPS ( RADIUS ) sui due Active Directory servers} 
 %TODO
 asd
 \subsection{Creazione del Captive Portal}
@@ -97,22 +97,22 @@ Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello s
 	\color{CHeaderText} \textbf{Demone} & \color{CHeaderText} \textbf{Funzionalità} & \color{CHeaderText} \textbf{Utilizzo} \\
 	\endhead
 		HttpD
-			& Server web, dedito alla gestione delle richieste http, risoluzione del codice PHP mediante apposito modulo ed invio di pagine web.
+			& Servizio di server web, dedito alla gestione delle richieste http, risoluzione del codice PHP mediante apposito modulo ed invio di pagine web.
 			&  Gestione ed interazione dell'interfaccia del Captive Portal. \\
 		MySqlD
-			& Database, dedito al mantenimento e alla organizzazione dei dati, assieme al controllo d'accesso.
+			& Servizio database, dedito al mantenimento e alla organizzazione dei dati, assieme al controllo d'accesso.
 			& Gestione delle informazioni relative alla registrazione degli utenti, agli account abilitati e raccoglitore di informazioni per RadD. \\
 		CronD
-			& Scheduler, dedito alla pianificazione dell'esecuzione dei comandi.
+			& Servizio scheduler, dedito alla pianificazione dell'esecuzione dei comandi.
 			& Controllo periodico degli account scaduti, che dovranno essere rimossi. \\
 		RadD
-			& Radius, accede a una serie di direttive legate agli accessi e risponde in modo affermativo o negativo a delle richieste di autenticazione.
+			& Servizio RADIUS, accede a una serie di direttive legate agli accessi e risponde in modo affermativo o negativo a delle richieste di autenticazione.
 			& Utilizzato per determinare la validità degli account con i quali si effettua l'accesso nella rete. \\
 		FirewallD
-			& Firewall, determina quali connessioni sono permesse e quali invece devono essere bloccate.
+			& Servizio firewall, determina quali connessioni sono permesse e quali invece devono essere bloccate.
 			& Preinstallato con CentOS, è stato configurato per permettere un accesso esterno alle risorse che lo richiedevano, mantenendo le altre ad utilizzo esclusivamente locale. \\
 		Sendmail
-			& Server email, dedito al trasferimento di messaggi mediante SMTP.
+			& Servizio email, dedito al trasferimento di messaggi mediante SMTP.
 			& Consente di inviare l'e-mail con la richiesta di approvazione allo sponsor e, in caso di accettazione, avvisa l'utente comunicandogli le informazioni necessarie all'accesso. \\
 	\hiderowcolors
 	\caption{Servizi per l'implementazione del Captive Portal}
