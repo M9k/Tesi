@@ -63,8 +63,20 @@ Le misure di autenticazioni sono le seguenti:
 \end{itemize}
 
 Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il router MikroTik per determinare l'accettazione o il rifiuto delle richieste di autenticazione, ma saranno necessari dei servizi esterni, che verranno contattati mediante RADIUS. \\\\
-Per quanto riguarda la rete Corporate verrà innanzitutto verificato il certificato digitale, per tale azione non ci sarà necessità di appoggiarsi a servizi supplementari, in quanto la loro validità sarà controllata dal router stesso. Per la seconda parte dell'autenticazione, così come per la rete Mobile, si dovrà andare a effettuare un riscontro tra i dati inseriti e gli account presenti nell'Active Directory, per tale motivo ci sarà la necessità di usare un servizio server dei criteri di rete, denominato NPS. \\
+Per quanto riguarda la rete Corporate verrà innanzitutto verificato il certificato digitale, per tale azione non ci sarà necessità di appoggiarsi a servizi supplementari, in quanto la loro validità sarà controllata dal router stesso. Per la seconda parte dell'autenticazione, così come per la rete Mobile, si dovrà andare a effettuare un riscontro tra i dati inseriti e gli account presenti nell'Active Directory, per tale motivo ci sarà la necessità di usare un servizio server dei criteri di rete, denominato NPS.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{"images/Schema_tecnologie_NPS"}
+	\caption{Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
+	\label{fig:Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
+\end{figure}
 Infine, per la rete Guest, ci sarà la necessità di avere un servizio Radius esterno al router al quale effettuare le richieste, in modo tale che sia sicuro, facilmente raggiungibile e mantenibile mediante una interfaccia web.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{"images/Schema_tecnologie_RADIUS"}
+	\caption{Schema dei dispositivi e dei protocolli usati per la rete Guest}
+	\label{fig:Schema dei dispositivi e dei protocolli usati per la rete Guest}
+\end{figure}
 
 \subsection{Captive portal}
 Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
