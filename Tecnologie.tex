@@ -45,11 +45,19 @@ Le connessioni verso i dispositivi non sono effettuate tramite lo standard Simpl
 \newpage
 \section{Tecnologie per la sicurezza}
 \subsection{802.1X}
-Il 802.1X è uno standard IEEE per il controllo di accesso alla rete port-based, parte della famiglia di protocolli IEEE 802.1. Fornisce un meccanismo di autenticazione mediante una combinazione username/password oppure un certificato digitale.
+Il 802.1X è uno standard IEEE per il controllo di accesso alla rete port-based, parte della famiglia di protocolli IEEE 802.1. Fornisce un meccanismo di autenticazione mediante una combinazione username/password oppure un certificato digitale. \\\\
+I dispositivi utilizzati in questo protocollo sono tre: il dispositivo di un utente, che richiede l'accesso alla rete, l'Autenticator, che comunica con il dispositivo, e un Auntentication Server, che riceve la richiesta di accesso del dispositivo dall'Autenticator e decreta se approvarla o meno. \\\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/Schema_tecnologie"}
+	\caption{Schema delle iterazioni tra i dispositivi secondo 802.1X}
+	\label{fig:Schema delle iterazioni tra i dispositivi secondo 802.1X}
+\end{figure}
+
+La sua caratteristica principale è l'isolamento del dispositivo dalla rete durante la fase di autenticazione, impedendo di interagire direttamente con qualsiasi altro dispositivo che non sia il Autenticator, il quale controllerà la validità dei messaggi ricevuti secondo il protocollo utilizzato per poi contattare il Autentication Server. \\
 Questa protezione va ad ampliare la \gloss{sicurezza fisica} delle risorse connesse alla rete, pur essendo di per sè una \gloss{sicurezza logica}, impedendone il raggiungimento ai dispositivi non autorizzati. \\\\
-Lo standard viene implementato all'interno del firmware o del sistema operativo degli apparati di rete e dei dispositivi degli utenti.\\
 Funziona sia su connessioni wired che wireless, anche se viene raramente supportato ed utilizzato nelle connessioni cablate in quanto, spesso, una protezione fisica perimetrale viene considerata sufficiente. \\\\
-Il 802.1X determina unicamente la procedura di autenticazione che deve essere svolta, mentre la definizione degli standard dei messaggi e del trasporto viene definita da altri standard.
+Il 802.1X determina unicamente la procedura di autenticazione che deve essere svolta, mentre la definizione degli standard dei messaggi e del trasporto viene definita da altri standard, ad esempio EAP per il contenuto del messaggi ed EAPOL e RADIUS per il loro trasporto.
 
 \begin{figure}[H]
 	\centering
@@ -58,12 +66,6 @@ Il 802.1X determina unicamente la procedura di autenticazione che deve essere sv
 	\label{fig:Procedura di autenticazione 802.1X}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{"images/Schema_tecnologie"}
-	\caption{Schema delle tecnologie per l'attualizzazione di 802.1X}
-	\label{fig:Schema delle tecnologie per l'attualizzazione di 802.1X}
-\end{figure}
 
 \subsection{Extensible Authentication Protocol}
 Extensible Authentication Protocol, usualmente chiamato semplicemente EAP, è un framework di autenticazione che definisce la struttura dei messaggi. \\

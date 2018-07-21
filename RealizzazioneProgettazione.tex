@@ -62,15 +62,47 @@ Le misure di autenticazioni sono le seguenti:
 	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e la registrazione su un \gloss{captive portal}.
 \end{itemize}
 
+Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il router MikroTik per determinare l'accettazione o il rifiuto delle richieste di autenticazione, ma saranno necessari dei servizi esterni, che verranno contattati mediante RADIUS. \\\\
+Per quanto riguarda la rete Corporate verrà innanzitutto verificato il certificato digitale, per tale azione non ci sarà necessità di appoggiarsi a servizi supplementari, in quanto la loro validità sarà controllata dal router stesso. Per la seconda parte dell'autenticazione, così come per la rete Mobile, si dovrà andare a effettuare un riscontro tra i dati inseriti e gli account presenti nell'Active Directory, per tale motivo ci sarà la necessità di usare un servizio server dei criteri di rete, denominato NPS. \\
+Infine, per la rete Guest, ci sarà la necessità di avere un servizio Radius esterno al router al quale effettuare le richieste, in modo tale che sia sicuro, facilmente raggiungibile e mantenibile mediante una interfaccia web.
 
 \subsection{Captive portal}
 Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
 La schermata di login si presenta con alcune form dedite all'inserimento della propria e-mail, della selezione di uno sponsor e della durata dell'account. \\
-La registrazione viene effettuata inserendo la propria e-mail ed indicando uno "sponsor" scelto da un elenco di possibili persone, che avrà il compito di confermare o rifiutare la richiesta. \\
+Gli sponsor avranno il compito di confermare o rifiutare la richiesta e potranno essere gestiti dall'amministratore nella apposita area di amministrazione. \\
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{"images/CaptivePortalReq"}
+	\caption{Schermata per la richiesta di un account}
+	\label{fig:Schermata per la richiesta di un account}
+\end{figure}
+
 Una volta effettuata la richiesta di registrazione verrà inviata una e-mail allo sponsor, ed in caso di approvazione verrà comunicata la password di accesso al richiedente. \\
-Gli sponsor sono gestibili in un pannello di configurazione solamente da parte dell'amministratore, che può anche amministrare le richieste. \\
-L'account utilizzabile per l'accesso avrà anche una durata temporale prefissata, selezionabile durante la fase di registrazione. Questa caratteristica serve per scoraggiare eventuali dipendenti a farne uso e per impedire la presenza di vecchi account registrati ma non più utilizzati. \\\\
-La password della rete, di bassa complessità, è stata inserita in modo tale da evitare un possibile spam, o flooding, di e-mail verso gli sponsor.
+L'account avrà una durata temporale che non potrà superare un limite massimo deciso dall'amministratore. Questa caratteristica serve per scoraggiare eventuali dipendenti a farne uso per le loro attività lavorative e per impedire un accumularsi di vecchi account registrati ma non più utilizzati. \\\\
+La password della rete, di bassa complessità, è stata inserita in modo tale da evitare un possibile spam, o flooding, di e-mail verso gli sponsor. \\
+
+Si è scelto di mantenere la procedura di login all'interno del router MikroTik per evitare redirezioni inutili, il quale andrà a controllare la validità dell'account comunicando con il protocollo RADIUS verso i relativi servizi. \\
+La registrazione e la parte di amministrazione invece avverranno in autonomia su una macchina virtuale, che avrà il compito di far interagire l'interfaccia web con il database in modo tale da aggiornare le informazioni contenute nel RADIUS e di avvisare delle richieste e delle conferme riguardanti la registrazione tramite e-mail. \\
+
+Il dispositivo MikroTik presenta un Captive Portal di default, che sarà quindi personalizzato modificandone le grafica ed inserendo tutti i collegamenti verso le pagine di registrazione ed amministrazione presenti sulla macchina virtuale. \\
+
+Di seguito sono riportate alcuni diagrammi per meglio comprendere l'iterazione delle varie parti tra di loro. \\
+Per semplificare lo schema è sto omesso l'Autenticator, cioè l'Access Point, in quanto la sua iterazione avviene su un livello inferiore rispetto a quello analizzato attualmente.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{"images/CaptivePortal1"}
+	\caption{Sequenza per effettuare il login}
+	\label{fig:Sequenza per effettuare il login}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{"images/CaptivePortal2"}
+	\caption{Sequenza per effettuare la registrazione}
+	\label{fig:Sequenza per effettuare la registrazione}
+\end{figure}
 
 \subsection{Definizione name-convention}
 La name-convention scelta per la denominazione degli apparati è la seguente:\\
