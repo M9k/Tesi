@@ -5,6 +5,7 @@
 
 \section{Tempo impiegato}
 
+\subsection{Riepilogo tempo impiegato}
 \label{table:Tempo previsto ed impiegato}
 \rowcolors{2}{CRighePari}{CRigheDispari}
 \renewcommand*{\arraystretch}{1.2}
@@ -12,14 +13,21 @@
 	\rowcolor{CHeader}
 	\color{CHeaderText} \textbf{Descrizione attivit\`{a}} & \color{CHeaderText} \textbf{Durata prevista} & \color{CHeaderText} \textbf{Durata effettiva} \\
 	\endhead
-		Analisi & 40h & \\
-		Progettazione & 80h & \\
-		Implementazione & 80h & \\
-		Test in produzione & 40h & \\
-		Tuning & 80h & \\
+		Analisi & 40h & 40h \\
+		Progettazione & 80h & 96h \\
+		Implementazione & 80h & 88h \\
+		Test in produzione & 40h & 32h \\
+		Tuning & 80h & 64h \\
 	\hiderowcolors
 	\caption{Tempo previsto ed impiegato}
 \end{longtable}
+
+\subsection{Considerazioni sugli scostamenti}
+La fase di analisi è stata eseguita nei tempi prestabiliti in quanto, pur presentando svariate incongruenze, il materiale a disposizione era molteplice. Questo ha permesso di definire lo stato del sistema in tempi rapidi considerando la sua vastità. \\
+La fase di progettazione invece ha richiesto più tempo del previsto, in quanto si è dovuto dialogare con il cliente per comprendere le sue necessità e si è dovuto analizzare molteplici tecnologie. \\
+L'implementazione ha richiesto del tempo aggiuntivo a causa delle problematiche sorte da rConfig, ma è stato in parte compensato dall'utilizzo di scripting per le attività di data entry dei dispositivi, che ha permesso di risparmiare tempo. \\
+Il test in produzione non fatto sorgere problematiche gravi da risolvere, ma ha evidenziato unicamente alcune migliorie che potevano venire effettuate, le quali non sono state complesse da implementare.\\
+L'ultima fase, dedicata al tuning, ha richiesto meno tempo del previsto in quanto si è andati ad operare su una base già solida, che è stata potenziata ove possibile.
 
 \section{Risultati ottenuti}
 
