@@ -173,8 +173,8 @@ Di seguito è riportato lo script eseguito e schedulato sui dispositivi MikroTik
 :local remote_directory /backupMikroTik/Router/
 # name of the file, without the date
 :local file_name ExportMikrotikSettingsController
-# ----------------------------------------	
 
+# -----------  Create strings  ------------
 # Get the date
 :local ts [/system clock get time]
 :set ts ([:pick $ts 0 2]."-".[:pick $ts 3 5]."-".[:pick $ts 6 8])
@@ -183,16 +183,18 @@ Di seguito è riportato lo script eseguito e schedulato sui dispositivi MikroTik
 :local mm (:$months->[:pick $ds 0 3])
 :set ds ([:pick $ds 7 11]."$mm-".[:pick $ds 4 6])
 
+# Add the automatic extension to the filename
+:set backupFileName "$backupFileName.rsc"
+
+# Compose the remote path
+:set remoteBackupFileName "$remote_directory$backupFileName.rsc"
+
 # Compose the filename
 :local backupFileName "$file_name-$ds-$ts"
 
+# -----------  Execute the backup  ------------
 # Export the configuration
 /export file=$backupFileName
-
-# Add the automatic extension to the filename
-:set backupFileName "$backupFileName.rsc"
-# Compose the remote path
-:set remoteBackupFileName "$remote_directory$backupFileName.rsc"
 
 # Upload the file to the ftp server
 /tool fetch mode=ftp address=$ftp_server_address port=21 user=$ftp_username password=$ftp_password src-path=$backupFileName dst-path=$remoteBackupFileName upload=yes
@@ -214,7 +216,7 @@ add
 	start-date=jan/01/2018 \
 	start-time=03:00:00 \
 	on-event="/system script run script_backup_ftp" \
-	policy=ftp,read,write,policy,password,sensitive
+	policy=ftp,read,write,policy,password,sensitive,test
 \end{lstlisting}
 
 In questo modo lo script verrà eseguito ogni lunedì alle 3:00 del mattino, in quanto il 1 gennaio 2018 è un lunedì e la cadenza sarà settimanale.
