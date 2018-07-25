@@ -36,7 +36,7 @@ Ogni alert riguarda una classe di dispositivi, interfacce o sensori, come ad ese
 	\label{fig:Alerts creati in Observium}
 \end{figure}
 
-Successivamente sono stati inseriti dei contatti, sia E-mail che identificativi di conversazioni con un bot di Telegram, e relativamente ad ognuno di essi sono stati abilitati gli alert che interessavano al destinatario.
+Successivamente sono stati inseriti dei contatti, sia E-mail che identificativi di conversazioni con un bot di \gloss{Telegram}, e relativamente ad ognuno di essi sono stati abilitati gli alert che interessavano al destinatario.
 
 \begin{figure}[H]
 	\centering
@@ -45,7 +45,17 @@ Successivamente sono stati inseriti dei contatti, sia E-mail che identificativi 
 	\label{fig:Screenshot degli avvisi nell'applicazione Telegram}
 \end{figure}
 
-\subsection{Raggruppamento porte}
+\subsection{Raggruppamento delle interfacce}
+Per velocizzare l'analisi della rete è stato ritenuto utile poter consultare lo stato di più interfacce contemporaneamente, per tale ragione si è andato ad utilizzare la funzionalità di raggruppamento delle porte offerto da Observium.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/trafficoponteradio"}
+	\caption{Stato dell'utilizzo del ponte radio}
+	\label{fig:Stato dell'utilizzo del ponte radio}
+\end{figure}
+
+Un esempio è il gruppo delle interfacce sulle quali comunicano il ponte radio. Questo è utile per poter identificare eventuali problemi nel resto della rete, in quanto la connessione wireless a lungo raggio è stata delegata come supporto alla rete cablata ed eventuale backup, quindi se il traffico totale aumenta notevolmente significa che sono presenti delle problematiche.
 
 
 \subsection{Raggruppamento dispositivi}
