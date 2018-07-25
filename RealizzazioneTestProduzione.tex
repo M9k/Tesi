@@ -10,11 +10,20 @@
 \end{itemize}
 Il test in produzione non ha evidenziato gravi problematiche oppure problemi di progettazione, quindi le ore impiegate in questa attività sono state inferiori a quanto preventivato.
 
-\subsection{Monitoraggio eventuali anomalie, censirle, trubleshooting, idenfiticare la soluzione, trovare un workaround, implementare e testare la soluzione}
-%TODO
--Problema backup mikrotik a causa dei permessi
+\subsection{Individuazione problematiche}
+Le problematiche individuate si sono rilevate essere quantitativamente inferiori a quanto previsto. La maggior parte delle modifiche effettuate in questa fase sono state di piccola entità e mirate soprattutto a migliorare l'usabilità e l'interazione con gli utenti, come ad esempio migliorare la responsibilità dell'interfaccia del Captive Portal e migliorarne il testo.\\
+Di seguito sono riportate le problematiche di maggior rilevanza.
 
+\subsubsection{Schedulazione automatica MikroTik non completata}
+Si è notato che la schedulazione dei backup di MikroTik non veniva eseguita, ma terminava inaspettatamente allo stabilimento della connessione FTP. \\
+Analizzando la problematica si è scoperto che l'esecuzione manuale dello script veniva eseguita ignorando le sue policy, mentre l'esecuzione schedulata le rispettava, riuscendo ad individuare la causa del problema.
+Il backup automatico aveva il permesso di utilizzare la connessione FTP, ma prima di stabilirla procedeva a controllare se la destinazione era raggiungibile, per tale motivo era richiesta anche la policy "test", che consentiva l'utilizzo del comando ping.
 
-\subsection{Aggiornare la documentazione}
-%TODO
+\subsubsection{Adattabilità del Captive Portal a dispositivi mobili}
+Lo stile iniziale del Captive Portal prevedeva un footer con delle informazioni aggiuntive, ma lo stile ad esso assegnato era errato in quanto, utilizzando dispositivi con schermo particolarmente piccolo o con i caratteri grandi, andava a coprire il tasto di conferma del login. \\
+Per correggere tale problema si è dovuto agire sul file CSS, facendo in modo tale che la parte in basso del sito non andasse mai a sovrapporsi con il contenuto.
+
+\subsection{Aggiornamento della documentazione progettuale}
+Durante questa fase si è proceduto all'aggiornamento della documentazione, andando a descrivere tutti i problemi riscontrati, correlati dalla soluzione applicata per correggerli.
+
 \end{document}
