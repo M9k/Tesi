@@ -8,8 +8,7 @@
 	\item \textbf{Periodo effettivo}: dal 18/07/2018 al 27/07/2018;
 	\item \textbf{Numero di ore effettive}: 64h.
 \end{itemize}
-Questa fase ha visto come attività principali il potenziamento di Observium, espandendone le funzionalità attraverso un upgrade, configurandole e sfruttandole al meglio ed inserendo un sistema di alert tramite Telegram.
-\subsection{In sistema Observium avrà già acquisito dati da oltre un settimana, verranno quindi configurate tutte le soglie di allarmi con notifica via email e instant message Telegram}
+Questa fase ha visto come attività principali il potenziamento di Observium, espandendone le funzionalità attraverso un upgrade, configurandole e sfruttandole al meglio ed inserendo un sistema di alert tramite messaggi.
 
 \subsection{Upgrade Observium}
 Observium si è subito reso molto utile al monitoraggio della rete, questo ha portato alla decisione di acquistarne la versione professionale. \\
@@ -26,9 +25,32 @@ Le principali funzionalità offerte rispetto alla versione gratuita, definita Co
 	\item Supporto da parte del team di sviluppo.
 \end{itemize}
 
+\subsection{Allarmi Observium tramite E-mail e Telegram}
+Per poter utilizzare un sistema di avvisi automatici tramite messaggi è necessario prima definire le situazioni da considerare pericolose. Observium mette a disposizione la possibilità di creare degli "alert", al momento non suddivisibili per gravità, che vengono utilizzati per riconoscere delle problematiche. \\
+Ogni alert riguarda una classe di dispositivi, interfacce o sensori, come ad esempio le porte, i sensori di temperatura o i device stessi. Oltre al contesto si deve specificare, attraverso un metalinguaggio, i valori di soglia ed è possibile inserire dei filtri, in modo da escludere determinati dispositivi in base alle loro proprietà.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{"images/alerts"}
+	\caption{Alerts creati in Observium}
+	\label{fig:Alerts creati in Observium}
+\end{figure}
+
+Successivamente sono stati inseriti dei contatti, sia E-mail che identificativi di conversazioni con un bot di Telegram, e relativamente ad ognuno di essi sono stati abilitati gli alert che interessavano al destinatario.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"images/alerttelegram"}
+	\caption{Screenshot degli avvisi nell'applicazione Telegram}
+	\label{fig:Screenshot degli avvisi nell'applicazione Telegram}
+\end{figure}
+
 \subsection{Raggruppamento porte}
+
+
 \subsection{Raggruppamento dispositivi}
 %TODO
+
 \subsection{Completamento della documentazione}
 	
 \end{document}
