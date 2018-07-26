@@ -90,6 +90,11 @@ Una problematica emersa durante la configurazione dei backup automatici dei disp
 Questa problematica deriva probabilmente dal fatto che il sistema di MikroTik, denominato RouteOS, invia sui terminali anche caratteri speciali per il colore del testo, i quali sono male interpretati da rConfig. Questo impedisce al programma di svolgere la sua funzionalità, in quanto non riesce a comprendere le risposte che gli vengono fornite dall'apparato. \\
 Infine il log generato dall'applicazione era poco verboso, che in accoppiata ad una progettazione non di elevato livello andava ad aumentare la difficoltà nella individuazione di una eventuale patch. Per tale motivo si è scelto di proseguire per una via alternativa, delegando i singoli dispositivi ad effettuare autonomamente un backup ed a salvarlo in remoto, piuttosto che mettere mano al codice sorgente del programma.
 
+\subsubsection{Utilizzo di SSL nel Captive Portal}
+Per aumentare la sicurezza della rete si è anche analizzata la possibilità di utilizzare HTTPS supportato da certificati digitali SSL self signed per il Captive Portal. \\
+Purtroppo questa pratica non è permessa dallo standard HTTPS nell'ambito dei Captive Portal, in quanto il protocollo mira ad impedire redirezioni forzate dell'utente, compresa quella necessaria per essere portati alla pagina di autenticazione. \\
+Molti dispositivi, soprattutto mobili, per verificare la presenza dei Captive Portal inviano una richiesta http ad un server e individuano se la risposta è corretta oppure se c'è stata un redirezione, procedendo quindi ad avvisare l'utente e a visualizzare la pagina che hanno ricevuto. Se la risposta avviene mediante HTTPS allora sarà errato rispetto a quanto richiesto, solitamente portando ad ignorare l'intera procedura. Questo impedisce di rilevare il portale, quindi l'utente non potrà effettuare il login ed utilizzare la rete.
+
 \subsection{Vincoli temporali}
 Fortunatamente non si sono presentati vincoli riguardanti la durata dell'attività, in quanto, seppur alcune attività avessero impiegato un tempo maggiore a quanto preventivato, complessivamente il numero di ore concessomi è stato sufficiente a terminare tutti gli obbiettivi posti inizialmente.
 

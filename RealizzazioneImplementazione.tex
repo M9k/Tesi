@@ -47,25 +47,25 @@ Questi numeri dimostrano l'impossibilità di mantenere un controllo soddisfacent
 
 \subsection{Laboratorio per lo sviluppo}
 Prima di procedere alla produzione si è ovviamente testato le configurazioni in un laboratorio. \\
-Per tale fine sono stati utilizzati uno switch HP 2530-8G PoE+ e svariati access point MikroTik cAP ac RBcAPGi-5acD2nD, collegati a un router MikroTik CCR1009-7G-1C-1S+.
+Per tale fine sono stati utilizzati uno switch HP 2530-8G PoE+ e svariati Access Point MikroTik cAP ac RBcAPGi-5acD2nD, collegati a un controller MikroTik CCR1009-7G-1C-1S+.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/HP"}
-	\caption{HP 2530-8G PoE+}
-	\label{fig:HP 2530-8G PoE+}
+	\caption{Switch HP 2530-8G PoE+}
+	\label{fig:Switch HP 2530-8G PoE+}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/AP"}
-	\caption{MikroTik cAP ac}
-	\label{fig:MikroTik cAP ac}
+	\caption{Access Point MikroTik cAP ac}
+	\label{fig:Access Point MikroTik cAP ac}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/Router"}
-	\caption{Router MikroTik}
-	\label{fig:Router MikroTik}
+	\caption{Controller MikroTik}
+	\label{fig:Controller MikroTik}
 \end{figure}
 
 \subsection{Configurazione della rete}
@@ -110,8 +110,8 @@ Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello s
 			& Servizio RADIUS, accede a una serie di direttive legate agli accessi e risponde in modo affermativo o negativo a delle richieste di autenticazione.
 			& Utilizzato per determinare la validità degli account con i quali si effettua l'accesso nella rete. \\
 		FirewallD
-			& Servizio firewall, determina quali connessioni sono permesse e quali invece devono essere bloccate.
-			& Preinstallato con CentOS, è stato configurato per permettere un accesso esterno alle risorse che lo richiedevano, mantenendo le altre ad utilizzo esclusivamente locale. \\
+			& Servizio firewall preinstallato in CentOS, determina quali connessioni sono permesse e quali invece devono essere bloccate.
+			& Utilizzato per impedire un accesso dall'esterno ai servizi che non necessitano una iterazione dalla rete, ma solamente in locale, ad esempio MySqlD. \\
 		Sendmail
 			& Servizio email, dedito al trasferimento di messaggi mediante SMTP.
 			& Consente di inviare l'e-mail con la richiesta di approvazione allo sponsor e, in caso di accettazione, avvisa l'utente comunicandogli le informazioni necessarie all'accesso. \\
