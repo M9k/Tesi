@@ -24,12 +24,12 @@ Le due macchine virtuali sono state entrambe create con CentOS Linux, in quanto 
 \subsection{Configurazione del versioning con RConfig}
 Per la configurazione di rConfig si è proceduto ad automatizzare l'inserimento dei dati, che altrimenti avrebbe consumato una ingente quantità di tempo visto il numero di dispositivi presenti. \\\\
 Come base di riferimento per l'inserimento dei dati si è attinto dalla tabella dei dispositivi precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
-Successivamente si è proceduto a modificare il formato dei dati esportati, operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo all'interno del browser. \\
-Si è proceduto con lo sviluppo di uno script JavaScript, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il plug-in GreaseMonkey consentiva il caricamento automatico dei dati precedentemente posti in forma corretta. \\
+Successivamente si è modificato il formato dei dati esportati, operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo all'interno del browser. \\
+Si è quindi sviluppato uno script JavaScript, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il plug-in GreaseMonkey consentiva il caricamento automatico dei dati precedentemente posti in forma corretta. \\
 Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degli apparati. \\
 
 \subsection{Configurazione del monitoraggio con Observium}
-Analogamente con quanto effettuato con RConfig si è proceduto all'inserimento di tutti i dispositivi e alla loro configurazione in Observium. \\
+Analogamente con quanto effettuato con RConfig è stato effettuato l'inserimento di tutti i dispositivi e alla loro configurazione in Observium. \\
 Questa operazione è stata più complessa rispetto all'altro software, in quanto richiedeva una aggiunta iniziale di ogni dispositivo, seguito dall'attesa della sua identificazioni per poi terminare con l'aggiunta delle informazioni aggiuntive. Seguendo quanto deciso nella fase di progettazione si è andato ad inserire, sempre mediante l'aiuto di GreaseMonkey, la sua locazione e le sue coordinate GPS. \\\\
 Per completare l'attività si è anche dovuto segnalare al software tutte le interfacce non utilizzate, in modo tale che non venissero generati avvisi a causa della loro inoperatività.\\
 
@@ -46,7 +46,7 @@ I sensori presenti sono principalmente relativi all'alimentazione ed in alcuni c
 Questi numeri dimostrano l'impossibilità di mantenere un controllo soddisfacente della rete utilizzando la versione gratuita di PRTG Netowrk Monitor, che consentiva in totale il monitoraggio di 1000 elementi.
 
 \subsection{Laboratorio per lo sviluppo}
-Prima di procedere alla produzione si è ovviamente testato le configurazioni in un laboratorio. \\
+Prima di procedere alla produzione si sono testate le configurazioni in un laboratorio. \\
 Per tale fine sono stati utilizzati uno switch HP 2530-8G PoE+ e svariati Access Point MikroTik cAP ac RBcAPGi-5acD2nD, collegati a un controller MikroTik CCR1009-7G-1C-1S+.
 
 \begin{figure}[H]
@@ -87,7 +87,7 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 asd
 \subsection{Creazione del Captive Portal}
 La creazione del Captive Portal è stata effettuata su una macchina virtuale nuova, in modo tale da garantirne una segregazione nel sistema e delle regole nel firewall specifiche alla sua funzionalità. \\
-Innanzitutto si è proceduto con l'installazione del sistema operativo CentOS 7, che è stato scelto perché già conosciuto ed ampliamente utilizzato nell'ambito aziendale.
+Innanzitutto è stata effettuata l'installazione del sistema operativo CentOS 7, che è stato scelto perché già conosciuto ed ampiamente utilizzato nell'ambito aziendale.
 Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello slang UNIX, in modo da offrire tutte le funzionalità richieste, brevemente riportati nella tabella sottostante.
 
 \label{table:Servizi per l'implementazione del Captive Portal}
@@ -123,7 +123,7 @@ Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello s
 \subsection{Test delle configurazioni in laboratorio} 
 Prima di inserire il sistema in produzione si è andato a testare il funzionamento e la sua estensibilità. \\
 Innanzitutto si è proceduto ad aumentare il numero di Access Point connessi in contemporanea, passando da 1 a 4, in modo tale da verificare la complessità della configurazione iniziale. \\
-Per ogni nuovo dispositivo è stato sufficiente abilitare CAPsMAN sulle interfacce wireless perché divenga operativo con tutte le misure di sicurezza abilitate. \\
+Per ogni nuovo dispositivo è stato sufficiente abilitare CAPsMAN sulle interfacce wireless affinché divenga operativo con tutte le misure di sicurezza abilitate. \\
 Si è anche definita una password di accesso alla configurazione, che comunque non sarebbe stata raggiungibile da parte degli utilizzatori della connettività grazie al tunnel EoIP. \\
 L'accesso ad internet si è rivelato funzionante e tutti i dispositivi venivano inseriti all'interno della  VLAN con le corrispettive configurazioni fornite dal DHCP.
 
@@ -159,8 +159,8 @@ asd
 
 \subsection{Scheduling backup delle impostazioni con rConfig}
 
-Per completare la messa in funzione di rConfig si è proceduto alla suddivisione dei dispositivi in gruppi secondo la loro locazione ed alla predisposizione di backup periodici. \\
-Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari stati scelti in modo tale che i task non si sovrappongano tra di loro, in modo di evitare eventuali problemi.\\
+Per completare la messa in funzione di rConfig si sono suddivisi i dispositivi in gruppi secondo la loro locazione ed si sono predisposti dei backup periodici. \\
+Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari sono stati scelti in modo tale che i task non si sovrappongano tra di loro, così da evitare eventuali problemi.\\
 
 Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
 Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
@@ -189,6 +189,6 @@ Ulteriormente il server FTP è stato dotato di un demone HTTP Apache, in modo da
 
 
 \subsection{Aggiornamento della documentazione progettuale}
-Durante questa fase si è proceduto all'aggiornamento della documentazione, andando a descrivere le funzionalità dei programmi e delle tecnologie utilizzate, il loro utilizzo e tutti i problemi riscontrati, correlati dalla soluzione applicata per correggerli.
+Durante questa fase è stata aggiornata la documentazione progettuale, andando a descrivere le funzionalità dei programmi e delle tecnologie utilizzate, il loro utilizzo e tutti i problemi riscontrati, correlati dalla soluzione applicata per correggerli.
 	
 \end{document}

@@ -51,8 +51,8 @@ L'attenzione è stata posta sulle reti utilizzate dal personale, in quanto conse
 Per tali motivazioni si è scelto di creare 3 reti wireless, così definite:
 \begin{itemize}
 	\item \textbf{Corporate}: rete dedita alla connessione dei computer dediti ad attività lavorative, consente l'accesso alle risorse;
-	\item \textbf{Mobile}: rete dedita alla connessione dei dispositivi personali e/o lavorativi dei dipendenti, come smartphone e tablet, che non richiedono l'accesso a risorse;
-	\item \textbf{Guest}: rete dedita a fornire una connettività internet agli ospiti degli uffici.
+	\item \textbf{Mobile}: rete dedicata ai dispositivi personali e/o lavorativi dei dipendenti, come smartphone e tablet, che non richiedono l'accesso a risorse;
+	\item \textbf{Guest}: rete atta a fornire una connettività internet agli ospiti degli uffici.
 \end{itemize}
 
 Le misure di autenticazioni sono le seguenti:
@@ -96,7 +96,7 @@ L'account avrà una durata temporale che non potrà superare un limite massimo d
 La password della rete, di bassa complessità, è stata inserita in modo tale da evitare un possibile spam, o flooding, di e-mail verso gli sponsor. \\
 
 Si è scelto di mantenere la procedura di login all'interno del router MikroTik per evitare redirezioni inutili, il quale andrà a controllare la validità dell'account comunicando con il protocollo RADIUS verso i relativi servizi. \\
-La registrazione e la parte di amministrazione invece avverranno in autonomia su una macchina virtuale, che avrà il compito di far interagire l'interfaccia web con il database in modo tale da aggiornare le informazioni contenute nel RADIUS e di avvisare delle richieste e delle conferme riguardanti la registrazione tramite e-mail. \\
+La registrazione e la parte di amministrazione avverranno in autonomia su una macchina virtuale, che avrà il compito di far interagire l'interfaccia web con il database in modo tale da aggiornare le informazioni contenute nel RADIUS e di comunicare le credenziali tramite e-mail. \\
 
 Il dispositivo MikroTik presenta un Captive Portal di default, che sarà quindi personalizzato modificandone le grafica ed inserendo tutti i collegamenti verso le pagine di registrazione ed amministrazione presenti sulla macchina virtuale. \\
 
