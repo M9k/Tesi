@@ -82,9 +82,11 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 	\label{fig:Configurazione della rete}
 \end{figure}
 
-\subsection{Predisporre servizio NPS ( RADIUS ) sui due Active Directory servers} 
-%TODO
-asd
+\subsection{Attivazione servizio NPS in Active Directory} 
+Per consentire l'autenticazione tramite le credenziali Active Directory è stato predisposto il servizio NPS, in italiano denominato "criteri di rete". \\
+Essendo presenti due nodi a supporto di Active Directory l'abilitazione è avvenuta su entrambi, in modo tale da favorire una alta affidabilità. \\
+Successivamente le informazioni di accesso ai servizi NPS sono state inserite nella configurazione del Router MikroTik, in modo da permetterne la comunicazione tramite protocollo RADIUS.
+
 \subsection{Creazione del Captive Portal}
 La creazione del Captive Portal è stata effettuata su una macchina virtuale nuova, in modo tale da garantirne una segregazione nel sistema e delle regole nel firewall specifiche alla sua funzionalità. \\
 Innanzitutto è stata effettuata l'installazione del sistema operativo CentOS 7, che è stato scelto perché già conosciuto ed ampiamente utilizzato nell'ambito aziendale.
