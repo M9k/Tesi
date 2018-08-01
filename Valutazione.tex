@@ -27,6 +27,123 @@ Durante l'esecuzione delle attività sono avvenuti degli scostamenti temporali s
 Grazie però ad una estesa analisi preliminare delle tecnologie ed a una buona progettazione non è stato dispendioso metterci mano successivamente per rendere il risultato pronto alla produzione, consentendomi quindi di terminare l'attività senza aver tralasciato nulla di quanto pianificato inizialmente.
 
 \section{Risultati ottenuti}
+
+\subsection{Soddisfacimento risultati attesi}
+Di seguito sono riportati i risultati ottenuti a fine stage.
+
+\subsubsection{Observium}
+\label{table:Risultati ottenuti per l'implementazione di Observium}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{8cm}p{2cm}p{2cm}p{2cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore minimo accettato} & \color{CHeaderText} \textbf{Valore massimo accettato}  & \color{CHeaderText} \textbf{Valore ottenuto} \\
+	\endhead
+	Tempo medio di composizione di una pagina
+	& 0ms & 500ms & 395ms \\
+	Numero di dispositivi di rete monitorati in contemporanea
+	& 80 & - & 94\\
+	Numero di interfacce monitorate in contemporanea
+	& 2500 & - & 3064\\
+	Numero di sensori e periferiche monitorati in contemporanea
+	& 500 & - & 724\\
+	Numero di alert checks presenti
+	& 10 & 20 & 15\\
+	Protezione delle informazioni tramite password
+	& Si & - & Si\\
+	\hiderowcolors
+	\caption{Risultati ottenuti per l'implementazione di Observium}
+\end{longtable}
+
+\subsubsection{rConfig}
+\label{table:Risultati ottenuti per l'implementazione di rConfig}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{8cm}p{2cm}p{2cm}p{2cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore minimo accettato} & \color{CHeaderText} \textbf{Valore massimo accettato} & \color{CHeaderText} \textbf{Valore ottenuto} \\
+	\endhead
+	Tempo di composizione di una pagina
+	& 0ms & 100ms & 32ms\\
+	Numero di dispositivi di rete gestiti in contemporanea
+	& 80 & - & 87 \\
+	Protezione delle informazioni tramite password
+	& Si & - & Si \\
+	\hiderowcolors
+	\caption{Risultati ottenuti per l'implementazione di rConfig}
+\end{longtable}
+
+
+\subsubsection{Politiche di sicurezza}
+\label{table:Risultati ottenuti per l'implementazione delle politiche di sicurezza}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{9.5cm}p{3.2cm}p{2cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore richiesto} & \color{CHeaderText} \textbf{Valore ottenuto} \\
+	\endhead
+	Possibilità per gli impiegati di usufruire dei servizi locali alla rete (stampanti, fax) &
+	Si & Si \\
+	Possibilità per gli impiegati di usufruire dei servizi remoti (accesso ai database, relay email) &
+	Si & Si \\
+	Possibilità per gli impiegati di accedere ad internet attraverso qualsiasi protocollo &
+	Si & Si \\
+	Possibilità per i dispositivi mobili di usufruire dei servizi locali alla rete (stampanti, fax) &
+	No & No \\
+	Possibilità per i dispositivi mobili di usufruire dei servizi remoti (accesso ai database, relay email) &
+	No & No \\
+	Possibilità per i dispositivi mobili di accedere ad internet attraverso qualsiasi protocollo &
+	No & No \\
+	Possibilità per i dispositivi mobili di accedere ad internet attraverso i protocolli HTTP, HTTPS, SMTP, SMTPS, POP3, POP3S, IMAP, IMAPS, IPSEC VPN &
+	Si & Si \\
+	Possibilità per gli ospiti di usufruire dei servizi locali alla rete (stampanti, fax) &
+	No & No \\
+	Possibilità per gli ospiti di usufruire dei servizi remoti (accesso ai database, relay email) &
+	No & No \\
+	Possibilità per gli ospiti di accedere ad internet attraverso qualsiasi protocollo &
+	No & No \\
+	Possibilità per gli ospiti di accedere ad internet attraverso i protocolli HTTP, HTTPS, SMTP, SMTPS, POP3, POP3S, IMAP, IMAPS, IPSEC VPN &
+	Si & Si \\
+	\hiderowcolors
+	\caption{Risultati ottenuti per l'implementazione delle politiche di sicurezza}
+\end{longtable}
+
+\subsubsection{Captive Portal}
+\label{table:Risultati ottenuti per l'implementazione del Captive Portal}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{9.5cm}p{3.2cm}p{2cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore richiesto}& \color{CHeaderText} \textbf{Valore ottenuto}  \\
+	\endhead
+	Possibilità di effettuare il login &
+	Si & Si \\
+	Possibilità di registrazione tramite sponsor &
+	Si & Si \\
+	Registrazione valida per un determinato periodo di tempo &
+	Si & Si \\
+	Interfaccia utilizzabile da un dispositivo mobile &
+	Si & Si \\
+	Registrazione tramite e-mail &
+	Si & Si \\
+	Possibilità di registrazione con e-mail altrui &
+	No & No \\
+	Sezione di amministrazione facilmente accessibile &
+	Si & Si \\
+	Sezione di amministrazione protetta da password &
+	Si & Si \\
+	Funzionalità di gestione degli sponsor &
+	Si & Si \\
+	Funzionalità di gestione degli account &
+	Si & Si \\
+	Funzionalità di gestione delle durate temporali &
+	Si & Si \\
+	
+	\hiderowcolors
+	\caption{Risultati ottenuti per l'implementazione del Captive Portal}
+\end{longtable}
+
+\newpage
 \subsection{Risultati aziendali}
 \subsubsection{Monitoraggio della rete}
 Al termine dello stage la rete è stata posta sotto monitoraggio in ogni sua parte, consentendo di ottenere informazioni, statistiche e segnalazioni in tempo reale.
