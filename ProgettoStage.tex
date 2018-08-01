@@ -24,7 +24,7 @@ Verranno analizzati lo schema di rete dell'infrastruttura, la lista degli appara
 	\item \textbf{Numero di ore previste}: 40h.
 \end{itemize}
 	
-Nella seconda fase si procederà alla configurazione del software di monitoraggio Observium e del software di gestione della versione RConfig. \\
+Nella seconda fase si procederà alla configurazione del software di monitoraggio Observium e del software di gestione della versione rConfig. \\
 Per facilitare le attività verrà definita la nomenclatura da dare ai dispositivi.\\
 Inoltre si procederà alla definizione delle logiche di sicurezza che verranno implementate basate sul protocollo 802.11X. \\
 Durante questa fase verrà anche prodotta la prima bozza della documentazione progettuale.
@@ -86,5 +86,121 @@ Questo comprende l'implementazione e l'utilizzo di servizi e protocolli avanzati
 \subsection{Obiettivo formativo}
 L'obiettivo per il tirocinante è acquisire competenze in ambito networking e security in un contesto reale quale una Campus Area Network estesa, variegata e con un numero di utenti elevato. \\
 Questo al fine di permettere di mettere in pratica le conoscenze acquisite durante lo svolgimento dei corsi universitari e fornire uno stimolo ad approfondire ancora di più queste tematiche.
+
+
+\subsection{Risultati attesi}
+Di seguito sono indicati i risultati attesi, che dovranno essere soddisfatti durante le attività di stage.
+
+\subsubsection{Monitoraggio}
+\label{table:Risultati attesi per l'implementazione di Observium}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{8cm}p{2cm}p{2cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore minimo accettato} & \color{CHeaderText} \textbf{Valore massimo accettato} \\
+	\endhead
+	Tempo medio di composizione di una pagina
+	& 0ms & 500ms \\
+	Numero di dispositivi di rete monitorati in contemporanea
+	& 80 & - \\
+	Numero di interfacce monitorate in contemporanea
+	& 2500 & - \\
+	Numero di sensori e periferiche monitorati in contemporanea
+	& 500 & - \\
+	Numero di alert checks presenti
+	& 10 & 20 \\
+	Protezione delle informazioni tramite password
+	& Si & - \\
+	\hiderowcolors
+	\caption{Risultati attesi per l'implementazione di Observium}
+\end{longtable}
+
+\subsubsection{Gestione delle configurazioni dei dispositivi di rete}
+\label{table:Risultati attesi per l'implementazione di rConfig}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{8cm}p{2cm}p{2cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore minimo accettato} & \color{CHeaderText} \textbf{Valore massimo accettato} \\
+	\endhead
+	Tempo di composizione di una pagina
+	& 0ms & 200ms \\
+	Numero di dispositivi di rete gestiti in contemporanea
+	& 80 & - \\
+	Protezione delle informazioni tramite password
+	& Si & - \\
+	\hiderowcolors
+	\caption{Risultati attesi per l'implementazione di rConfig}
+\end{longtable}
+
+
+\subsubsection{Politiche di sicurezza}
+\label{table:Risultati attesi per l'implementazione delle politiche di sicurezza}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{9.5cm}p{3.4cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore richiesto} \\
+	\endhead
+	Possibilità per gli impiegati di usufruire dei servizi locali alla rete (stampanti, fax) &
+	Si \\
+	Possibilità per gli impiegati di usufruire dei servizi remoti (accesso ai database, relay email) &
+	Si \\
+	Possibilità per gli impiegati di accedere ad internet attraverso qualsiasi protocollo &
+	Si \\
+	Possibilità per i dispositivi mobili di usufruire dei servizi locali alla rete (stampanti, fax) &
+	No \\
+	Possibilità per i dispositivi mobili di usufruire dei servizi remoti (accesso ai database, relay email) &
+	No \\
+	Possibilità per i dispositivi mobili di accedere ad internet attraverso qualsiasi protocollo &
+	No \\
+	Possibilità per i dispositivi mobili di accedere ad internet attraverso i protocolli HTTP, HTTPS, SMTP, SMTPS, POP3, POP3S, IMAP, IMAPS, IPSEC VPN &
+	Si \\
+	Possibilità per gli ospiti di usufruire dei servizi locali alla rete (stampanti, fax) &
+	No \\
+	Possibilità per gli ospiti di usufruire dei servizi remoti (accesso ai database, relay email) &
+	No \\
+	Possibilità per gli ospiti di accedere ad internet attraverso qualsiasi protocollo &
+	No \\
+	Possibilità per gli ospiti di accedere ad internet attraverso i protocolli HTTP, HTTPS, SMTP, SMTPS, POP3, POP3S, IMAP, IMAPS, IPSEC VPN &
+	Si \\
+	\hiderowcolors
+	\caption{Risultati attesi per l'implementazione delle politiche di sicurezza}
+\end{longtable}
+
+\subsubsection{Captive Portal}
+\label{table:Risultati attesi per l'implementazione del Captive Portal}
+\rowcolors{2}{CRighePari}{CRigheDispari}
+\renewcommand*{\arraystretch}{1.2}
+\begin{longtable}[H]{p{9.5cm}p{3.4cm}}
+	\rowcolor{CHeader}
+	\color{CHeaderText} \textbf{Misurazione} & \color{CHeaderText} \textbf{Valore richiesto} \\
+	\endhead
+	Possibilità di effettuare il login &
+	Si \\
+	Possibilità di registrazione tramite sponsor &
+	Si \\
+	Registrazione valida per un determinato periodo di tempo &
+	Si \\
+	Interfaccia utilizzabile da un dispositivo mobile &
+	Si \\
+	Registrazione tramite e-mail &
+	Si \\
+	Possibilità di registrazione con e-mail altrui &
+	No \\
+	Sezione di amministrazione facilmente accessibile &
+	Si \\
+	Sezione di amministrazione protetta da password &
+	Si \\
+	Funzionalità di gestione degli sponsor &
+	Si \\
+	Funzionalità di gestione degli account &
+	Si \\
+	Funzionalità di gestione delle durate temporali &
+	Si \\
+	
+	\hiderowcolors
+	\caption{Risultati attesi per l'implementazione del Captive Portal}
+\end{longtable}
 
 \end{document}
