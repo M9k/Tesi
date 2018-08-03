@@ -62,22 +62,29 @@ Le misure di autenticazioni sono le seguenti:
 	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e la registrazione su un \gloss{captive portal}.
 \end{itemize}
 
-Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il router MikroTik per determinare l'accettazione o il rifiuto delle richieste di autenticazione, ma saranno necessari dei servizi esterni, che verranno contattati mediante RADIUS. \\\\
-Per quanto riguarda la rete Corporate verrà innanzitutto verificato il certificato digitale, per tale azione non ci sarà necessità di appoggiarsi a servizi supplementari, in quanto la loro validità sarà controllata dal router stesso. Per la seconda parte dell'autenticazione, così come per la rete Mobile, si dovrà andare a effettuare un riscontro tra i dati inseriti e gli account presenti nell'Active Directory, per tale motivo ci sarà la necessità di usare un servizio server dei criteri di rete, denominato NPS.
+Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il router MikroTik per determinare l'accettazione o il rifiuto delle richieste di autenticazione, ma saranno necessari dei servizi esterni, che verranno contattati mediante RADIUS. 
+
+
+\newpage
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.1\linewidth]{"images/Schema_tecnologie_NPS"}
 	\caption{Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 	\label{fig:Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 \end{figure}
-Infine, per la rete Guest, ci sarà la necessità di avere un servizio RADIUS esterno al router al quale effettuare le richieste, in modo tale che sia sicuro, facilmente raggiungibile e mantenibile mediante una interfaccia web.
+Per quanto riguarda la rete Corporate verrà innanzitutto verificato il certificato digitale, per tale azione non ci sarà necessità di appoggiarsi a servizi supplementari, in quanto la loro validità sarà controllata dal router stesso. Per la seconda parte dell'autenticazione, così come per la rete Mobile, si dovrà andare a effettuare un riscontro tra i dati inseriti e gli account presenti nell'Active Directory, per tale motivo ci sarà la necessità di usare un servizio server dei criteri di rete, denominato NPS.
+
+\newpage
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.1\linewidth]{"images/Schema_tecnologie_RADIUS"}
 	\caption{Schema dei dispositivi e dei protocolli usati per la rete Guest}
 	\label{fig:Schema dei dispositivi e dei protocolli usati per la rete Guest}
 \end{figure}
+Infine, per la rete Guest, ci sarà la necessità di avere un servizio RADIUS esterno al router al quale effettuare le richieste, in modo tale che sia sicuro, facilmente raggiungibile e mantenibile mediante una interfaccia web. \\
+Sullo stesso server, per motivi di sicurezza, sarà presente anche parte del Captive Portal, realizzato con i servizi Apache HTTP e MySQL.
 
+\newpage
 \subsection{Captive portal}
 Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
 La schermata di login si presenta con alcune form dedite all'inserimento della propria e-mail, della selezione di uno sponsor e della durata dell'account. \\
@@ -116,6 +123,7 @@ Per semplificare lo schema è sto omesso l'Autenticator, cioè l'Access Point, i
 	\label{fig:Sequenza per effettuare la registrazione}
 \end{figure}
 
+\newpage
 \subsection{Definizione name-convention}
 La name-convention scelta per la denominazione degli apparati è la seguente:\\
 { \centering
