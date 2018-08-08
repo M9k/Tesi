@@ -85,7 +85,15 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 
 \subsection{Attivazione servizio NPS in Active Directory} 
 Per consentire l'autenticazione tramite le credenziali Active Directory è stato predisposto il servizio NPS, in italiano denominato "criteri di rete". \\
-Essendo presenti due nodi a supporto di Active Directory l'abilitazione è avvenuta su entrambi, in modo tale da favorire una alta affidabilità. \\
+Innanzitutto è stato abilitato il servizio NPS, per poi essere successivamente configurato. Si è poi proceduto con l'abilitazione del 802.1X, aggiungendo i clients RADIUS, che nel nostro caso è unicamente il MikroTik Cloud Core Router.\\
+Prima di definire le politiche è stato creato un gruppo di utenti, il quale conterrà tutti coloro che avranno il privilegio di usufruire delle rete CORPORATE e MOBILE. \\\\
+Le politiche di accettazione delle richieste possono essere riepilogate nel seguente modo:
+\begin{enumerate}
+\item Accetta se l'indirizzo IP appartiene alla rete CORPORATE, viene fornito il certificato corretto e le credenziali appartengono ad un utente inserito nel relativo gruppo;
+\item Accetta se l'indirizzo IP appartiene alla rete MOBILE e le credenziali appartengono ad un utente inserito nel relativo gruppo;
+\item Rifiuta.
+\end{enumerate}
+
 Successivamente le informazioni di accesso ai servizi NPS sono state inserite nella configurazione del Router MikroTik, in modo da permetterne la comunicazione tramite protocollo RADIUS.
 
 \subsection{Creazione del Captive Portal}
