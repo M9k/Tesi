@@ -94,7 +94,22 @@ Le politiche di accettazione delle richieste possono essere riepilogate nel segu
 \item Rifiuta.
 \end{enumerate}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/nps_conf"}
+	\caption{Politiche di sicurezza utilizzate}
+	\label{fig:Politiche di sicurezza utilizzate}
+\end{figure}
+
+
 Successivamente le informazioni di accesso ai servizi NPS sono state inserite nella configurazione del Router MikroTik, in modo da permetterne la comunicazione tramite protocollo RADIUS.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/nps_miktorik"}
+	\caption{Configurazione RADIUS del controller MikroTIk}
+	\label{fig:Configurazione RADIUS del controller MikroTIk}
+\end{figure}
 
 \subsection{Creazione del Captive Portal}
 La creazione del Captive Portal è stata effettuata su una macchina virtuale nuova, in modo tale da garantirne una segregazione nel sistema e delle regole nel firewall specifiche alla sua funzionalità. \\
