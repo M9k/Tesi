@@ -96,7 +96,7 @@ Le politiche di accettazione delle richieste possono essere riepilogate nel segu
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{"images/nps_conf"}
+	\includegraphics[width=1\linewidth]{"images/nps_conf"}
 	\caption{Politiche di sicurezza utilizzate}
 	\label{fig:Politiche di sicurezza utilizzate}
 \end{figure}
@@ -106,11 +106,12 @@ Successivamente le informazioni di accesso ai servizi NPS sono state inserite ne
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{"images/nps_miktorik"}
+	\includegraphics[width=1\linewidth]{"images/nps_miktorik"}
 	\caption{Configurazione RADIUS del controller MikroTIk}
 	\label{fig:Configurazione RADIUS del controller MikroTIk}
 \end{figure}
 
+\newpage
 \subsection{Creazione del Captive Portal}
 La creazione del Captive Portal è stata effettuata su una macchina virtuale nuova, in modo tale da garantirne una segregazione nel sistema e delle regole nel firewall specifiche alla sua funzionalità. \\
 Innanzitutto è stata effettuata l'installazione del sistema operativo CentOS 7, che è stato scelto perché già conosciuto ed ampiamente utilizzato nell'ambito aziendale.
@@ -192,7 +193,7 @@ Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza sett
 
 Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
 Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
-Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\
+Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\\\
 Nell'immagine sottostante si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
 \begin{figure}[H]
 	\centering
