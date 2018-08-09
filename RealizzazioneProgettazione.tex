@@ -72,7 +72,9 @@ Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il rout
 	\caption{Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 	\label{fig:Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 \end{figure}
-Per quanto riguarda la rete Corporate verrà innanzitutto verificato il certificato digitale, per tale azione non ci sarà necessità di appoggiarsi a servizi supplementari, in quanto la loro validità sarà controllata dal router stesso. Per la seconda parte dell'autenticazione, così come per la rete Mobile, si dovrà andare a effettuare un riscontro tra i dati inseriti e gli account presenti nell'Active Directory, per tale motivo ci sarà la necessità di usare un servizio server dei criteri di rete, denominato NPS.
+Per quanto riguarda la rete Corporate il Auntenticator, non contenendo nessuna politica per l'approvazione delle richieste, si comporterà da Proxy ed invierà la richiesta al server NPS.\\
+Il servizio Microsoft verificherà innanzitutto il certificato digitale, rifiutando immediatamente la richiesta nel caso non corrispondesse a quanto atteso. Se il certificato corrisponde, invece, procederà a effettuare un riscontro tra le credenziali e gli account presenti nell'Active Directory, individuando la presenza o meno dell'utente.\\\\
+Nel caso la richiesta provenisse dalla rete Mobile la procedura risulta la medesima, con l'eccezione che il certificato non viene richiesto.
 
 \newpage
 \begin{figure}[H]
