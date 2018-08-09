@@ -89,8 +89,8 @@ Innanzitutto è stato abilitato il servizio NPS, per poi essere successivamente 
 Prima di definire le politiche è stato creato un gruppo di utenti, il quale conterrà tutti coloro che avranno il privilegio di usufruire delle rete CORPORATE e MOBILE. \\\\
 Le politiche di accettazione delle richieste possono essere riepilogate nel seguente modo:
 \begin{enumerate}
-\item Accetta se l'indirizzo IP appartiene alla rete CORPORATE, viene fornito il certificato corretto e le credenziali appartengono ad un utente inserito nel relativo gruppo;
-\item Accetta se l'indirizzo IP appartiene alla rete MOBILE e le credenziali appartengono ad un utente inserito nel relativo gruppo;
+\item Accetta se l'indirizzo IP appartiene alla rete Corporate, viene fornito il certificato corretto e le credenziali appartengono ad un utente inserito nel relativo gruppo;
+\item Accetta se l'indirizzo IP appartiene alla rete Mobile e le credenziali appartengono ad un utente inserito nel relativo gruppo;
 \item Rifiuta.
 \end{enumerate}
 
@@ -150,7 +150,8 @@ Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello s
 \subsection{Sperimentazione Captive Portal sicuro}
 Durante la realizzazione del Captive Portal è stato deciso di effettuare un rapido test riguardante l'utilizzo di HTTPS con un certificato self-signed, in modo tale da impedire attacchi \gloss{Man In The Middle} durante l'autenticazione. \\\\
 Purtroppo la modalità di redirezione utilizzata dagli hotspot è esplicitamente vietata nel protocollo HTTPS, però la sua implementazione varia secondo il produttore del sistema operativo. \\
-Si è analizzato il comportamento su due dispositivi, un Huawei P8 con ROM EMUI e un Xiaomi Redmi 4X con ROM MIUI China Dev. EMUI, una volta connessa alla rete, rifiutava la risposta in HTTPS, in quanto violava lo standard, non rilevando quindi la presenza del captive portal ed impedendo all'utente di usufruire della navigazione. MIUI invece si comportava in modo più permissivo, ignorando l'infrazione del protocollo e presentando il login all'utente.
+Si è analizzato il comportamento su due dispositivi, un Huawei P8 con ROM EMUI e un Xiaomi Redmi 4X con ROM MIUI China Dev. EMUI, una volta connessa alla rete, rifiutava la risposta in HTTPS, in quanto violava lo standard, non rilevando quindi la presenza del captive portal ed impedendo all'utente di usufruire della navigazione. MIUI invece si comportava in modo più permissivo, ignorando l'infrazione del protocollo e presentando il login all'utente.\\\\
+A causa di tali problematiche la sua implementazione non è stata portata a termine.
 
 \subsection{Inserimento regole Firewall} 
 Una volta terminata la configurazione della rete è stato necessario, prima del suo utilizzo, inserire nuove regole all'interno del firewall per consentire il soddisfacimento dei requisiti relativi alle politiche di sicurezza precedentemente presentati. \\
@@ -177,7 +178,7 @@ I risultati ottenuti sono stati soddisfacenti, in quanto un preciso controllo de
 
 Successivamente si è andata a verificare la protezione ad eventuali attacchi eseguiti una volta già autenticati, come ad esempio il \gloss{Man In The Middle}. \\
 Non sono state rilevate vulnerabilità, in quanto gli altri dispositivi presenti nella rete risultavano irraggiungibili, e di conseguenza anche software come Wireshark e Arcai's NetCut non riuscivano a rilevare gli altri utenti. \\
-Una vulnerabilità implicita nel protocollo WiFi, impossibile da risolvere per la sua natura, è la cattura in monitor mode dei pacchetti che transitano sulla rete, permettendo quindi di identificare i dispositivi che usufruiscono della rete. Però anche questa vulnerabilità implicita risulta di scarsa utilità per un attaccante, in quanto non ha comunque la possibilità di interagire con i dispositivi e manometterli. \\\\
+Una vulnerabilità implicita nel protocollo WiFi, impossibile da risolvere per la sua natura, è la cattura in monitor mode dei pacchetti che transitano sulla rete, permettendo quindi di identificare i dispositivi che usufruiscono della rete. Però anche questa vulnerabilità implicita risulta di scarsa utilità per un attaccante, in quanto la configurazione degli apparati non gli permettono di accedere agli altri dispositivi e manometterli. \\\\
 Nella immagine sottostante si può notare a sinistra una analisi effettuata in una rete del cliente prima della installazione del nuovo sistema, con rilevati 29 dispositivi connessi, mentre a destra l'analisi effettuata nella nuova configurazione, senza nessun utente connesso visibile.
 \begin{figure}[H]
 	\centering
@@ -194,7 +195,7 @@ Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza sett
 Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
 Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
 Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\\\
-Nell'immagine sottostante si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
+Nell'immagine seguente si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rconfig_normalizzazione"}
