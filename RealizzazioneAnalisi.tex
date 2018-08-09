@@ -22,17 +22,12 @@ I dispositivi possedevano già dei nominativi che ne indicavano la locazione all
 \subsection{Analisi sistemi di sicurezza fisica}
 La sicurezza fisica era perseguita prevalentemente controllando l'accesso fisico ai dispositivi di rete. Gli switch sono chiusi a chiave negli appositi armadi e, ove possibile, mantenuti all'interno di strutture dove l'accesso è consentito solo al personale dedicato. \\
 Era già presente una suddivisione in VLAN attua a impedire l'accesso alle risorse a coloro che non ne possiedono i permessi, ma da sola non era sufficiente a garantire la sicurezza. \\\\
-Un possibile attacco che si poteva praticare era forzare un armadietto di rete, costruiti in plastica, ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. Questo risulta molto pericoloso considerando che la VLAN di manutenzione, presente in quasi tutti gli switch, permette l'accesso a tutti gli altri apparati di rete. \\
-Analogo discorso per le reti wifi dedicate al personale, nelle quali spesso si connettono dispositivi personali o si forniscono le chiavi di autenticazioni ad amici e parenti, mettendo a rischio le risorse raggiungibili. \\\\
-In questo contesto si è andati ad operare sul controllo d'accesso, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una rete, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X.
+Un possibile attacco è forzare un armadietto di rete ed utilizzare una porta Ethernet untagged per poter connettersi ai dispositivi di quella VLAN. Questo risulta molto pericoloso considerando che la VLAN di manutenzione, presente in quasi tutti gli switch, permette l'accesso a tutti gli altri apparati di rete. \\
+Analogo discorso per le reti WiFi dedicate al personale, nel quali spesso si connettono dispositivi personali o si forniscono le chiavi di autenticazioni ad amici e parenti, mettendo a rischio le risorse raggiungibili. \\\\
+In questo contesto si è andati ad operare sul controllo d'accesso sulle reti wireless, impedendo ad un dispositivo non riconosciuto di entrare in una VLAN semplicemente connettendosi ad una rete, ma richiedendogli informazioni aggiuntive e certificate mediante lo standard 802.1X. \\\\
+Una possibile estensione dell'attività di stage potrebbe essere ampliare l'utilizzo del protocollo 802.1X anche sulla parte cablata della rete, al fine di inserire una ulteriore protezione.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.45\linewidth]{"images/Outdoor rack"}
-	\caption{Armadio di rete da esterni}
-	\label{fig:Armadio di rete da esterni}
-\end{figure}
-
+\newpage
 \subsection{Analisi sistemi di monitoraggio}
 La rete analizzata presentava già un software per il monitoraggio, denominato PRTG Network Monitor. \\
 Il suo compito era quello di controllare che tutti i sensori in esso inseriti appartenenti ai devices funzionassero correttamente, avvisando qualora ci fossero dei problemi. \\\\
