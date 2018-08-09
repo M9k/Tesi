@@ -88,7 +88,7 @@ Sullo stesso server, per motivi di sicurezza, sarà presente anche parte del Cap
 
 \newpage
 \subsection{Captive portal}
-Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in utilizzo in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
+Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in uso in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
 La schermata di login si presenta con alcune form dedite all'inserimento della propria e-mail, della selezione di uno sponsor e della durata dell'account. \\
 Gli sponsor avranno il compito di confermare o rifiutare la richiesta e potranno essere gestiti dall'amministratore nella apposita area di amministrazione. \\
 
@@ -101,8 +101,9 @@ Gli sponsor avranno il compito di confermare o rifiutare la richiesta e potranno
 \end{figure}
 
 Una volta effettuata la richiesta di registrazione verrà inviata una e-mail allo sponsor, ed in caso di approvazione verrà comunicata la password di accesso al richiedente. \\
-L'account avrà una durata temporale che non potrà superare un limite massimo deciso dall'amministratore. Questa caratteristica serve per scoraggiare eventuali dipendenti a farne uso per le loro attività lavorative e per impedire un accumularsi di vecchi account registrati ma non più utilizzati. \\\\
-La password della rete, di bassa complessità, è stata inserita in modo tale da evitare un possibile spam, o flooding, di e-mail verso gli sponsor. \\
+L'account avrà una durata temporale limitata, scelta dall'utente tra serie di opzioni decretate dall'amministratore. Questa caratteristica serve per scoraggiare eventuali dipendenti a farne uso per le loro attività lavorative e per impedire un accumularsi di vecchi account registrati ma non più utilizzati. \\
+\newpage
+La rete presenta anche una password di accesso, di bassa complessità, in modo tale da evitare un possibile spam, o flooding, di e-mail ai danni degli sponsor. \\
 
 Si è scelto di mantenere la procedura di login all'interno del router MikroTik per evitare redirezioni inutili, il quale andrà a controllare la validità dell'account comunicando con il protocollo RADIUS verso i relativi servizi. \\
 La registrazione e la parte di amministrazione avverranno in autonomia su una macchina virtuale, che avrà il compito di far interagire l'interfaccia web con il database in modo tale da aggiornare le informazioni contenute nel RADIUS e di comunicare le credenziali tramite e-mail. \\
@@ -114,13 +115,15 @@ Per semplificare lo schema è sto omesso l'Autenticator, cioè l'Access Point, i
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.1\linewidth]{"images/CaptivePortal1"}
+	\hspace*{-2.6cm}
+	\includegraphics[width=19.8cm]{"images/CaptivePortal1"}
 	\caption{Sequenza per effettuare il login}
 	\label{fig:Sequenza per effettuare il login}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.1\linewidth]{"images/CaptivePortal2"}
+	\hspace*{-2.6cm}
+	\includegraphics[width=19.8cm]{"images/CaptivePortal2"}
 	\caption{Sequenza per effettuare la registrazione}
 	\label{fig:Sequenza per effettuare la registrazione}
 \end{figure}
