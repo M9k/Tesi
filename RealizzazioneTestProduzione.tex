@@ -16,8 +16,8 @@ Di seguito sono riportate le problematiche di maggior rilevanza.
 
 \subsubsection{Schedulazione automatica MikroTik non completata}
 Si è notato che la schedulazione dei backup di MikroTik non veniva eseguita, ma terminava inaspettatamente allo stabilimento della connessione FTP. \\
-Analizzando la problematica si è scoperto che l'esecuzione manuale dello script veniva eseguita ignorando le sue policy, mentre l'esecuzione schedulata le rispettava, riuscendo ad individuare la causa del problema.
-Il backup automatico aveva il permesso di utilizzare la connessione FTP, ma prima di stabilirla procedeva a controllare se la destinazione era raggiungibile, per tale motivo era richiesta anche la policy "test", che consentiva l'utilizzo del comando ping.
+Analizzando la problematica si è scoperto che l'esecuzione manuale dello script veniva eseguita ignorando le sue policy, mentre l'esecuzione schedulata le rispettava.\\
+Il backup automatico possedeva già il permesso di utilizzare la connessione FTP, ma prima di stabilirla procedeva a controllare se la destinazione era raggiungibile, per tale motivo era richiesta anche la policy "test", che consentiva l'utilizzo del comando ping.
 
 \subsubsection{Adattabilità del Captive Portal a dispositivi mobili}
 Lo stile iniziale del Captive Portal prevedeva un footer con delle informazioni aggiuntive, ma lo stile ad esso assegnato era errato in quanto, utilizzando dispositivi con schermo particolarmente piccolo o con i caratteri grandi, andava a coprire il tasto di conferma del login. \\
