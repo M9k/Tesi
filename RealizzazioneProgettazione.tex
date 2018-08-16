@@ -37,7 +37,7 @@ Uno dei problemi di sicurezza riscontrati, che si è scoperto essere presente an
 	\label{fig:Attacco SQL injection su rConfig, sulla destra tutte le configurazioni navigabili}
 \end{figure}
 
-\subsection{Configurazioni degli apparati Access Point}
+\subsection{Progettazione della rete WiFi dedita agli uffici}
 Per permettere una estensibilità della rete senza l'intervento di un tecnico per la sua configurazione si è scelto di utilizzare CAPsMAN. \\
 La struttura della tecnologia CAPsMAN si basa su un router centrale, prodotto da MikroTik, che gestisce e fornisce le configurazioni. Su questo router vengono collegati, mediante la VLAN a lui dedicata, gli Access Point, che provvederanno autonomamente a recuperare ed applicare le impostazioni corrette. \\\\
 Questa metodologia permette, in caso di estensione della rete, di evitare una configurazione manuale dei dispositivi, che potrebbe presentare errori di distrazione e compromettere la sicurezza. \\
@@ -148,7 +148,7 @@ Nella quale i campi presenti indicano:
 Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
 La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
 
-\subsection{Inserimento nomi DNS nella lista degli apparati}
+\subsection{Definizione nomi DNS per gli apparati}
 Dopo aver definito la name-convention da utilizzare ed avere avuto l'approvazione dal cliente si è proseguito applicandola a tutti gli apparati. \\
 \'E quindi stato individuato il nome DNS per ogni dispositivo ed è stato riportato all'interno del documento contenente la lista degli apparati.
 
