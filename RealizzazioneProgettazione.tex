@@ -73,7 +73,7 @@ Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il rout
 	\label{fig:Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 \end{figure}
 Per quanto riguarda la rete Corporate il Auntenticator, non contenendo nessuna politica per l'approvazione delle richieste, si comporterà da Proxy ed invierà la richiesta al server NPS.\\
-Il servizio Microsoft verificherà innanzitutto il certificato digitale, rifiutando immediatamente la richiesta nel caso non corrispondesse a quanto atteso. Se il certificato corrisponde, invece, procederà a effettuare un riscontro tra le credenziali e gli account presenti nell'Active Directory, individuando la presenza o meno dell'utente.\\\\
+Il servizio Microsoft verificherà innanzitutto che il certificato digitale fornito venga utilizzato, rifiutando immediatamente la richiesta nel caso fosse non crittografata o non conforme a quanto atteso. Invece, se il certificato è stato correttamente utilizzato, procederà a effettuare un riscontro tra le credenziali e gli account presenti nell'Active Directory, individuando la presenza o meno dell'utente.\\\\
 Nel caso la richiesta provenisse dalla rete Mobile la procedura risulta la medesima, con l'eccezione che il certificato non viene richiesto.
 
 \newpage
