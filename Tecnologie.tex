@@ -8,11 +8,12 @@ Essendo la sicurezza informatica un settore nel quale gli standard, le leggi e l
 
 \section{Tecnologie per il monitoraggio}
 \subsection{PRTG Network Monitor}
-PRTG è un sistema di monitoraggio della rete utilizzato nella rete analizzata durante lo stage. Il suo fine è la rilevazione delle anomalie, ma a causa delle limitazioni della versione gratuita e del suo elevato costo si è scelto di sostituirlo.\\\\
-Il software consiste in un servizio al quale ci si collega mediante il client fornito oppure attraverso una interfaccia web e permette di tenere sotto controllo anche siti web e servizi di varia natura.
+PRTG è un sistema di monitoraggio della rete utilizzato nella rete analizzata durante lo stage. Il suo fine è la rilevazione delle anomalie, ma a causa delle limitazioni della versione gratuita e del suo elevato costo si è scelto di sostituirlo.\\
+Il software consiste in un servizio al quale ci si collega mediante il client fornito oppure attraverso una interfaccia web e permette di tenere sotto controllo anche siti web e servizi di varia natura.\\\\
+Questa tecnologia era già presente all'interno del sistema ed è stata analizzata durante la prima fase dello stage.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{"images/logo/PRTG_logo"}
+	\includegraphics[width=0.35\linewidth]{"images/logo/PRTG_logo"}
 	\caption{Logo di PRTG}
 	\label{fig:Logo di PRTG}
 \end{figure}
@@ -21,8 +22,10 @@ Il software consiste in un servizio al quale ci si collega mediante il client fo
 Observium è un sistema di monitoraggio della rete compatibile con i dispositivi delle principali aziende produttrici di apparati di rete. \\
 La sua implementazione durante l'attività formativa è stata effettuata per sopperire ai limiti posti da PRTG e migliorare quindi la qualità dei servizi. \\\\
 Tra i dispositivi supportati si possono citare Cisco, Dell, HP, Huawei, Lenovo, MikroTik, Netgear e ZTE. \\
-Il software dispone anche di una ricerca automatica dei dispositivi presente all'interno della rete, utile per reti di piccola-media dimensione. \\\\
-Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppamento dei dispositivi mediante regole definite dall'utente e l'alert automatico nel caso vengano superate determinate soglie.
+Il software dispone anche di una ricerca automatica dei dispositivi presenti all'interno della rete, funzionalità utile per reti di piccola-media dimensione. \\\\
+Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppamento dei dispositivi mediante regole definite dall'utente e l'alert automatico nel caso vengano superate determinate soglie.\\\\
+Questa tecnologia è stata implementata durante lo svolgimento dell'attività di stage.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\linewidth]{"images/logo/Observium_logo"}
@@ -33,14 +36,16 @@ Le funzionalità che fornisce sono il monitoraggio del \gloss{QOS}, il raggruppa
 \subsection{RConfig}
 Il tool RConfig è un configuration management mirato ai dispositivi di rete che permette in modo veloce ed automatizzato di effettuare una copia delle configurazione degli apparati di rete. \\\\
 \`{E} completamente open source, protetto da licenza GNU v3.0, ed è scritto in linguaggio PHP. Per eseguire automaticamente i task fa uso del demone Unix crontab, quindi non risulta utilizzabile su sistemi Windows, ma unicamente Linux e BSD. \\
-Le connessioni verso i dispositivi non sono effettuate tramite lo standard Simple Network Management Protocol, o SNMP, ma Telnet e SSH. Questo gli permette di supportare, con la giusta configurazione, molti dispositivi, però complica notevolmente la fase di setup e può generare problemi in alcuni brand.
-
+Le connessioni verso i dispositivi non sono effettuate tramite lo standard Simple Network Management Protocol, o SNMP, ma Telnet e SSH. Questo gli permette di supportare, con la giusta configurazione, molti dispositivi, però complica notevolmente la fase di setup e può generare problemi in alcuni brand.\\\\
+Questa tecnologia è stata implementata durante lo svolgimento dell'attività di stage.
+\begin{comment}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.34\linewidth]{"images/logo/rConfig_logo"}
 	\caption{Logo di RConfig}
 	\label{fig:Logo di RConfig}
 \end{figure}
+\end{comment}
 
 \newpage
 \section{Tecnologie per la sicurezza}
@@ -167,10 +172,11 @@ Nell'ambito del progetto è stato impiegato principalmente in concomitanza con r
 
 \subsection{Notepad++}
 Notepad++ è un editor di file testuali disponibile per sistemi operativi Microsoft Windows.\\
-La sua utilità nell'ambito del progetto è stata l'esecuzione di espressioni regolari per permettere una rapida conversione del formato dei dati, consentendo di convertire file CSV in matrici JavaScript.
+La sua utilità nell'ambito del progetto è stata l'esecuzione di espressioni regolari per permettere una rapida conversione del formato dei dati, consentendo di convertire file CSV in matrici JavaScript.\\
+\`{E} stato favorito rispetto ad altri editor in quanto possedevo già dimestichezza con esso.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{"images/notepad++"}
+	\includegraphics[width=0.7\linewidth]{"images/notepad++"}
 	\caption{Interfaccia di Notepad++}
 	\label{fig:Interfaccia di Notepad++}
 \end{figure}
