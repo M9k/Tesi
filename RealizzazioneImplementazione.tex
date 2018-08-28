@@ -12,40 +12,18 @@
 
 L'implementazione di quanto progettato ha richiesto un numero di ore maggiore di quanto preventivato a causa delle problematiche sorte dall'utilizzo di rConfig. Una parte di queste ora aggiuntive sono però state ammortizzate dal risparmio di tempo avuto nella fase di data-entry relativa ai dispositivi, in quanto è stato ampliamene velocizzato dall'utilizzo di scripting.
 
-\subsection{Inserimento dei dispositivi sul DNS interno} 
+\subsection{Preparazione dell'ambiente}
+
+\subsubsection{Inserimento dei dispositivi sul DNS interno} 
 Per consentire una adeguata imlementazione di Observium e rConfig era richiesto l'utilizzo dei nomi DNS degli apparati e non dell'indirizzo IP. \\
 Si è dunque proceduto a comunicare la lista dei nomi e dei relativi IP dei dispositivi al responsabile affinché vengano inseriti nel sistema, in quanto non c'era la disponibilità di accedere direttamente alle impostazioni del DNS.
 
-\subsection{Implementazione Virtual Machine di monitoraggio}
-Per consentire l'esecuzione continua dei software di monitoraggio sono state create due Virtual Machine, o macchine virtuali.\\
+\subsubsection{Implementazione Virtual Machine}
+Per consentire l'esecuzione continua dei software sono state create due Virtual Machine, o macchine virtuali.\\
 Il server utilizzato per tale fine è quello del cliente, utilizzante le tecnologie prodotte da VMware per la virtualizzazione. \\
 Le due macchine virtuali sono state entrambe create con CentOS Linux, in quanto gratuito e già conosciuto nel contesto aziendale.
 
-\subsection{Configurazione del versioning con RConfig}
-Per la configurazione di rConfig si è proceduto ad automatizzare l'inserimento dei dati, che altrimenti avrebbe consumato una ingente quantità di tempo visto il numero di dispositivi presenti. \\\\
-Come base di riferimento per l'inserimento dei dati si è attinto dalla tabella dei dispositivi precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
-Successivamente si è modificato il formato dei dati esportati, operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo all'interno del browser. \\
-Si è quindi sviluppato uno script JavaScript, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il plug-in GreaseMonkey consentiva il caricamento automatico dei dati precedentemente posti in forma corretta. \\
-Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degli apparati. \\
-
-\subsection{Configurazione del monitoraggio con Observium}
-Analogamente con quanto effettuato con RConfig è stato effettuato l'inserimento di tutti i dispositivi e alla loro configurazione in Observium. \\
-Questa operazione è stata più complessa rispetto all'altro software, in quanto richiedeva una aggiunta iniziale di ogni dispositivo, seguito dall'attesa della sua identificazioni per poi terminare con l'aggiunta delle informazioni aggiuntive. Seguendo quanto deciso nella fase di progettazione si è andato ad inserire, sempre mediante l'aiuto di GreaseMonkey, la sua locazione e le sue coordinate GPS. \\\\
-Per completare l'attività si è anche dovuto segnalare al software tutte le interfacce non utilizzate, in modo tale che non venissero generati avvisi a causa della loro inoperatività.\\
-
-Al termine dell'operazione gli elementi inseriti all'interno del software erano i seguenti:
-\begin{itemize}
-	\item 94 apparati di rete;
-	\item 7 apparati wireless;
-	\item 3064 interfacce;
-	\item 452 sensori;
-	\item 272 periferiche.
-\end{itemize}
-
-I sensori presenti sono principalmente relativi all'alimentazione ed in alcuni casi alla temperatura del dispositivo, mentre i componenti aggiuntivi sono ventole di raffreddamento ed alimentazione. \\\\
-Questi numeri dimostrano l'impossibilità di mantenere un controllo soddisfacente della rete utilizzando la versione gratuita di PRTG Netowrk Monitor, che consentiva in totale il monitoraggio di 1000 elementi.
-
-\subsection{Laboratorio per lo sviluppo}
+\subsubsection{Creazione laboratorio per le nuove politiche}
 Prima di procedere alla produzione si sono testate le configurazioni in un laboratorio. \\
 Per tale fine sono stati utilizzati uno switch HP 2530-8G PoE+ e svariati Access Point MikroTik cAP ac RBcAPGi-5acD2nD, collegati a un controller MikroTik CCR1009-7G-1C-1S+.
 
@@ -66,6 +44,61 @@ Per tale fine sono stati utilizzati uno switch HP 2530-8G PoE+ e svariati Access
 	\includegraphics[width=0.6\linewidth]{"images/Router"}
 	\caption{Controller MikroTik}
 	\label{fig:Controller MikroTik}
+\end{figure}
+
+\subsection{Configurazione del monitoraggio con Observium}
+Analogamente con quanto effettuato con RConfig è stato effettuato l'inserimento di tutti i dispositivi e alla loro configurazione in Observium. \\
+Questa operazione è stata più complessa rispetto all'altro software, in quanto richiedeva una aggiunta iniziale di ogni dispositivo, seguito dall'attesa della sua identificazioni per poi terminare con l'aggiunta delle informazioni aggiuntive. Seguendo quanto deciso nella fase di progettazione si è andato ad inserire, sempre mediante l'aiuto di GreaseMonkey, la sua locazione e le sue coordinate GPS. \\\\
+Per completare l'attività si è anche dovuto segnalare al software tutte le interfacce non utilizzate, in modo tale che non venissero generati avvisi a causa della loro inoperatività.\\
+
+Al termine dell'operazione gli elementi inseriti all'interno del software erano i seguenti:
+\begin{itemize}
+	\item 94 apparati di rete;
+	\item 7 apparati wireless;
+	\item 3064 interfacce;
+	\item 452 sensori;
+	\item 272 periferiche.
+\end{itemize}
+
+I sensori presenti sono principalmente relativi all'alimentazione ed in alcuni casi alla temperatura del dispositivo, mentre i componenti aggiuntivi sono ventole di raffreddamento ed alimentazione. \\\\
+Questi numeri dimostrano l'impossibilità di mantenere un controllo soddisfacente della rete utilizzando la versione gratuita di PRTG Netowrk Monitor, che consentiva in totale il monitoraggio di 1000 elementi.
+
+\subsection{Configurazione del versioning con RConfig}
+Per la configurazione di rConfig si è proceduto ad automatizzare l'inserimento dei dati, che altrimenti avrebbe consumato una ingente quantità di tempo visto il numero di dispositivi presenti. \\\\
+Come base di riferimento per l'inserimento dei dati si è attinto dalla tabella dei dispositivi precedentemente realizzata, che è stata esportata in formato \gloss{CSV}.\\
+Successivamente si è modificato il formato dei dati esportati, operando per mezzo di una \gloss{espressione regolare}, al fine di convertirlo in una matrice in linguaggio JavaScript per il suo utilizzo all'interno del browser. \\
+Si è quindi sviluppato uno script JavaScript, visionabile in \hyperref[sec:Appendice B]{Appendice B}, che mediante il plug-in GreaseMonkey consentiva il caricamento automatico dei dati precedentemente posti in forma corretta. \\
+Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degli apparati. \\
+
+
+\subsubsection{Scheduling backup delle impostazioni con rConfig}
+
+Per completare la messa in funzione di rConfig si sono suddivisi i dispositivi in gruppi secondo la loro locazione ed si sono predisposti dei backup periodici. \\
+Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari sono stati scelti in modo tale che i task non si sovrappongano tra di loro, così da evitare eventuali problemi.\\
+
+Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
+Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
+Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\\\
+Nell'immagine seguente si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{"images/rconfig_normalizzazione"}
+	\caption{Esempio della scarsa normalizzazione dei dati in rConfig}
+	\label{fig:Esempio della scarsa normalizzazione dei dati in rConfig}
+\end{figure}
+
+\subsubsection{Backup configurazioni MikroTik}
+Una volta avuto a disposizione i device MikroTik è emerso un problema inaspettato con rConfig, che non riusciva a completare il backup delle configurazioni su tali dispositivi. \\
+Il problema era causato da una serie di caratteri non stampati a schermo utilizzati dai dispositivi, che rConfig non sapeva rilevare correttamente, impedendogli di compiere i passaggi di login necessari. \\
+Per risolvere tale problema in modo veloce, efficiente e duraturo nel tempo si è scelto di incaricare il dispositivo stesso dell'effettuazione del backup. Per raggiungere tale scopo è stato creato uno script, visibile in \hyperref[sec:Appendice C]{Appendice C}, che permette il salvataggio automatico delle proprie configurazioni su un server FTP. \\
+Una volta verificato il corretto funzionamento dello script è stato schedulato in modo tale avvenga automaticamente ad intervalli prefissati. \\\\
+Ulteriormente il server FTP è stato dotato di un demone HTTP Apache, in modo da consentire la navigazione dei backup effettuati. Per migliorare la fruizione del sito si è utilizzato Directory Lister, il quale è stato modificato per richiedere l'inserimento di una password. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"images/DirectoryLister"}
+	\caption{Lista delle cartelle con i backup in Directory Lister}
+	\label{fig:Lista delle cartelle con i backup in Directory Lister}
 \end{figure}
 
 \newpage
@@ -147,7 +180,7 @@ Successivamente si sono andati ad installare tutti i servizi, o "demoni" nello s
 \end{longtable}
 
 
-\subsection{Sperimentazione Captive Portal sicuro}
+\subsubsection{Sperimentazione Captive Portal sicuro}
 Durante la realizzazione del Captive Portal è stato deciso di effettuare un rapido test riguardante l'utilizzo di HTTPS con un certificato self-signed, in modo tale da impedire attacchi \gloss{Man In The Middle} durante l'autenticazione. \\\\
 Purtroppo la modalità di redirezione utilizzata dagli hotspot è esplicitamente vietata nel protocollo HTTPS, però la sua implementazione varia secondo il produttore del sistema operativo. \\
 Si è analizzato il comportamento su due dispositivi, un Huawei P8 con ROM EMUI e un Xiaomi Redmi 4X con ROM MIUI China Dev. EMUI, una volta connessa alla rete, rifiutava la risposta in HTTPS, in quanto violava lo standard, non rilevando quindi la presenza del captive portal ed impedendo all'utente di usufruire della navigazione. MIUI invece si comportava in modo più permissivo, ignorando l'infrazione del protocollo e presentando il login all'utente.\\\\
@@ -165,7 +198,7 @@ Per ogni nuovo dispositivo è stato sufficiente abilitare CAPsMAN sulle interfac
 Si è anche definita una password di accesso alla configurazione, che comunque non sarebbe stata raggiungibile da parte degli utilizzatori della connettività grazie al tunnel EoIP. \\
 L'accesso ad internet si è rivelato funzionante e tutti i dispositivi venivano inseriti all'interno della  VLAN con le corrispettive configurazioni fornite dal DHCP.
 
-\subsection{Test delle funzionalità di sicurezza in laboratorio} 
+\subsubsection{Test delle funzionalità di sicurezza in laboratorio} 
 Un altro aspetto di elevata importanza è stata la sicurezza fornita dal nuovo sistema. \\
 Innanzitutto si è verificata la stabilità del captive portal, cercando di forzare il login mediante attacchi \gloss{SQL injection} utilizzando SQLmap e VEGA. \\
 I risultati ottenuti sono stati soddisfacenti, in quanto un preciso controllo dei valori inseriti all'interno dei campi di testo impediva di aggirare l'autenticazione.
@@ -185,36 +218,6 @@ Nella immagine sottostante si può notare a sinistra una analisi effettuata in u
 	\includegraphics[width=1\linewidth]{"images/netcut"}
 	\caption{Risultati ottenuti con NetCut}
 	\label{fig:Risultati ottenuti con NetCut}
-\end{figure}
-
-\subsection{Scheduling backup delle impostazioni con rConfig}
-
-Per completare la messa in funzione di rConfig si sono suddivisi i dispositivi in gruppi secondo la loro locazione ed si sono predisposti dei backup periodici. \\
-Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari sono stati scelti in modo tale che i task non si sovrappongano tra di loro, così da evitare eventuali problemi.\\
-
-Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
-Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
-Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\\\
-Nell'immagine seguente si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\linewidth]{"images/rconfig_normalizzazione"}
-	\caption{Esempio della scarsa normalizzazione dei dati in rConfig}
-	\label{fig:Esempio della scarsa normalizzazione dei dati in rConfig}
-\end{figure}
-
-\subsection{Backup configurazioni MikroTik}
-Una volta avuto a disposizione i device MikroTik è emerso un problema inaspettato con rConfig, che non riusciva a completare il backup delle configurazioni su tali dispositivi. \\
-Il problema era causato da una serie di caratteri non stampati a schermo utilizzati dai dispositivi, che rConfig non sapeva rilevare correttamente, impedendogli di compiere i passaggi di login necessari. \\
-Per risolvere tale problema in modo veloce, efficiente e duraturo nel tempo si è scelto di incaricare il dispositivo stesso dell'effettuazione del backup. Per raggiungere tale scopo è stato creato uno script, visibile in \hyperref[sec:Appendice C]{Appendice C}, che permette il salvataggio automatico delle proprie configurazioni su un server FTP. \\
-Una volta verificato il corretto funzionamento dello script è stato schedulato in modo tale avvenga automaticamente ad intervalli prefissati. \\\\
-Ulteriormente il server FTP è stato dotato di un demone HTTP Apache, in modo da consentire la navigazione dei backup effettuati. Per migliorare la fruizione del sito si è utilizzato Directory Lister, il quale è stato modificato per richiedere l'inserimento di una password. \\
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{"images/DirectoryLister"}
-	\caption{Lista delle cartelle con i backup in Directory Lister}
-	\label{fig:Lista delle cartelle con i backup in Directory Lister}
 \end{figure}
 
 

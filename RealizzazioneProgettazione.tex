@@ -45,7 +45,7 @@ Un'altra caratteristica di estrema importanza è che le impostazioni, essendo ce
 Il sistema così organizzato però introduce un potenziale pericolo, in quanto il router che gestisce CAPsMAN è unico e rappresenta un single point of failure.
 
 \newpage
-\subsection{Politiche di sicurezza}
+\subsubsection{Politiche di sicurezza}
 Durante la progettazione si è decretato anche il numero di SSID wireless da impiegare e le loro modalità di accesso. \\
 L'attenzione è stata posta sulle reti utilizzate dal personale, in quanto consentono l'accesso a risorse di elevata importanza e per tale ragione devono essere protette. \\
 Per tali motivazioni si è scelto di creare 3 reti wireless, così definite:
@@ -57,8 +57,8 @@ Per tali motivazioni si è scelto di creare 3 reti wireless, così definite:
 
 Le misure di autenticazioni sono le seguenti:
 \begin{itemize}
-	\item \textbf{Corporate}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory e possedendo il relativo certificato digitale;
-	\item \textbf{Mobile}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory, senza la necessità di possedere il certificato digitale;
+	\item \textbf{Corporate}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory e usufruendo del relativo certificato digitale;
+	\item \textbf{Mobile}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory, senza la necessità di usufruire di un certificato digitale;
 	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e la registrazione su un \gloss{captive portal}.
 \end{itemize}
 
@@ -87,7 +87,7 @@ Infine, per la rete Guest, ci sarà la necessità di avere un servizio RADIUS es
 Sullo stesso server, per motivi di sicurezza, sarà presente anche parte del Captive Portal, realizzato con i servizi Apache HTTP e MySQL.
 
 \newpage
-\subsection{Captive portal}
+\subsection{Progettazione Captive portal}
 Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in uso in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
 La schermata di login si presenta con alcune form dedite all'inserimento della propria e-mail, della selezione di uno sponsor e della durata dell'account. \\
 Gli sponsor avranno il compito di confermare o rifiutare la richiesta e potranno essere gestiti dall'amministratore nella apposita area di amministrazione. \\
@@ -129,7 +129,8 @@ Per semplificare lo schema è sto omesso l'Autenticator, cioè l'Access Point, i
 \end{figure}
 
 \newpage
-\subsection{Definizione name-convention}
+\subsection{Progettazione entry DNS}
+\subsubsection{Definizione name-convention}
 La name-convention scelta per la denominazione degli apparati è la seguente:\\
 { \centering
 	\begin{ttfamily}
@@ -148,7 +149,7 @@ Nella quale i campi presenti indicano:
 Questa convenzione è stata scelta in accordo con il cliente per permettere una identificazione veloce dell'apparato di rete anche ai manutentori, in linea con le denominazione utilizzata internamente. \\\\
 La presenza del modello di dispositivo è contrario alla best-practice da seguire, in quanto la sostituzione di un apparato con un modello successivo richiede la sostituzione della voce all'interno del DNS e di conseguenza la riconfigurazione dei software di monitoraggio. Ciò è stato richiesto in quanto si favorisce l'immediatezza dell'identificazione del dispositivo a discapito della manutenibilità, tenendo in considerazione che gli upgrade non sono frequenti. \\
 
-\subsection{Definizione nomi DNS per gli apparati}
+\subsubsection{Definizione nomi DNS per gli apparati}
 Dopo aver definito la name-convention da utilizzare ed avere avuto l'approvazione dal cliente si è proseguito applicandola a tutti gli apparati. \\
 \'E quindi stato individuato il nome DNS per ogni dispositivo ed è stato riportato all'interno del documento contenente la lista degli apparati.
 
