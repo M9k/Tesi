@@ -23,7 +23,7 @@ Per terminare verrà sviluppato un sistema di autenticazione ad una rete WiFi ch
 Il progetto di stage ha come obiettivo quello di risolvere alcune problematiche riscontrate dal cliente all'interno della propria rete. \\\\
 Il primo problema è la presenza di un controllo non soddisfacente della rete, che non consente di individuare svariate problematiche finché esse non degenerano in un disservizio. \\\\
 Anche le procedure di disaster recovery in caso di guasto dei dispositivi non erano adeguate, in quanto non esisteva nessun backup o indicazione della configurazione utilizzata, quindi in caso di guasto si doveva configurare da zero il nuovo apparato, identificando le periferiche connesse seguendo i cavi.\\\\
-L'ultima problematica individuata è la rete Wireless presente negli uffici, protetta unicamente da una password in comune che veniva a volte fornita agli ospiti e, senza autorizzazione, utilizzata anche per i dispositivi personali dei dipendenti. La situazione viene aggravata dal fatto che la rete in esame fornisce l'accesso a risorse di elevata importanza, che non possono essere isolate in quanto utilizzate per lo svolgimento dell'attività lavorativa.
+L'ultima problematica individuata è la rete Wireless presente negli uffici, protetta unicamente da una unica password  che veniva a volte fornita agli ospiti e, senza autorizzazione, utilizzata anche per i dispositivi personali dei dipendenti. La situazione veniva aggravata dal fatto che la rete in esame fornisce l'accesso a risorse di elevata importanza, che non possono essere isolate in quanto utilizzate per lo svolgimento dell'attività lavorativa.
 
 \subsection{Soluzioni e strumenti utilizzati}
 Per implementare il monitoraggio si è scelto un software denominato Observium, che è andato ad affiancare ed in larga parte a sostituire un precedente servizio denominato PRTG Monitor. \\
@@ -31,7 +31,7 @@ Per implementare il monitoraggio si è scelto un software denominato Observium, 
 Il software scelto per la raccolta automatica delle configurazioni è stato RConfig, che però ha presentato alcune problematiche nella sua implementazione con i dispositivi MikroTik. Questo ha richiesto lo sviluppo di uno script aggiuntivo da caricare sui dispositivi stessi per ottenere il risultato desiderato. \\
 
 Per garantire una sicurezza fisica si è scelto di usufruire del protocollo di autenticazione 802.1X, che è stato appositamente sviluppato a questo fine.\\
-La rete WiFi è stata implementata utilizzando il protocollo CAPsMAN in modo tale da favorirne l'estensione e la gestione, collegata a dei servizi NPS e FreeRADIUS per verificare l'autenticazione. \`{E} stato necessario anche sviluppare un piccolo Captive Portal, in modo da consentire la registrazione ad eventuali ospiti.
+La rete WiFi è stata implementata utilizzando il protocollo CAPsMAN in modo tale da favorirne l'estensione e la gestione, collegata a dei servizi NPS e FreeRADIUS per verificare l'autenticazione. \`{E} stato necessario anche sviluppare un piccolo Captive Portal, al fine di consentire la registrazione ad eventuali ospiti.
 
 \subsection{Problemi riscontrati}
 Durante l'attività di stage sono state incontrate alcune difficoltà e limitazioni tecniche, che hanno protratto il tempo impiegato in alcune attività. La più critica è stata l'impossibilità per RConfig di leggere autonomamente la configurazione dei dispositivi prodotti da MikroTik, che ha richiesto uno sviluppo di uno script dedicato non previsto inizialmente.
