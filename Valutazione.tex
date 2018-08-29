@@ -181,7 +181,7 @@ Questo mi ha fatto comprendere molti aspetti che ignoravo, come l'importanza di 
 
 \subsubsection{Comprensione delle principali problematiche di una rete di grandi dimensioni}
 Lavorando a contatto con una rete di dimensioni così considerevoli ho potuto apprendere quali sono le principali problematiche. Questo mi ha fatto capire che la probabilità di guasti è molto bassa per ogni singolo componente, ma considerando l'estensione della rete risultano frequenti. \\
-Le cause principali delle disconnessioni degli apparati sono da attribuirsi a problemi della distribuzione della corrente elettrica, che in ambienti vasti e con un elevato numero di persone è frequente. \\
+Le cause principali delle disconnessioni degli apparati sono da attribuirsi a problemi della distribuzione della corrente elettrica, che in ambienti vasti e con un elevato numero di persone presenta discontinuità frequenti. \\
 Una seconda problematica sono i guasti hardware, legati principalmente all'alimentazione PoE delle porte, all'alimentazione del dispositivo o agli iniettori di corrente PoE, mentre le componenti che potrebbero essere considerate più complesse, come gli elaboratori o gli switch chip, sono molto meno inclini a problemi.
 
 \newpage
@@ -208,7 +208,7 @@ Questo mi ha permesso di svolgere nel giro di alcune ore una mole di lavoro che,
 \section{Vincoli del progetto}
 \subsection{Vincoli tecnologici}
 \subsubsection{Statistiche VLAN}
-Una limitazione tecnologica attualmente presente in Observium è la sua incapacità di creare dei raggruppamenti in base alla VLAN utilizzata. \\
+Una limitazione tecnologica attualmente presente in Observium è la sua incapacità di creare dei raggruppamenti delle interfacce in base alla VLAN utilizzata. \\
 Questo fatto, in concomitanza agli switch utilizzati che non permettevano la raccolta di statistiche dalle interfacce virtuali, comprendenti le VLAN, ha impedito di ottenere statistiche sull'utilizzo della rete suddivise per rete virtuale. \\
 La limitazione non si sarebbe presentata con l'adozione di switch Cisco, in quanto essi raccolgono informazioni suddividendoli anche per VLAN, che possono poi essere raggruppati con facilità su Observium. \\
 L'informazione che si sarebbe dovuta utilizzare per il raggruppamento delle porte fisiche è già presente all'interno del database dell'applicazione, ed è già possibile utilizzarla per creare un filtro sugli avvisi, ma non è ancora stata implementata per il raggruppamento.
