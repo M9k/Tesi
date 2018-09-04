@@ -73,7 +73,7 @@ Per terminare è stato eseguito lo script, che ha proceduto all'inserimento degl
 
 \subsubsection{Scheduling backup delle impostazioni con rConfig}
 
-Per completare la messa in funzione di rConfig si sono suddivisi i dispositivi in gruppi secondo la loro locazione ed si sono predisposti dei backup periodici. \\
+Per completare la messa in funzione di rConfig si sono suddivisi i dispositivi in gruppi secondo la loro locazione e si sono predisposti dei backup periodici. \\
 Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza settimanale durante la notte, facendo attenzione a non sovrapporsi al backup giornaliero degli altri apparati. Gli orari sono stati scelti in modo tale che i task non si sovrappongano tra di loro, così da evitare eventuali problemi.\\
 
 Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più recente. \\
@@ -119,7 +119,7 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 \subsection{Attivazione servizio NPS in Active Directory} 
 Per consentire l'autenticazione tramite le credenziali Active Directory è stato predisposto il servizio NPS, in italiano denominato "criteri di rete". \\
 Innanzitutto è stato abilitato il servizio NPS, per poi essere successivamente configurato. Si è poi proceduto con l'abilitazione del 802.1X, aggiungendo i clients RADIUS, che nel nostro caso è unicamente il MikroTik Cloud Core Router.\\
-Prima di definire le politiche è stato creato un gruppo di utenti, il quale conterrà tutti coloro che avranno il privilegio di usufruire delle rete CORPORATE e MOBILE. \\\\
+Prima di definire le politiche è stato creato un gruppo di utenti, il quale conterrà tutti coloro che avranno il privilegio di usufruire delle reti CORPORATE e MOBILE. \\\\
 Le politiche di accettazione delle richieste possono essere riepilogate nel seguente modo:
 \begin{enumerate}
 \item Accetta se l'indirizzo IP appartiene alla rete Corporate, viene fornito il certificato corretto e le credenziali appartengono ad un utente inserito nel relativo gruppo;

@@ -108,7 +108,7 @@ La rete presenta anche una password di accesso, di bassa complessità, in modo t
 Si è scelto di mantenere la procedura di login all'interno del router MikroTik per evitare redirezioni inutili, il quale andrà a controllare la validità dell'account comunicando con il protocollo RADIUS verso i relativi servizi. \\
 La registrazione e la parte di amministrazione avverranno in autonomia su una macchina virtuale, che avrà il compito di far interagire l'interfaccia web con il database in modo tale da aggiornare le informazioni contenute nel RADIUS e di comunicare le credenziali tramite e-mail. \\
 
-Il dispositivo MikroTik presenta un Captive Portal di default, che sarà quindi personalizzato modificandone le grafica ed inserendo tutti i collegamenti verso le pagine di registrazione ed amministrazione presenti sulla macchina virtuale. \\
+Il dispositivo MikroTik presenta un Captive Portal di default, che sarà quindi personalizzato modificandone l'aspetto grafico ed inserendo tutti i collegamenti verso le pagine di registrazione ed amministrazione presenti sulla macchina virtuale. \\
 
 Di seguito sono riportate alcuni diagrammi per meglio comprendere l'iterazione delle varie parti tra di loro. \\
 Per semplificare lo schema è sto omesso l'Autenticator, cioè l'Access Point, in quanto la sua iterazione avviene su un livello inferiore rispetto a quello analizzato attualmente.
