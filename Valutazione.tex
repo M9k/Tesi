@@ -209,7 +209,6 @@ Questo mi ha permesso di svolgere nel giro di alcune ore una mole di lavoro che,
 \subsection{Vincoli tecnologici}
 \subsubsection{Statistiche VLAN}
 Una limitazione tecnologica attualmente presente in Observium è la sua incapacità di creare dei raggruppamenti delle interfacce in base alla VLAN utilizzata. \\
-%TODO troppo verboso
 Questo fatto, in concomitanza agli switch utilizzati che non permettevano la raccolta di statistiche dalle interfacce virtuali, comprendenti le VLAN, ha impedito di ottenere statistiche sull'utilizzo della rete suddivise per rete virtuale. \\
 La limitazione non si sarebbe presentata con l'adozione di switch Cisco, in quanto essi raccolgono informazioni suddividendoli anche per VLAN, che possono poi essere raggruppati con facilità su Observium. \\
 L'informazione che si sarebbe dovuta utilizzare per il raggruppamento delle porte fisiche è già presente all'interno del database dell'applicazione, ed è già possibile utilizzarla per creare un filtro sugli avvisi, ma non è ancora stata implementata per il raggruppamento.
@@ -222,8 +221,7 @@ Infine il log generato dall'applicazione era poco verboso, che in accoppiata ad 
 \subsubsection{Utilizzo di SSL nel Captive Portal}
 Per aumentare la sicurezza della rete si è anche analizzata la possibilità di utilizzare HTTPS supportato da certificati digitali SSL self signed per il Captive Portal. \\
 Purtroppo questa pratica non è permessa dallo standard HTTPS nell'ambito dei Captive Portal, in quanto il protocollo mira ad impedire redirezioni forzate dell'utente, compresa quella necessaria per essere portati alla pagina di autenticazione. \\
-%TODO troppo verboso
-Molti dispositivi, soprattutto mobili, per verificare la presenza dei Captive Portal inviano una richiesta http ad un server e individuano se la risposta è corretta oppure se c'è stata un redirezione, procedendo quindi ad avvisare l'utente e a visualizzare la pagina che hanno ricevuto. Se la risposta avviene mediante HTTPS allora sarà errato rispetto a quanto richiesto, solitamente portando ad ignorare l'intera procedura. Questo impedisce di rilevare il portale, quindi l'utente non potrà effettuare il login ed utilizzare la rete.
+Molti dispositivi, soprattutto mobili, per verificare la presenza dei Captive Portal inviano una richiesta HTTP ad un server e individuano se la risposta è corretta oppure se c'è stata un redirezione, che indica una richiesta di autenticazione. Se la risposta viene ricevuta mediante HTTPS allora avviene una violazione del protocollo, portando il dispositivo ad ignorare l'intera procedura. Questo impedisce di rilevare il portale, con la conseguenza che l'utente non potrà effettuare il login ed utilizzare la rete.
 
 \subsection{Vincoli temporali}
 Fortunatamente non si sono presentati vincoli riguardanti la durata dell'attività, in quanto, seppur alcune attività avessero impiegato un tempo maggiore a quanto preventivato, complessivamente il numero di ore concessomi è stato sufficiente a terminare tutti gli obiettivi posti inizialmente.

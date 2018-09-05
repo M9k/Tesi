@@ -9,14 +9,14 @@
 	\item \textbf{Periodo effettivo}: dal 11/06/2018 al 26/06/2018;
 	\item \textbf{Numero di ore effettive}: 96h.
 \end{itemize}
-Una volta terminata la fase di analisi della rete si è proceduto a progettare tutti i software e le configurazioni che saranno implementate. \\
+Una volta terminata la fase di analisi della rete si è proceduto a progettare tutti i software e le configurazioni che sono state successivamente implementate. \\
 Lo svolgimento di questa attività ha occupato una durata temporale maggiore di quella prevista, in quanto è stato necessario avere un dialogo con il cliente per meglio capire le sue necessità e si è dovuto individuare e studiare le tecnologie da utilizzare.
 
 \subsection{Progettazione Observium}
 Prima di installare e mettere in funzione il software di monitoraggio Observium lo si è provato localmente, al fine di individuare pregi e difetti del programma e comprendere quindi il miglior modo di utilizzarlo.\\
 Inizialmente è stato istanziato inserendo al suo interno 5 apparati di rete, sui quali si sono testate svariate configurazioni per comprendere gli aspetti che potessero ritornare utili al monitoraggio della rete e quelli che, invece, non erano efficaci per il contesto.\\\\
-Si è notato che la posizione GPS rilevata automaticamente del software era troppo imprecisa, ma la funzionalità è di elevata importanza visto l'estensione della rete. Si è dunque deciso di inserirle manualmente, sovrascrivendo il dato presente. \\
-Un'altra opzione che si è rilevata fondamentale è la disabilitazione delle interfacce non in uso, che avrebbero generato avvertimenti inutili. \\
+Si è notato che la posizione GPS rilevata automaticamente del software era troppo imprecisa, ma la funzionalità è di elevata importanza vista l'estensione della rete. Si è dunque deciso di inserirle manualmente, sovrascrivendo il dato presente. \\
+Un'altra impostazione che si è rilevata fondamentale è stata la disabilitazione delle interfacce non utilizzate, che avrebbero generato avvisi inutili. \\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"images/Observium_porte"}
@@ -27,9 +27,9 @@ Ulteriormente il software visualizzava anche l'area di appartenenza dei devices 
 
 \subsection{Progettazione rConfig}
 Analogamente a quanto effettuato con Observium, anche per il software di gestione delle configurazioni rConfig si è eseguito un test per comprenderne le potenzialità e la migliore modalità di utilizzo. \\
-Sono stati inseriti anche per esso 6 dispositivi, in modo tale da avere almeno un dispositivo per ogni modello di apparato in utilizzo. \\\\
+Sono stati inseriti anche per esso 6 dispositivi, in modo tale da avere almeno un dispositivo per ogni modello di apparato in uso presso il cliente. \\\\
 Si sono notati da subito alcuni problemi, sia di utilizzo che di sicurezza, e di conseguenza si è dovuto fare particolare attenzione nella progettazione, in modo da impedire malfunzionamenti ed accessi non autorizzati. \\
-Uno dei problemi di sicurezza riscontrati, che si è scoperto essere presente anche nelle altre istanze utilizzate dall'azienda, è una vulnerabilità \gloss{SQL injection} che permetteva di ottenere una lista completa dei report effettuati, compresi quelli rimossi o non accessibili per l'account in uso. \\
+Uno dei problemi di sicurezza riscontrati, che si è scoperto essere presente anche nelle altre istanze utilizzate dall'azienda, è una vulnerabilità \gloss{SQL injection} che permetteva di ottenere una lista completa dei report effettuati, compresi quelli rimossi o non accessibili dall'account in uso. \\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"images/rConfig_SQLi"}
@@ -38,10 +38,10 @@ Uno dei problemi di sicurezza riscontrati, che si è scoperto essere presente an
 \end{figure}
 
 \subsection{Progettazione della rete WiFi dedita agli uffici}
-Per permettere una estensibilità della rete senza l'intervento di un tecnico per la sua configurazione si è scelto di utilizzare CAPsMAN. \\
-La struttura della tecnologia CAPsMAN si basa su un router centrale, prodotto da MikroTik, che gestisce e fornisce le configurazioni. Su questo router vengono collegati, mediante la VLAN a lui dedicata, gli Access Point, che provvederanno autonomamente a recuperare ed applicare le impostazioni corrette. \\\\
+Per permettere una semplice e veloce estensibilità della rete si è scelto di utilizzare il protocollo CAPsMAN sviluppato da MikroTik. \\
+La struttura della tecnologia CAPsMAN si basa su un router centrale, con installato il sistema operativo RouteOS, che gestisce e fornisce le configurazioni. Su questo router vengono collegati, mediante una VLAN dedicata, gli Access Point, che provvederanno autonomamente a recuperare ed applicare le impostazioni corrette. \\\\
 Questa metodologia permette, in caso di estensione della rete, di evitare una configurazione manuale dei dispositivi, che potrebbe presentare errori di distrazione e compromettere la sicurezza. \\
-Un'altra caratteristica di estrema importanza è che le impostazioni, essendo centralizzate, possono essere modificate unicamente nel router e le modifiche vengono poi trasmesse automaticamente a tutti i dispositivi. \\\\
+Un'altra caratteristica di estrema importanza è che le impostazioni, essendo centralizzate, possono essere modificate unicamente nel router e verranno automaticamente trasmesse a tutti gli access point. \\\\
 Il sistema così organizzato però introduce un potenziale pericolo, in quanto il router che gestisce CAPsMAN è unico e rappresenta un single point of failure.
 
 \newpage
@@ -51,18 +51,18 @@ L'attenzione è stata posta sulle reti utilizzate dal personale, in quanto conse
 Per tali motivazioni si è scelto di creare 3 reti wireless, così definite:
 \begin{itemize}
 	\item \textbf{Corporate}: rete dedita alla connessione dei computer dediti ad attività lavorative, consente l'accesso alle risorse;
-	\item \textbf{Mobile}: rete dedicata ai dispositivi personali e/o lavorativi dei dipendenti, come smartphone e tablet, che non richiedono l'accesso a risorse;
+	\item \textbf{Mobile}: rete dedicata ai dispositivi personali e/o lavorativi dei dipendenti, come smartphone e tablet, che non richiedono l'accesso alle risorse e ai servizi;
 	\item \textbf{Guest}: rete atta a fornire una connettività internet agli ospiti degli uffici.
 \end{itemize}
 
-Le misure di autenticazioni sono le seguenti:
+Le misure di autenticazione sono le seguenti:
 \begin{itemize}
 	\item \textbf{Corporate}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory e usufruendo del relativo certificato digitale;
 	\item \textbf{Mobile}: l'accesso è consentito previa autenticazione mediante EAP utilizzando le proprie credenziali Active Directory, senza la necessità di usufruire di un certificato digitale;
-	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e la registrazione su un \gloss{captive portal}.
+	\item \textbf{Guest}: l'accesso è consentito mediante l'inserimento di una password di bassa complessità e l'autenticazione tramite un \gloss{captive portal}.
 \end{itemize}
 
-Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il router MikroTik per determinare l'accettazione o il rifiuto delle richieste di autenticazione, ma saranno necessari dei servizi esterni, che verranno contattati mediante RADIUS. 
+Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il router MikroTik per determinare l'approvazione o il rifiuto delle richieste di autenticazione, ma saranno necessari dei servizi esterni, che verranno raggiunti mediante il protocollo RADIUS. 
 
 
 \newpage
@@ -72,7 +72,7 @@ Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il rout
 	\caption{Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 	\label{fig:Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 \end{figure}
-Per quanto riguarda la rete Corporate il Auntenticator, non contenendo nessuna politica per l'approvazione delle richieste, si comporterà da Proxy ed invierà la richiesta al server NPS.\\
+Per quanto riguarda la rete Corporate il Autentication Server, non contenendo nessuna politica per l'approvazione delle richieste, si comporterà da Proxy ed invierà la richiesta al server NPS.\\
 Il servizio Microsoft verificherà innanzitutto che il certificato digitale fornito venga utilizzato, rifiutando immediatamente la richiesta nel caso fosse non crittografata o non conforme a quanto atteso. Invece, se il certificato è stato correttamente utilizzato, procederà a effettuare un riscontro tra le credenziali e gli account presenti nell'Active Directory, individuando la presenza o meno dell'utente.\\\\
 Nel caso la richiesta provenisse dalla rete Mobile la procedura risulta la medesima, con l'eccezione che il certificato non viene richiesto.
 
@@ -83,14 +83,14 @@ Nel caso la richiesta provenisse dalla rete Mobile la procedura risulta la medes
 	\caption{Schema dei dispositivi e dei protocolli usati per la rete Guest}
 	\label{fig:Schema dei dispositivi e dei protocolli usati per la rete Guest}
 \end{figure}
-Infine, per la rete Guest, ci sarà la necessità di avere un servizio RADIUS esterno al router al quale effettuare le richieste, in modo tale che sia sicuro, facilmente raggiungibile e mantenibile mediante una interfaccia web. \\
+Infine, per la rete Guest, ci sarà la necessità di avere un servizio RADIUS esterno al router sul quale gestire le richieste di login e di registrazione. \\
 Sullo stesso server, per motivi di sicurezza, sarà presente anche parte del Captive Portal, realizzato con i servizi Apache HTTP e MySQL.
 
 \newpage
 \subsection{Progettazione Captive portal}
 Per la progettazione del \gloss{captive portal} si è scelto di utilizzare come modello uno già in uso in alcune soluzioni sviluppate da Wintech, in modo tale da dedicare meno tempo alla progettazione e porre l'attenzione sugli aspetti di networking e di sicurezza. \\\\
 La schermata di login si presenta con alcune form dedite all'inserimento della propria e-mail, della selezione di uno sponsor e della durata dell'account. \\
-Gli sponsor avranno il compito di confermare o rifiutare la richiesta e potranno essere gestiti dall'amministratore nella apposita area di amministrazione. \\
+Gli sponsor avranno il compito di confermare o rifiutare le richieste di registrazione e potranno essere gestiti dall'amministratore nella apposita sezione. \\
 
 
 \begin{figure}[H]
@@ -100,8 +100,8 @@ Gli sponsor avranno il compito di confermare o rifiutare la richiesta e potranno
 	\label{fig:Schermata per la richiesta di un account}
 \end{figure}
 
-Una volta effettuata la richiesta di registrazione verrà inviata una e-mail allo sponsor, ed in caso di approvazione verrà comunicata la password di accesso al richiedente. \\
-L'account avrà una durata temporale limitata, scelta dall'utente tra serie di opzioni decretate dall'amministratore. Questa caratteristica serve per scoraggiare eventuali dipendenti a farne uso per le loro attività lavorative e per impedire un accumularsi di vecchi account registrati ma non più utilizzati. \\
+Una volta effettuata la richiesta di registrazione verrà inviata una e-mail allo sponsor e, in caso di approvazione, verrà comunicata al richiedente la password di accesso. \\
+L'account avrà una durata temporale limitata, scelta dall'utente tra una serie di valori decretati dall'amministratore. Questa caratteristica serve per scoraggiare eventuali dipendenti a farne uso per le loro attività lavorative e per impedire un accumularsi di vecchi account registrati ma non più utilizzati. \\
 \newpage
 La rete presenta anche una password di accesso, di bassa complessità, in modo tale da evitare un possibile spam, o flooding, di e-mail ai danni degli sponsor. \\
 
