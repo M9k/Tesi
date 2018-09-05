@@ -37,7 +37,7 @@
 \label{sec:Appendice B}
 \section*{Appendice B: Script di popolamento rConfig}
 \addcontentsline{toc}{section}{Appendice B: Script di popolamento rConfig}
-Il codice sotto riportato è uno script in linguaggio JavaScript per il popolamento automatico, una volta inseriti i dati, di rConfig. \\
+Il codice sotto riportato è uno script in linguaggio JavaScript per il popolamento automatico dei dispositivi su rConfig. \\
 Lo script può essere utilizzato mediante il plug-in GreaseMonkey versione 4.0 o successive, in quanto richiede l'archiviazione di un valore nella memoria dell'estensione per funzionare. \\
 
 
@@ -147,12 +147,12 @@ Le linee 13, 14 e 15 sono 3 apparati che saranno inseriti alla esecuzione dello 
 	\item Marca del dispositivo
 	\item Modello del dispositivo
 	\item Gruppo rConfig di appartenenza del dispositivo, utilizzabile per il filtraggio
-	\item Locazione del dispozitivo, utilizzabile per il filtraggio
+	\item Locazione del dispositivo, utilizzabile per il filtraggio
 	\item Template rConfig relativo alla configurazione da utilizzare per il recupero dei dati
 \end{enumerate}
 
-Le linee 54, 55 e 56 presentano la possibilità di specificare i parametri per effettuare il login ai dispositivi, attualmente non utilizzati in quanto si utilizza le credenziali impostate come di default. \\
-La linea 74 presenta un variabile "reset" che se impostata a true, invece che eseguire lo script, va ad azzerare i valori utilizzati dal plugin, permettendone una seconda esecuzione.
+Le linee 54, 55 e 56 presentano i parametri per effettuare il login ai dispositivi nel caso non si desiderasse utilizzare le credenziali di default, disabilitabili alla linea 53. \\
+La linea 74 presenta un variabile "reset" che, se impostata a true, non esegue l'inserimento ma va ad azzerare i valori utilizzati dal plugin, permettendone una seconda esecuzione.
 
 
 \label{sec:Appendice C}

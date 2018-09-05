@@ -23,7 +23,7 @@
 \end{longtable}
 
 \subsection{Considerazioni sugli scostamenti}
-Durante l'esecuzione delle attività sono avvenuti degli scostamenti temporali su quanto preventivato. Le cause sono principalmente da ricercarsi sull'utilizzo di tecnologie a me poco conosciute, che mi hanno impedito di determinare con precisione i tempi. \\
+Durante l'esecuzione delle attività sono avvenuti degli scostamenti temporali rispetto quanto preventivato. Le cause sono principalmente da ricercarsi sull'utilizzo di tecnologie a me poco conosciute, che mi hanno impedito di preventivare con precisione i tempi. \\
 Grazie però ad una estesa analisi preliminare delle tecnologie ed a una buona progettazione non è stato dispendioso metterci mano successivamente per rendere il risultato pronto alla produzione, consentendomi quindi di terminare l'attività senza aver tralasciato nulla di quanto pianificato inizialmente.
 
 \section{Risultati ottenuti}
@@ -154,30 +154,30 @@ Di seguito sono riportati i risultati ottenuti a fine stage.
 Al termine dello stage la rete è stata posta sotto monitoraggio in ogni sua parte, consentendo di ottenere informazioni, statistiche e segnalazioni in tempo reale.
 
 \subsubsection{Versioning delle configurazioni dei dispositivi}
-Le impostazioni dei dispositivi, che erano precedentemente perdute se accadeva un guasto del dispositivo, sono ora periodicamente salvate e mantenute in un ambiente sicuro, permettendo un rapido ripristino della configurazione su una nuova macchina nel caso ci sia la necessità di sostituzione.
+Le impostazioni dei dispositivi, che erano precedentemente perdute se accadeva un guasto hardware, sono ora periodicamente salvate e mantenute in un ambiente sicuro, permettendo un rapido ripristino della configurazione su una nuova macchina nel caso ci sia la necessità di effettuare una sostituzione.
 
 \subsubsection{Nuovo sistema di Access Point}
-Gli access point precedenti, prodotti per utenti casuali e quindi di scarse funzionalità, sono ora stati sostituiti da dispositivi più performanti, più sicuri e più manutenibili. \\
+Gli access point precedenti, prodotti per un utilizzo domestico e quindi di scarse funzionalità, sono ora stati sostituiti da dispositivi più performanti, più sicuri e più manutenibili. \\
 Con il nuovo sistema adottato è anche possibile estendere, con una minima configurazione, la rete, mantenendone la sicurezza e le caratteristiche.
 
 \subsubsection{Politiche di sicurezza}
 Il vecchio sistema di autenticazione nel WI-FI, che consisteva nell'utilizzo di una password unica per tutti, dall'ospite al dirigente, è stato completamente rivisto. \\
-Sono state introdotte più reti, ognuna con una classe di utenti ben definiti, e le politiche di sicurezza e di autenticazione sono state concepite secondo le necessità degli utilizzatori delle rispettive reti.
+La connessione è stata suddivisa rispecchiando le classi d'utenza e le politiche di sicurezza e di autenticazione sono state concepite secondo le necessità dei fruitori delle rispettive reti.
 
 \subsubsection{Creazione di un captive portal}
 Per consentire un tracciamento degli ospiti, impedire la diffusione delle password di accesso e scoraggiarne l'utilizzo da parte dei dipendenti è stato creato un captive portal a sostegno dell'autenticazione della rete Guest. \\ 
-Il prodotto finale offre all'amministratore un pannello di controllo, in modo che possa modificare autonomamente le informazioni in esso raccolte, senza dover accedere manualmente alla base di dati.
+Il prodotto finale offre all'amministratore un pannello di controllo, in modo che possa modificare autonomamente e con facilità le impostazioni.
 
 
 \newpage
 \subsection{Sviluppi futuri}
 L'attività svolta ha portato ad un drastico incremento della sicurezza nella rete, che però si è limitata, per motivi di tempo, solamente ad alcuni ambiti.\\
-A fronte del lavoro svolto, soprattutto in riferimento all'implementazione della rete WiFi con 802.1X e NPS, si sono stese delle solide basi per estendere ulteriormente la sicurezza. Un possibile progetto, impegnativo ed impattante sulla configurazione di tutta la rete, sarebbe l'implementazione del protocollo 802.1X sulla rete cablata. Questo porterebbe a un miglioramento aggiuntivo di notevole importanza alla sicurezza fisica della rete.
+A fronte del lavoro svolto, soprattutto in riferimento all'implementazione della rete WiFi con 802.1X e NPS, si sono stese delle solide basi per estendere ulteriormente la sicurezza. Un possibile progetto, impegnativo ed impattante sulla configurazione di tutta la rete, sarebbe l'implementazione del protocollo 802.1X sulla rete cablata. Questo porterebbe a un ulteriore miglioramento di notevole importanza alla sicurezza fisica della rete.
 
 \subsection{Risultati personali}
 \subsubsection{Approfondimento del funzionamento di una rete Campus Area Network}
 Grazie all'attività offertami ho potuto interagire sul campo con gli apparati di rete, che avevo precedentemente studiato attraverso la certificazione Cisco in mio possesso e i corsi universitari da me frequentati. \\
-Questo mi ha fatto comprendere molti aspetti che ignoravo, come l'importanza di avere la ridondanza nelle connessioni, le criticità provocate dai colli di bottiglia e la velocità con la quale l'utilizzo della rete può cambiare in concomitanza a particolari momenti della giornata od eventi sociali.
+Questo mi ha fatto comprendere molti aspetti che ignoravo, come l'importanza di avere la ridondanza delle connessioni, le criticità provocate dai colli di bottiglia e la velocità con la quale l'utilizzo della rete può cambiare in concomitanza a particolari momenti della giornata od eventi sociali.
 
 \subsubsection{Comprensione delle principali problematiche di una rete di grandi dimensioni}
 Lavorando a contatto con una rete di dimensioni così considerevoli ho potuto apprendere quali sono le principali problematiche. Questo mi ha fatto capire che la probabilità di guasti è molto bassa per ogni singolo componente, ma considerando l'estensione della rete risultano frequenti. \\
@@ -187,7 +187,7 @@ Una seconda problematica sono i guasti hardware, legati principalmente all'alime
 \newpage
 \subsubsection{Apprendimento dell'importanza del monitoraggio}
 Grazie all'attività svolta ho potuto constatare anche quanto frequentemente le problematiche presenti in una rete non sono neppure rilevate, e rimangono tali fino a quando non portano a disservizi. \\
-In particolare ho individuato, mediante l'aiuto di Observium, la presenza di 3 switch che presentavano il PoE in uno stato di Fault, il quale non era segnalato su PRTG e non veniva neppure evidenziato nell'interfaccia web del dispositivo.
+In particolare ho individuato, mediante l'aiuto di Observium, la presenza di 3 switch che presentavano il PoE in uno stato di Fault. Il problema non era segnalato su PRTG e non veniva neppure evidenziato nell'interfaccia web del dispositivo.
 
 \subsubsection{Apprendimento tecnologie per il proseguimento della sicurezza}
 Durante il corso di reti ho potuto apprendere svariate metodologie e tecnologie utilizzate per il conseguimento della sicurezza, però molte di esse non erano state analizzate durante le lezioni a causa della vastità dell'argomento e della durata del corso. \\
@@ -209,21 +209,23 @@ Questo mi ha permesso di svolgere nel giro di alcune ore una mole di lavoro che,
 \subsection{Vincoli tecnologici}
 \subsubsection{Statistiche VLAN}
 Una limitazione tecnologica attualmente presente in Observium è la sua incapacità di creare dei raggruppamenti delle interfacce in base alla VLAN utilizzata. \\
+%TODO troppo verboso
 Questo fatto, in concomitanza agli switch utilizzati che non permettevano la raccolta di statistiche dalle interfacce virtuali, comprendenti le VLAN, ha impedito di ottenere statistiche sull'utilizzo della rete suddivise per rete virtuale. \\
 La limitazione non si sarebbe presentata con l'adozione di switch Cisco, in quanto essi raccolgono informazioni suddividendoli anche per VLAN, che possono poi essere raggruppati con facilità su Observium. \\
 L'informazione che si sarebbe dovuta utilizzare per il raggruppamento delle porte fisiche è già presente all'interno del database dell'applicazione, ed è già possibile utilizzarla per creare un filtro sugli avvisi, ma non è ancora stata implementata per il raggruppamento.
 
 \subsubsection{Supporto MikroTik in rConfig}
 Una problematica emersa durante la configurazione dei backup automatici dei dispositivi è stata l'impossibilità di utilizzare rConfig per i dispositivi MikroTik. \\
-Questa problematica deriva probabilmente dal fatto che il sistema di MikroTik, denominato RouteOS, invia sui terminali anche caratteri speciali per il colore del testo, i quali sono male interpretati da rConfig. Questo impedisce al programma di svolgere la sua funzionalità, in quanto non riesce a comprendere le risposte che gli vengono fornite dall'apparato. \\
+La problematica deriva dal fatto che il sistema di MikroTik, denominato RouteOS, invia sui terminali anche caratteri speciali per il colore del testo, i quali sono male interpretati da rConfig. Questo impedisce al programma di svolgere la sua funzionalità, in quanto non riesce a comprendere le risposte che gli vengono fornite dall'apparato. \\
 Infine il log generato dall'applicazione era poco verboso, che in accoppiata ad una progettazione non di elevato livello andava ad aumentare la difficoltà nella individuazione di una eventuale patch. Per tale motivo si è scelto di proseguire per una via alternativa, delegando i singoli dispositivi ad effettuare autonomamente un backup ed a salvarlo in remoto, piuttosto che mettere mano al codice sorgente del programma.
 
 \subsubsection{Utilizzo di SSL nel Captive Portal}
 Per aumentare la sicurezza della rete si è anche analizzata la possibilità di utilizzare HTTPS supportato da certificati digitali SSL self signed per il Captive Portal. \\
 Purtroppo questa pratica non è permessa dallo standard HTTPS nell'ambito dei Captive Portal, in quanto il protocollo mira ad impedire redirezioni forzate dell'utente, compresa quella necessaria per essere portati alla pagina di autenticazione. \\
+%TODO troppo verboso
 Molti dispositivi, soprattutto mobili, per verificare la presenza dei Captive Portal inviano una richiesta http ad un server e individuano se la risposta è corretta oppure se c'è stata un redirezione, procedendo quindi ad avvisare l'utente e a visualizzare la pagina che hanno ricevuto. Se la risposta avviene mediante HTTPS allora sarà errato rispetto a quanto richiesto, solitamente portando ad ignorare l'intera procedura. Questo impedisce di rilevare il portale, quindi l'utente non potrà effettuare il login ed utilizzare la rete.
 
 \subsection{Vincoli temporali}
-Fortunatamente non si sono presentati vincoli riguardanti la durata dell'attività, in quanto, seppur alcune attività avessero impiegato un tempo maggiore a quanto preventivato, complessivamente il numero di ore concessomi è stato sufficiente a terminare tutti gli obbiettivi posti inizialmente.
+Fortunatamente non si sono presentati vincoli riguardanti la durata dell'attività, in quanto, seppur alcune attività avessero impiegato un tempo maggiore a quanto preventivato, complessivamente il numero di ore concessomi è stato sufficiente a terminare tutti gli obiettivi posti inizialmente.
 
 \end{document}

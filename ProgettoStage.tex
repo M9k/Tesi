@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{Progetto di stage}
 Lo scopo dell'attività di stage è l’analisi, la progettazione e l'implementazione di un sistema di monitoraggio e di nuove politiche di sicurezza relative a una Campus Area Network, impropriamente detta anche LAN Campus. \\
-Le conoscenze apprese durante lo svolgimento dell'attività consistono nella capacità di progettare e implementare una soluzione per raggiungere gli obbiettivi prefissati, oltre che ad effettuare attività di tuning per perfezionarla.
+Le conoscenze apprese durante lo svolgimento dell'attività consistono nella capacità di progettare e implementare una soluzione per raggiungere gli obiettivi prefissati, oltre che ad effettuare attività di tuning per perfezionarla.
 
 
 \section{Panoramica del progetto}
@@ -16,36 +16,36 @@ Il progetto di stage è costituito principalmente da tre parti:
 \end{itemize}
 
 Il sistema di monitoraggio avrà il compito di mantenere costantemente la rete sotto osservazione, notificando quando si presentano problemi. \\
-Il sistema di versionamento delle configurazioni degli apparati di rete deve consentire una sostituzione fulminea in caso di guasti dell'infrastruttura, consentendo di ripristinare tutte le impostazioni presenti senza doverle ridefinire nuovamente. \\
-Per terminare verrà sviluppato un sistema di autenticazione ad una rete WiFi che impedisca un accesso fisico alle risorse collegate per coloro che non ne possiedono i relativi privilegi.\\
+Il sistema di versionamento delle configurazioni degli apparati di rete deve permettere una sostituzione fulminea in caso di guasti dell'infrastruttura, consentendo di ripristinare tutte le impostazioni presenti senza doverle ridefinire nuovamente. \\
+Per concludere verrà sviluppato un sistema di autenticazione ad una rete WiFi che impedisca un accesso fisico alle risorse collegate per coloro che non ne possiedono i relativi privilegi.\\
 
-\subsection{Obbiettivi dello stage}
+\subsection{Obiettivi dello stage}
 Il progetto di stage ha come obiettivo quello di risolvere alcune problematiche riscontrate dal cliente all'interno della propria rete. \\\\
 Il primo problema è la presenza di un controllo non soddisfacente della rete, che non consente di individuare svariate problematiche finché esse non degenerano in un disservizio. \\\\
-Anche le procedure di disaster recovery in caso di guasto dei dispositivi non erano adeguate, in quanto non esisteva nessun backup o indicazione della configurazione utilizzata, quindi in caso di guasto si doveva configurare da zero il nuovo apparato, identificando le periferiche connesse seguendo il cablaggio.\\\\
-L'ultima problematica individuata è la rete Wireless presente negli uffici, protetta unicamente da una unica password  che veniva a volte fornita agli ospiti e, senza autorizzazione, utilizzata anche per i dispositivi personali dei dipendenti. La situazione veniva aggravata dal fatto che la rete in esame fornisce l'accesso a risorse di elevata importanza, che non possono essere isolate in quanto utilizzate per lo svolgimento dell'attività lavorativa.
+Anche le procedure di disaster recovery in caso di guasti ai dispositivi non erano adeguate, in quanto non esisteva nessun backup o indicazione della configurazione utilizzata, quindi in caso di guasto si doveva configurare da zero il nuovo apparato, identificando le periferiche connesse seguendo il cablaggio.\\\\
+L'ultima problematica individuata era la rete Wireless presente negli uffici, protetta unicamente da una unica password  che veniva a volte fornita agli ospiti e, senza autorizzazione, utilizzata anche per i dispositivi personali dei dipendenti. La situazione veniva aggravata dal fatto che la rete in esame fornisce l'accesso a risorse di elevata importanza, che non possono essere isolate in quanto utilizzate per lo svolgimento dell'attività lavorativa.
 
 \subsection{Soluzioni e strumenti utilizzati}
-Per implementare il monitoraggio si è scelto un software denominato Observium, che è andato ad affiancare ed in larga parte a sostituire un precedente servizio denominato PRTG Monitor. \\
+Per implementare il monitoraggio si è scelto un software denominato Observium, che è andato ad affiancare ed in larga parte a sostituire un servizio precedentemente utilizzato denominato PRTG Monitor. \\
 
-Il software scelto per la raccolta automatica delle configurazioni è stato RConfig, che però ha presentato alcune problematiche nella sua implementazione con i dispositivi MikroTik. Questo ha richiesto lo sviluppo di uno script aggiuntivo da caricare sui dispositivi stessi per ottenere il risultato desiderato. \\
+Il software scelto per la raccolta automatica delle configurazioni è stato RConfig, che però ha presentato alcune problematiche nella sua implementazione con i dispositivi MikroTik. Questo ha richiesto lo sviluppo di uno script aggiuntivo da caricare sui dispositivi stessi per poter raggiungere l'obiettivo prefissato. \\
 
-Per garantire una sicurezza fisica si è scelto di usufruire del protocollo di autenticazione 802.1X, che è stato appositamente sviluppato a questo fine.\\
-La rete WiFi è stata implementata utilizzando il protocollo CAPsMAN in modo tale da favorirne l'estensione e la gestione, collegata a dei servizi NPS e FreeRADIUS per verificare l'autenticazione. \`{E} stato necessario anche sviluppare un piccolo Captive Portal, al fine di consentire la registrazione ad eventuali ospiti.
+Per garantire una sicurezza fisica si è scelto di usufruire del protocollo di autenticazione 802.1X, sviluppato appositamente per questa finalità.\\
+La rete WiFi è stata implementata utilizzando il protocollo CAPsMAN in modo tale da favorirne l'estensione e la gestione, collegata a dei servizi NPS e FreeRADIUS per verificare l'autenticazione degli utenti. \`{E} stato necessario anche sviluppare un piccolo Captive Portal al fine di consentire la registrazione ad eventuali ospiti.
 
 \subsection{Problemi riscontrati}
 Durante l'attività di stage sono state incontrate alcune difficoltà e limitazioni tecnologiche, che hanno protratto il tempo impiegato per alcune attività. La più critica è stata l'impossibilità per RConfig di leggere autonomamente la configurazione dei dispositivi prodotti da MikroTik, che ha richiesto uno sviluppo di uno script dedicato non previsto inizialmente.
 
 \subsection{Risultati ottenuti}
 Al termine dell'attività di stage tutte le problematiche inizialmente rilevate sono state risolte. \\
-Il sistema di monitoraggio mediante Observium e il versionamento delle configurazioni realizzato con RConfig e script sono stati completati con successo, permettendo quindi di prevenire eventuali problematiche e, nel caso che ciò non fosse possibile, intervenire con rapidità.\\
-Le modalità di accesso alla rete WiFi degli uffici è stata completamente riprogettata, suddividendo gli utenti in tre gruppi in base al loro ruolo, i quali presentano anche modalità di autenticazioni diverse. Le risorse sono state rese disponibili unicamente per la categoria di persone che ne hanno necessità e sono protette dallo standard 802.1X, che ne garantisce la segregazione fino ad una corretta autenticazione dell'utente.
+Il sistema di monitoraggio mediante Observium e il versionamento delle configurazioni realizzato con RConfig e script MikroTik sono stati completati con successo, permettendo quindi di prevenire eventuali problematiche e, nel caso che ciò non fosse possibile, intervenire con rapidità.\\
+Le modalità di accesso alla rete WiFi degli uffici è stata completamente riprogettata, suddividendo gli utenti in tre gruppi in base al loro ruolo, i quali presentano modalità di autenticazioni diverse. Le risorse sono state rese disponibili unicamente per la categoria di persone che ne hanno necessità e sono protette dallo standard 802.1X, che ne garantisce la segregazione fino ad una corretta autenticazione dell'utente.
 
 \section{Struttura del documento di relazione}
 Questo documento è stato strutturato in più parti, che analizzano e ripercorrono tutto il progetto.\\\\
 La prima parte introduce l'azienda presso la quale si è svolta l'attività di stage e il progetto di stage a grandi linee. \\\\
-Successivamente viene presentata la pianificazione delle attività e gli obbiettivi che si mira a raggiungere, analizzando anche le tecnologie utilizzate per raggiungerli. \\
-La parte più consistente è la realizzazione, che descrive i compiti conseguiti per il soddisfacimento degli obbiettivi prefissati. \\\\
+Successivamente viene presentata la pianificazione delle attività e gli obiettivi che si mira a raggiungere, analizzando anche le tecnologie utilizzate per raggiungerli. \\
+La parte più consistente è la realizzazione, che descrive i compiti conseguiti per il soddisfacimento degli obiettivi prefissati. \\\\
 La relazione si conclude con una valutazione retrospettiva dell'attività, nella quale viene analizzato lo scostamento temporale rispetto alla pianificazione, vengono presentati i risultati ottenuti e i vincoli che ho incontrato.
 
 
@@ -58,8 +58,8 @@ Le attività sono state suddivise in cinque fasi principali, le quali hanno cope
 	\item \textbf{Numero di ore previste}: 40h.
 \end{itemize}
 
-L'obiettivo di questa prima fase del percorso è stata la familiarizzazione con l'infrastruttura amministrata da Wintech e con i supporti hardware e software da utilizzare per la realizzazione del progetto. \\
-Sono stati analizzati lo schema di rete dell'infrastruttura, la lista degli apparati e delle loro caratteristiche, il sistema di sicurezza fisica e il sistema di monitoraggio presenti. 
+L'obiettivo di questa prima fase è stata la familiarizzazione con l'infrastruttura amministrata da Wintech e con i supporti hardware e software da utilizzare per la realizzazione del progetto. \\
+Sono stati analizzati lo schema di rete dell'infrastruttura, il sistema di sicurezza fisica, il software di monitoraggio presente, la lista degli apparati e le loro caratteristiche. 
 
 \section{Fase 2: Progettazione}
 \begin{itemize}
@@ -69,7 +69,7 @@ Sono stati analizzati lo schema di rete dell'infrastruttura, la lista degli appa
 	
 Nella seconda fase si è proceduto alla configurazione del software di monitoraggio Observium e del software di gestione della versione rConfig. \\
 Per facilitare le attività è stata definita la nomenclatura da dare ai dispositivi.\\
-Inoltre si è proceduto alla definizione delle logiche di sicurezza che sono state implementate basate sul protocollo 802.11X. \\
+Inoltre si è proceduto alla definizione delle logiche di sicurezza basate sul protocollo 802.11X. \\
 Durante questa fase è anche stata prodotta la prima bozza della documentazione progettuale.
 	
 
@@ -79,9 +79,9 @@ Durante questa fase è anche stata prodotta la prima bozza della documentazione 
 	\item \textbf{Numero di ore previste}: 80h.
 \end{itemize}
 	
-In questa fase è stata implementata la nuova infrastruttura e sono stati resi operativi i software precedentemente configurati. \\
+In questa fase è stata implementata la nuova infrastruttura e sono stati resi operativi i software individuati nella fase precedente. \\
 \`{E} stato creato un laboratorio con uno nuovo switch sul quale sono state testate le politiche precedentemente scelte per valutarne l'efficacia.\\\\
-Una volta accertata la validità del nuovo sistema si è proceduto alla creazione delle configurazioni per tutti gli switch comprendenti la nuova politica di sicurezza e la loro installazione. \\
+Una volta accertata la validità del nuovo sistema si è proceduto alla creazione e all'installazione delle configurazioni relative alle nuove politiche di sicurezza. \\
 Successivamente i dispositivi sono stati inseriti all'interno del DNS e si sono resi operativi i software Observium e RConfig. \\
 Durante questo periodo la documentazione progettuale è aggiornata in conseguenza alle attività svolte.
 
@@ -105,8 +105,8 @@ Durante questo periodo la documentazione progettuale è aggiornata in conseguenz
 \end{itemize}
 	
 Nella fase finale del progetto sono stati eseguiti tuning su tutta la rete, ove possibile, sia sugli apparati che nelle configurazioni dei software. \\
-Questa attività è stata supportata dal software Observium, che nel frattempo avrà raccolto una mole di dati tale da permettere uno studio dei miglioramenti effettuabili.\\\\
-Un'altra attività derivante dallo studio dei dati raccolti è stata la configurazione delle soglie di allarme automatici, i quali verranno comunicati tramite messaggio E-mail e Telegram. \\
+Questa attività è stata supportata dal software Observium, che nel frattempo ha raccolto una mole di dati tale da permettere uno studio dei miglioramenti effettuabili.\\\\
+Un'altra attività derivante dallo studio dei dati raccolti è stata la configurazione delle soglie di allarme automatici, i quali vengono comunicati tramite messaggio E-mail e Telegram. \\
 In questa ultima fase si è proceduto anche a completare la documentazione. 
 
 \newpage
