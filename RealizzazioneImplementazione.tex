@@ -106,7 +106,7 @@ Ulteriormente il server FTP è stato dotato di un demone HTTP Apache, in modo da
 Per il collegamento tra gli access point e il router si è utilizzata una VLAN dedicata. \\
 Sopra di essa è stato creato un datapath costituito da un bridge che consenta la comunicazione dei dispositivi connessi alle reti WiFi. \\
 Per motivi di sicurezza si è scelto di creare un tunnel Ethernet over IP (EoIP) per incanalare i tre flussi di dati provenienti dai tre SSID WiFi in VLAN virtuali diverse. \\
-Così facendo si è ottenuta una elevata sicurezza, permettendo allo stesso tempo una facile estensione della rete tramite l'aggiunta di un nuovo access point, in quanto è necessario solamente trasportargli la VLAN che utilizza, nell'immagine sottostante denominata "VLAN AP", e non quelle presenti nel tunnel, denominato "BRIDGE DATA". \\\\
+Così facendo si è ottenuta una elevata sicurezza, permettendo allo stesso tempo una facile estensione della rete tramite l'aggiunta di nuovi access point, i quali richiederanno solamente una configurazione iniziale minimale e l'accesso alla VLAN dedicata per funzionare, nell'immagine sottostante denominata "VLAN AP". \\\\
 Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacchetti, che risulta trascurabile a fronte dei vantaggi ottenuti.
 
 \begin{figure}[H]

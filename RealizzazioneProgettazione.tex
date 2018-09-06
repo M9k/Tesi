@@ -15,7 +15,7 @@ Lo svolgimento di questa attività ha occupato una durata temporale maggiore di 
 \subsection{Progettazione Observium}
 Prima di installare e mettere in funzione il software di monitoraggio Observium lo si è provato localmente, al fine di individuare pregi e difetti del programma e comprendere quindi il miglior modo di utilizzarlo.\\
 Inizialmente è stato istanziato inserendo al suo interno 5 apparati di rete, sui quali si sono testate svariate configurazioni per comprendere gli aspetti che potessero ritornare utili al monitoraggio della rete e quelli che, invece, non erano efficaci per il contesto.\\\\
-Si è notato che la posizione GPS rilevata automaticamente del software era troppo imprecisa, ma la funzionalità è di elevata importanza vista l'estensione della rete. Si è dunque deciso di inserirle manualmente, sovrascrivendo il dato presente. \\
+Si è notato che la posizione GPS rilevata automaticamente del software era troppo imprecisa, ma la funzionalità è di elevata importanza considerata l'estensione della rete. Si è dunque deciso di inserirle manualmente, sovrascrivendo il dato presente. \\
 Un'altra impostazione che si è rilevata fondamentale è stata la disabilitazione delle interfacce non utilizzate, che avrebbero generato avvisi inutili. \\
 \begin{figure}[H]
 	\centering
@@ -72,7 +72,7 @@ Per l'attualizzazione di tali politiche non sarà sufficiente utilizzare il rout
 	\caption{Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 	\label{fig:Schema dei dispositivi e dei protocolli usati per le reti Corporate e Mobile}
 \end{figure}
-Per quanto riguarda la rete Corporate il Autentication Server, non contenendo nessuna politica per l'approvazione delle richieste, si comporterà da Proxy ed invierà la richiesta al server NPS.\\
+Per quanto riguarda la rete Corporate il Autentication Server, non contenendo nessuna informazione per decretare la correttezza del login, si comporterà da Proxy ed invierà la richiesta al server NPS.\\
 Il servizio Microsoft verificherà innanzitutto che il certificato digitale fornito venga utilizzato, rifiutando immediatamente la richiesta nel caso fosse non crittografata o non conforme a quanto atteso. Invece, se il certificato è stato correttamente utilizzato, procederà a effettuare un riscontro tra le credenziali e gli account presenti nell'Active Directory, individuando la presenza o meno dell'utente.\\\\
 Nel caso la richiesta provenisse dalla rete Mobile la procedura risulta la medesima, con l'eccezione che il certificato non viene richiesto.
 
