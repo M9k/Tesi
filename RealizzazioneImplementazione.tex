@@ -79,7 +79,7 @@ Per non sovraccaricare la rete si è scelto di svolgere il backup a cadenza sett
 Questa attività si è rilevata più ostica del previsto a causa di molte problematiche di rConfig, rimaste per ora irrisolte anche nella versione più aggiornata del software. \\
 Inizialmente si sono notati un numero di backup superiori a quanto schedulato. Questo avveniva perché le attività inserite e poi rimosse non risultavano più presenti dall'interfaccia web, ma rimanevano in esecuzione. Per arginare questo problema si è dovuto accedere direttamente al database dell'applicazione mediante MySql e correggere le informazioni in esso contenute. \\\\
 Durante la correzione del problema precedente si sono rilevate altre anomalie all'interno del database, soprattutto dovute a una scarsa normalizzazione dei dati e a una strutturazione non adatta ad un database di tipo SQL. Pertanto si è dovuto controllare eventuali incongruenze e correggerle, in modo da evitare comportamenti inaspettati in futuro. \\\\
-Nell'immagine seguente si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del tast, il cui valore è un enumeratore che ne indica l'abilitazione.
+Nell'immagine seguente si può notare un esempio di quanto affermato. I dispositivi, chiamati nodi, non hanno una relazione molti a molti con i task, ma bensì contengono delle colonne con il nome riferito all'id del task, il cui valore è un enumeratore che ne indica l'abilitazione.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rconfig_normalizzazione"}
@@ -104,8 +104,8 @@ Ulteriormente il server FTP è stato dotato di un demone HTTP Apache, in modo da
 \newpage
 \subsection{Configurazione nuovi apparati di rete}
 Per il collegamento tra gli access point e il router si è utilizzata una VLAN dedicata. \\
-Sopra di essa è stato creato un datapath costituito da un bridge che consenta la comunicazione dei dispositivi connessi alle reti wifi. \\
-Per motivi di sicurezza si è scelto di creare un tunnel Ethernet over IP (EoIP) per incanalare i tre flussi di dati provenienti dai tre SSID wifi in VLAN virtuali diverse. \\
+Sopra di essa è stato creato un datapath costituito da un bridge che consenta la comunicazione dei dispositivi connessi alle reti WiFi. \\
+Per motivi di sicurezza si è scelto di creare un tunnel Ethernet over IP (EoIP) per incanalare i tre flussi di dati provenienti dai tre SSID WiFi in VLAN virtuali diverse. \\
 Così facendo si è ottenuta una elevata sicurezza, permettendo allo stesso tempo una facile estensione della rete tramite l'aggiunta di un nuovo access point, in quanto è necessario solamente trasportargli la VLAN che utilizza, nell'immagine sottostante denominata "VLAN AP", e non quelle presenti nel tunnel, denominato "BRIDGE DATA". \\\\
 Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacchetti, che risulta trascurabile a fronte dei vantaggi ottenuti.
 
@@ -118,7 +118,7 @@ Lo svantaggio di questa modalità è l'aver aggiunto un piccolo overhead ai pacc
 
 \subsection{Attivazione servizio NPS in Active Directory} 
 Per consentire l'autenticazione tramite le credenziali Active Directory è stato predisposto il servizio NPS, in italiano denominato "criteri di rete". \\
-Innanzitutto è stato abilitato il servizio NPS, per poi essere successivamente configurato. Si è poi proceduto con l'abilitazione del 802.1X, aggiungendo i clients RADIUS, che nel nostro caso è unicamente il MikroTik Cloud Core Router.\\
+Innanzitutto è stato abilitato il servizio NPS, per poi essere successivamente configurato. Si è poi proceduto con l'abilitazione del 802.1X, aggiungendo i client RADIUS, che nel nostro caso è unicamente il MikroTik Cloud Core Router.\\
 Prima di definire le politiche è stato creato un gruppo di utenti, il quale conterrà tutti coloro che avranno il privilegio di usufruire delle reti CORPORATE e MOBILE. \\\\
 Le politiche di accettazione delle richieste possono essere riepilogate nel seguente modo:
 \begin{enumerate}
